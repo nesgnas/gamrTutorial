@@ -144,7 +144,7 @@ public class TileManage {
                 }
                 //declare-type and set image for each tile
                 tiles[i] = new Tile();
-                tiles[i].image = ImageIO.read(new File("data/tiles/hold/"+hold+".png"));
+                tiles[i].image = ImageIO.read(new File("data/tiles/tileset/"+hold+".png"));
 
                 // SET COLLINE
                 if (sw==true){
