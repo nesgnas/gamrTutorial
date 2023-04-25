@@ -6,6 +6,7 @@ import entity.Player;
 import javax.swing.*;
 import java.awt.*;
 
+// EHEHEHEHE - check branch nesgnas
 public class gamePanel extends JPanel implements Runnable{ // call in Main.class
 
     // MAKE ARRAY FROM COLLISION CHECKER CAN BE ACCESS
