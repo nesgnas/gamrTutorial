@@ -20,8 +20,8 @@ public class TileManage {
 
         mapTileNum = new int[gp.getMaxWorldCol()][gp.getMaxWorldRow()]; //use to load map
 
-        loadMap("data/map/48x48.txt"); //load map
-        takeArrColline("data/logic/colline.txt");
+        loadMap("data/map/map100.txt"); //load map
+        takeArrColline("data/logic/col100x100.txt");
 
         getTileImage(); // read element per tile
 
@@ -168,6 +168,8 @@ public class TileManage {
 
         int worldCol =0;
         int worldRow= 0;
+
+
         int tileNum = 0;
 
         while (worldCol<gp.getMaxWorldCol()&& worldRow<gp.getMaxWorldRow()){

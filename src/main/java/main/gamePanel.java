@@ -39,8 +39,8 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
     private final int screenWidth = titleSize * maxScreenCol;
 
     // SETTING SIZE OF MAP
-    public final int maxWorldCol =48;
-    public final int maxWorldRow =48;
+    public final int maxWorldCol =100;
+    public final int maxWorldRow =100;
     public final int worldWidth = titleSize * maxScreenCol;
     public final int worldHeight = titleSize * maxScreenRow;
 

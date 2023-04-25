@@ -39,8 +39,8 @@ public class Player extends Entity {
 
     // SET INITIAL PLACE OF PLAYER
     public void setDefaultValue(){
-        this.setX(gp.getTitleSize()*5);
-        this.setY(gp.getTitleSize()*7);
+        this.setX(gp.getTitleSize()*13); // set place for player
+        this.setY(gp.getTitleSize()*78);
         this.setSpeed(5);
     }
 
