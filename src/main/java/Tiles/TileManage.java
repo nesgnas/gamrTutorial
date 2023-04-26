@@ -20,7 +20,7 @@ public class TileManage {
 
         mapTileNum = new int[gp.getMaxWorldCol()][gp.getMaxWorldRow()]; //use to load map
 
-        loadMap("data/map/map100.txt"); //load map
+        loadMap("data/map/map100x100.txt"); //load map
         takeArrColline("data/logic/col100x100.txt");
 
         getTileImage(); // read element per tile
@@ -144,7 +144,7 @@ public class TileManage {
                 }
                 //declare-type and set image for each tile
                 tiles[i] = new Tile();
-                tiles[i].image = ImageIO.read(new File("data/tiles/tileset/"+hold+".png"));
+                tiles[i].image = ImageIO.read(new File("data/tiles/newtiles/"+hold+".png"));
 
                 // SET COLLINE
                 if (sw==true){

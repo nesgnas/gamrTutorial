@@ -39,9 +39,9 @@ public class Player extends Entity {
 
     // SET INITIAL PLACE OF PLAYER
     public void setDefaultValue(){
-        this.setX(gp.getTitleSize()*13); // set place for player
-        this.setY(gp.getTitleSize()*78);
-        this.setSpeed(5);
+        this.setX(gp.getTitleSize()*64); // set place for player
+        this.setY(gp.getTitleSize()*12);
+        this.setSpeed(4);
     }
 
 
@@ -81,7 +81,7 @@ public class Player extends Entity {
             pressing = 1;
 //            this.setX(getX()+getSpeed());
         }
-        if (keyHandle.leftKey=false && keyHandle.upKey==false &&keyHandle.downKey==false &&keyHandle.rightKey==false){
+        if (keyHandle.leftKey==false && keyHandle.upKey==false &&keyHandle.downKey==false &&keyHandle.rightKey==false){
             pressing = 0;
         }
         // check collision
@@ -99,7 +99,7 @@ public class Player extends Entity {
                     this.setY(getY()+getSpeed());
                     break;
                 case "left":
-                    this.setX(getX()-getSpeed()-1); // bi loi cai z do nen phim A k an
+                    this.setX(getX()-getSpeed()); // bi loi cai z do nen phim A k an
                     break;
                 case "right":
                     this.setX(getX()+getSpeed());
