@@ -1,17 +1,26 @@
 package Tiles;
 
 import main.gamePanel;
+import object.Box;
+import object.Gate;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.*;
+import java.util.Collections;
+
+import static object.Box.boxes;
+
+import static object.Box.boxesUse;
+import static object.Gate.gates;
+
 
 public class TileManage {
 
     gamePanel gp;
     public Tile [] tiles;
 
-    public int mapTileNum[][];  // declare limit of map
+    public static int mapTileNum[][];  // declare limit of map
 
 
     public TileManage(gamePanel gp) {
@@ -20,14 +29,19 @@ public class TileManage {
 
         mapTileNum = new int[gp.getMaxWorldCol()][gp.getMaxWorldRow()]; //use to load map
 
-        loadMap("data/map/map100x100.txt"); //load map
+        loadMap("data/map/alterMap.txt"); //load map
+        checkRoom();
+        manager();
+        System.out.println("doneHERE");
         takeArrColline("data/logic/col100x100.txt");
 
         getTileImage(); // read element per tile
 
+
         // MAKE ARRAY HOLD TILE CAN BE ACCESS BY MANY CLASS ( GP IS THE CLASS MUST BE CALL IN ALMOST CLASS)
         gp.setArr(arr);
         gp.setCountOfArr(count);
+
     }
 
     // ________________DECLARE SOME VAL USING BELOW____________
@@ -40,6 +54,76 @@ public class TileManage {
     int countCol =0;
     //
     int onlyOne=0;
+    int countManager = 0 ;
+
+    public void manager(){ // find box for room and format it
+        boolean flagControl = false;
+
+        for(Box box : boxes){
+           for (int i=0;i<=countDownPos;i++){
+//               System.out.println("posX ="+box.getPosX()+" posY ="+box.getPosY());
+//               System.out.println("LimitUpX ="+findRoomUp[i][1]+" LimitDownX ="+findRoomDown[i][1]);
+//               System.out.println("LimitUpY ="+findRoomUp[i][2]+" LimitDownY ="+findRoomDown[i][2]);
+               if ((box.getPosX()>=findRoomUp[i][1] && box.getPosX()<=findRoomDown[i][1])
+               && (box.getPosY()>=findRoomUp[i][2] && box.getPosY()<=findRoomDown[i][2])){
+//                   System.out.println("In Room "+i);
+                    box.setRoom(i);
+                    break;
+
+               }
+           }
+        }
+        //Collections.sort(boxes);
+        boxesUse = boxes;
+
+    }
+
+    public static int countUpPos =-1;
+    public static int countDownPos = -1;
+
+    public void checkRoom(){
+
+        for (int row =0; row<100;row++){
+            for (int col = 0;col<100;col++){
+                if (((mapTileNum[col][row]==118)||(mapTileNum[col][row]==125))&&(mapTileNum[col][row-1]==114)&&(
+                mapTileNum[col-1][row-1]==115)&&(mapTileNum[col-1][row]==117)){
+                    countUpPos++;
+                    findRoomUp[countUpPos][1]=col;
+                    findRoomUp[countUpPos][2]=row;
+                }
+                if ((mapTileNum[col][row]==118)&&(mapTileNum[col+1][row]==116)&&(
+                        mapTileNum[col+1][row+1]==108)&&(mapTileNum[col][row+1]==112)){
+                    countDownPos++;
+                    findRoomDown[countDownPos][1]=col;
+                    findRoomDown[countDownPos][2]=row;
+                }
+
+            }
+
+        }
+//        System.out.println("tai diem 47,77 gtri la"+mapTileNum[44][77]);
+//        System.out.println("tren la"+mapTileNum[43][77]);
+//        System.out.println("cheo la"+mapTileNum[43][76]);
+//        System.out.println("tai la "+mapTileNum[44][76]);
+//        System.out.println("tai diem 77,77 gtri la"+mapTileNum[77][77]);
+//        System.out.println("tren la"+mapTileNum[76][77]);
+//        System.out.println("cheo la"+mapTileNum[76][76]);
+//        System.out.println("tai la "+mapTileNum[77][76]);
+//        System.out.println("UP");
+//        for (int i = 0; i<=countUpPos ; i++){
+//            System.out.println(findRoomUp[i][1]+"__"+findRoomUp[i][2]);
+//        }
+//        System.out.println("DOWN");
+//        for (int i = 0; i<=countDownPos ; i++){
+//            System.out.println(findRoomDown[i][1]+"__"+findRoomDown[i][2]);
+//        }
+    }
+
+    public static int [][] findRoomUp  =new int[1000][1000];
+
+    public static int [][] findRoomDown  =new int[1000][1000];
+
+
 
 
     public void takeArrColline(String filePath){ // use to take arr hold without colline val
@@ -71,14 +155,19 @@ public class TileManage {
         }
     }
 
+
     public void loadMap(String filePath){ // done IT WORKs
         try{
             File file = new File(filePath);
             InputStream is = new FileInputStream(file);
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
+            // call class Box
+            // make simple arr store Gate
+
             int col = 0;
             int row = 0;
+
             // create array to store all value happen in map
             Boolean flag = false;
             int temp = 0;
@@ -93,7 +182,37 @@ public class TileManage {
                         onlyOne=1;
                         count++;
                     }
+
+//                    System.out.println("map["+col+"]["+row+"]="+num);
+
+                    // add box into List
+                    if (num == 124){
+                        Box box = new Box();
+                        //System.out.println("ADD");
+                        box.setPosX(col);
+                        box.setPosY(row);
+                        box.setName("Box");
+                        box.setImage(
+                                ImageIO.read(new File("data/tiles/tile3rd/124.png"))
+                        );
+                        boxes.add(box);
+                        box.setCollision(true);
+                        num = 118;
+                    }
+                    if (num == 128){
+                        Gate gate = new Gate();
+                        //System.out.println("ADD");
+                        gate.setPosX(col);
+                        gate.setPosY(row);
+                        gate.setName("Gate");
+                        gate.setImage(
+                                ImageIO.read(new File("data/tiles/tile3rd/128.png"))
+                        );
+                        gates.add(gate);
+                    }
                     mapTileNum[col][row]=num;
+
+
 
                     for (int i=0;i<count;i++){
                         if (arr[i] !=num){
@@ -118,8 +237,24 @@ public class TileManage {
             }
             // check array
             for (int i=1;i<count;i++){
-                System.out.println(arr[i]+" ");
+                if (arr[i]==124){
+                    System.out.println("HERE");
+                }
+                if (arr[i]==118){
+                    System.out.println("THERE");
+                }
+                System.out.println("arr["+i+"]="+arr[i]);
             }
+//            System.out.println(" Check Boxes");
+//
+//            for (Box box1 : boxes){
+//                System.out.println(box1.toString());
+//            }
+//
+//            System.out.println("check Gate");
+//            for (Gate gate1 : gates){
+//                System.out.println(gate1.toString());
+//            }
 
             br.close();
 
@@ -144,7 +279,7 @@ public class TileManage {
                 }
                 //declare-type and set image for each tile
                 tiles[i] = new Tile();
-                tiles[i].image = ImageIO.read(new File("data/tiles/newtiles/"+hold+".png"));
+                tiles[i].image = ImageIO.read(new File("data/tiles/tile3rd/"+hold+".png"));
 
                 // SET COLLINE
                 if (sw==true){

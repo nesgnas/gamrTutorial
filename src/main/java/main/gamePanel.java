@@ -2,9 +2,15 @@ package main;
 
 import Tiles.TileManage;
 import entity.Player;
+import object.Box;
+import object.superObject;
 
 import javax.swing.*;
 import java.awt.*;
+
+import static Tiles.TileManage.*;
+import static object.Box.boxes;
+import static object.Box.boxesUse;
 
 // EHEHEHEHE - check branch nesgnas
 public class gamePanel extends JPanel implements Runnable{ // call in Main.class
@@ -99,6 +105,21 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
     public CollisionChecker checker = new CollisionChecker(this); // from CollisionChecker.class
     public Thread gameThread;
 
+
+
+    alterSetter alterSetter = new alterSetter(this);
+    superObject object[] = new superObject[1000];
+
+
+
+
+    public void setUpGame(){
+        alterSetter.setObj();
+    }
+
+
+
+
     // simple player in4 -> put into pencil to draw into panel
     int playerX = 100; //pos of player
     int playerY = 100;
@@ -159,10 +180,45 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
         player.update();
     }
 
+    public void checkRoomPlayerIn(){
+        int valueX;
+        int valueY;
+        valueX= player.getX()/getTitleSize();
+        valueY= player.getY()/getTitleSize();
+        for (int i=0;i<=countDownPos;i++){
+//               System.out.println("posX ="+box.getPosX()+" posY ="+box.getPosY());
+//               System.out.println("LimitUpX ="+findRoomUp[i][1]+" LimitDownX ="+findRoomDown[i][1]);
+//               System.out.println("LimitUpY ="+findRoomUp[i][2]+" LimitDownY ="+findRoomDown[i][2]);
+            if ((valueX>=findRoomUp[i][1] && valueX<=findRoomDown[i][1])
+                    && (valueY>=findRoomUp[i][2] && valueY<=findRoomDown[i][2])){
+//                   System.out.println("In Room "+i);
+                player.setRoomPlayerIn(i);
+                break;
+
+            }
+        }
+        //System.out.println("IN ROOM "+player.getRoomPlayerIn());
+    }
+
     public void paintComponent(Graphics g){ // draw some object into screen (like a pen)
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
+        //tile
         tileManage.draw(g2);
+        //obj
+//        object[0].draw(g2,this);
+        checkRoomPlayerIn();
+        System.out.println("InBoxUse");
+        for (Box box : boxesUse){
+            if (box.getRoom()==player.getRoomPlayerIn()){
+            box.draw(g2,this);
+            }
+        }
+        System.out.println("Boxes");
+        for (Box box: boxes){
+            System.out.println(box.toString());
+        }
+        //player
         player.draw(g2);
         g2.dispose();
 

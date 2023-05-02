@@ -1,10 +1,16 @@
 package main;
 
 import entity.Entity;
+import entity.Player;
+import object.Box;
+
+import static object.Box.boxesUse;
+
 
 public class CollisionChecker { // call in gamePanel.class
 
     gamePanel gp;
+    Player player;
     int arr[] ;
     public CollisionChecker(gamePanel gp){
         this.gp = gp;
@@ -47,7 +53,7 @@ public class CollisionChecker { // call in gamePanel.class
                         break;
                     }
                 }
-                System.out.println("case UP ;tileNum1 = "+tileNum1+"tileNum2 ="+ tileNum2);
+                //System.out.println("case UP ;tileNum1 = "+tileNum1+"tileNum2 ="+ tileNum2);
                 if (gp.tileManage.tiles[tileNum1].collision == true || gp.tileManage.tiles[tileNum2].collision == true){
                     entity.setCollisionOn(true);
                 }
@@ -68,7 +74,7 @@ public class CollisionChecker { // call in gamePanel.class
                         break;
                     }
                 }
-                System.out.println("case Down ;tileNum1 = "+tileNum1+"tileNum2 ="+ tileNum2);
+                //System.out.println("case Down ;tileNum1 = "+tileNum1+"tileNum2 ="+ tileNum2);
                 if (gp.tileManage.tiles[tileNum1].collision == true || gp.tileManage.tiles[tileNum2].collision == true){
                     entity.setCollisionOn(true);
                 }
@@ -89,7 +95,7 @@ public class CollisionChecker { // call in gamePanel.class
                         break;
                     }
                 }
-                System.out.println("case Left ;tileNum1 = "+tileNum1+"tileNum2 ="+ tileNum2);
+                //System.out.println("case Left ;tileNum1 = "+tileNum1+"tileNum2 ="+ tileNum2);
                 if (gp.tileManage.tiles[tileNum1].collision == true || gp.tileManage.tiles[tileNum2].collision == true){
                     entity.setCollisionOn(true);
                 }
@@ -110,7 +116,7 @@ public class CollisionChecker { // call in gamePanel.class
                         break;
                     }
                 }
-                System.out.println("case Right ;tileNum1 = "+tileNum1+"tileNum2 ="+ tileNum2);
+                //System.out.println("case Right ;tileNum1 = "+tileNum1+"tileNum2 ="+ tileNum2);
                 if (gp.tileManage.tiles[tileNum1].collision == true || gp.tileManage.tiles[tileNum2].collision == true){
                     entity.setCollisionOn(true);
                 }
@@ -118,5 +124,67 @@ public class CollisionChecker { // call in gamePanel.class
 
         }
 
+    }
+    public int checkObj(Entity entity, Boolean playerCondition ){
+        int index = 999;
+        for(Box box : boxesUse){
+            if (box.getRoom()==player.getRoomPlayerIn()){
+                entity.solidArea.x = entity.getX() + entity.getSolidArea().x;
+                entity.solidArea.y = entity.getY() + entity.getSolidArea().y;
+
+                box.solidArea.x= box.getPosX() +box.solidArea.x;
+                box.solidArea.y= box.getPosY() +box.solidArea.y;
+
+                switch (entity.getDirection()){
+                    case "up":
+                        entity.solidArea.y -= entity.getSpeed();
+                        if (entity.solidArea.intersects(box.solidArea)){
+                            if(box.isCollision() ==true){
+                                entity.setCollisionOn(true);
+                            }
+
+
+                            System.out.println("up collision");
+                        }
+                        break;
+                    case "down":
+                        entity.solidArea.y += entity.getSpeed();
+                        if (entity.solidArea.intersects(box.solidArea)){
+                            if(box.isCollision() ==true){
+                                entity.setCollisionOn(true);
+                            }
+                            System.out.println("down collision");
+                        }
+                        break;
+                    case "left":
+                        entity.solidArea.x -= entity.getSpeed();
+                        if (entity.solidArea.intersects(box.solidArea)){
+                            if(box.isCollision() ==true){
+                                entity.setCollisionOn(true);
+                            }
+                            System.out.println("left collision");
+                        }
+                        break;
+                    case "right":
+                        entity.solidArea.x += entity.getSpeed();
+                        if (entity.solidArea.intersects(box.solidArea)){
+                            if(box.isCollision() ==true){
+                                entity.setCollisionOn(true);
+                            }
+                            System.out.println("right collision");
+                        }
+                        break;
+
+                }
+                entity.solidArea.x=entity.getSolidAreaDefaultX();
+                entity.solidArea.y=entity.getSolidAreaDefaultY();
+                box.solidArea.x = box.getSolidAreaDefaultPosX();
+                box.solidArea.y = box.getSolidAreaDefaultPosY();
+
+            }
+
+        }
+
+        return index;
     }
 }

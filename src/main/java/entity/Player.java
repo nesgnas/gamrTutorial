@@ -7,9 +7,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOError;
 import java.io.IOException;
-import java.util.Objects;
 
 public class Player extends Entity {
 
@@ -19,6 +17,15 @@ public class Player extends Entity {
     public final int screenX;
     public final int screenY;
 
+    private static int roomPlayerIn;
+
+    public static int getRoomPlayerIn() {
+        return roomPlayerIn;
+    }
+
+    public static void setRoomPlayerIn(int roomPlayerIn) {
+        Player.roomPlayerIn = roomPlayerIn;
+    }
 
     public Player(gamePanel gp, keyHandle keyH) { //call in gamePanel.class
         this.gp = gp;
@@ -27,11 +34,17 @@ public class Player extends Entity {
         screenX = gp.getScreenWidth()/2 - (gp.getTitleSize()/2);
         screenY = gp.getScreenHeight()/2 - (gp.getTitleSize()/2);
 
+        // set area value of player
         solidArea = new Rectangle();
-        solidArea.x =0;
+
+
+        solidArea.x =8;
         solidArea.y =8;
         solidArea.width = 32;
         solidArea.height = 32;
+
+        setSolidAreaDefaultX(solidArea.x);
+        setSolidAreaDefaultY(solidArea.y);
 
         setDefaultValue();
         getPlayerImage(); // cal image for Player
@@ -39,7 +52,7 @@ public class Player extends Entity {
 
     // SET INITIAL PLACE OF PLAYER
     public void setDefaultValue(){
-        this.setX(gp.getTitleSize()*64); // set place for player
+        this.setX(gp.getTitleSize()*15); // set place for player
         this.setY(gp.getTitleSize()*12);
         this.setSpeed(4);
     }
@@ -51,6 +64,8 @@ public class Player extends Entity {
             up2 = ImageIO.read(new File("data/walk/boy_up_2.png"));
             down1 = ImageIO.read(new File("data/walk/boy_down_1.png"));
             down2 = ImageIO.read(new File("data/walk/boy_down_2.png"));
+//            down1 = ImageIO.read(new File("data/walk/npc1.png"));
+//            down2 = ImageIO.read(new File("data/walk/npc2.png"));
             left1 = ImageIO.read(new File("data/walk/boy_left_1.png"));
             left2 = ImageIO.read(new File("data/walk/boy_left_2.png"));
             right1 = ImageIO.read(new File("data/walk/boy_right_1.png"));
@@ -84,9 +99,14 @@ public class Player extends Entity {
         if (keyHandle.leftKey==false && keyHandle.upKey==false &&keyHandle.downKey==false &&keyHandle.rightKey==false){
             pressing = 0;
         }
-        // check collision
+        // check tile collision
         setCollisionOn(false);
         gp.checker.checkTiles(this);
+
+
+        // check obj collision
+        int hold = gp.checker.checkObj(this,true);
+
         //System.out.println("dirrection = "+ getDirection() + "pressing" +pressing);
 
         // condition -> if collinsion false, player can't move

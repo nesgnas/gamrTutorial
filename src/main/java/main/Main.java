@@ -16,7 +16,7 @@ public class Main {
 
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-
+        gamePanel.setUpGame();
         gamePanel.starGameThread(); // beginning the thread of game - (game loop)
     }
 }

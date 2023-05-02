@@ -6,6 +6,9 @@ import java.awt.image.BufferedImage;
 public class Entity {
 
     private int x,y;
+
+    private int solidAreaDefaultX, SolidAreaDefaultY;
+
     private int speed;
 
     public BufferedImage up1,up2, down1, down2,
@@ -13,8 +16,24 @@ public class Entity {
     private String direction = "down";
     private int countFrame=1;
     private int flagPic=1;
-    protected Rectangle solidArea;
+    public Rectangle solidArea;
     private boolean collisionOn =false;
+
+    public int getSolidAreaDefaultX() {
+        return solidAreaDefaultX;
+    }
+
+    public void setSolidAreaDefaultX(int solidAreaDefaultX) {
+        this.solidAreaDefaultX = solidAreaDefaultX;
+    }
+
+    public int getSolidAreaDefaultY() {
+        return SolidAreaDefaultY;
+    }
+
+    public void setSolidAreaDefaultY(int solidAreaDefaultY) {
+        SolidAreaDefaultY = solidAreaDefaultY;
+    }
 
     public boolean getCollisionOn() {
         return collisionOn;
