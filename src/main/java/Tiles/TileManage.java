@@ -7,11 +7,12 @@ import object.Gate;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Collections;
 
 import static object.Box.boxes;
 
-import static object.Box.boxesUse;
+import static object.Box.boxesCopy;
 import static object.Gate.gates;
 
 
@@ -73,10 +74,32 @@ public class TileManage {
                }
            }
         }
-        //Collections.sort(boxes);
-        boxesUse = boxes;
+        Collections.sort(boxes);
+
+        for (Box box : boxes){
+            boxesCopy.add(new Box(box));
+        }
+//        //Collections.copy(boxesCopy,boxesCopy);
+//        for(Box box : boxes){
+//            System.out.println(box.toString());
+//        }
+//        System.out.println("*****************8");
+//        for (Box box : boxesCopy){
+//            System.out.println(box.toString());
+//        }
+//        System.out.println("__________________");
+//
+//        System.out.println("__________________");
+//        System.out.println("boxes ="+boxes.get(1).getPosX());
+//        System.out.println("copy ="+boxesCopy.get(1).getPosX());
+//        boxesCopy.get(1).setPosX(boxesCopy.get(1).getPosX()+1);
+//        System.out.println("boxes ="+boxes.get(1).getPosX());
+//        System.out.println("copy ="+boxesCopy.get(1).getPosX());
+//        System.out.println("__________________");
 
     }
+
+
 
     public static int countUpPos =-1;
     public static int countDownPos = -1;

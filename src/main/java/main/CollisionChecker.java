@@ -4,7 +4,8 @@ import entity.Entity;
 import entity.Player;
 import object.Box;
 
-import static object.Box.boxesUse;
+import static object.Box.boxes;
+import static object.Box.boxesCopy;
 
 
 public class CollisionChecker { // call in gamePanel.class
@@ -127,7 +128,7 @@ public class CollisionChecker { // call in gamePanel.class
     }
     public int checkObj(Entity entity, Boolean playerCondition ){
         int index = 999;
-        for(Box box : boxesUse){
+        for(Box box : boxesCopy){
             if (box.getRoom()==player.getRoomPlayerIn()){
                 entity.solidArea.x = entity.getX() + entity.getSolidArea().x;
                 entity.solidArea.y = entity.getY() + entity.getSolidArea().y;
@@ -140,6 +141,7 @@ public class CollisionChecker { // call in gamePanel.class
                         entity.solidArea.y -= entity.getSpeed();
                         if (entity.solidArea.intersects(box.solidArea)){
                             if(box.isCollision() ==true){
+                                box.setPosY(box.getPosY()-entity.getSpeed());
                                 entity.setCollisionOn(true);
                             }
 
@@ -151,6 +153,7 @@ public class CollisionChecker { // call in gamePanel.class
                         entity.solidArea.y += entity.getSpeed();
                         if (entity.solidArea.intersects(box.solidArea)){
                             if(box.isCollision() ==true){
+                                box.setPosY(box.getPosY()+entity.getSpeed());
                                 entity.setCollisionOn(true);
                             }
                             System.out.println("down collision");
@@ -160,6 +163,7 @@ public class CollisionChecker { // call in gamePanel.class
                         entity.solidArea.x -= entity.getSpeed();
                         if (entity.solidArea.intersects(box.solidArea)){
                             if(box.isCollision() ==true){
+                                box.setPosX(box.getPosX()-entity.getSpeed());
                                 entity.setCollisionOn(true);
                             }
                             System.out.println("left collision");
@@ -169,6 +173,7 @@ public class CollisionChecker { // call in gamePanel.class
                         entity.solidArea.x += entity.getSpeed();
                         if (entity.solidArea.intersects(box.solidArea)){
                             if(box.isCollision() ==true){
+                                box.setPosX(box.getPosX()+entity.getSpeed());
                                 entity.setCollisionOn(true);
                             }
                             System.out.println("right collision");

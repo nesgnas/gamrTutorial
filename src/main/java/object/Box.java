@@ -1,9 +1,26 @@
 package object;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
-public class Box extends superObject implements Comparable<Box>{
+public class Box extends superObject implements Comparable<Box>,Cloneable{
     private int room;
+
+    public Box(){
+
+    }
+    public Box(Box box) {
+        this.room = box.room;
+        this.solidArea = box.solidArea;
+        this.setPosX(box.getPosX());
+        this.setCollision(box.isCollision());
+        this.setPosY(box.getPosY());
+        this.setName(box.getName());
+        this.setImage(box.getImage());
+        this.setSolidAreaDefaultPosX(box.getSolidAreaDefaultPosX());
+        this.setSolidAreaDefaultPosY(box.getSolidAreaDefaultPosY());
+
+    }
 
     public int getRoom() {
         return room;
@@ -14,9 +31,12 @@ public class Box extends superObject implements Comparable<Box>{
     }
 
 
-
     public static ArrayList<Box> boxes = new ArrayList<Box>();
-    public static ArrayList<Box> boxesUse = new ArrayList<Box>();
+    public static ArrayList<Box> boxesCopy =new ArrayList<Box>(boxes);
+
+
+
+
 
 
 

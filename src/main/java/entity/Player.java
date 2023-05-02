@@ -54,7 +54,7 @@ public class Player extends Entity {
     public void setDefaultValue(){
         this.setX(gp.getTitleSize()*15); // set place for player
         this.setY(gp.getTitleSize()*12);
-        this.setSpeed(4);
+        this.setSpeed(3);
     }
 
 

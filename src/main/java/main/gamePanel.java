@@ -10,7 +10,7 @@ import java.awt.*;
 
 import static Tiles.TileManage.*;
 import static object.Box.boxes;
-import static object.Box.boxesUse;
+import static object.Box.boxesCopy;
 
 // EHEHEHEHE - check branch nesgnas
 public class gamePanel extends JPanel implements Runnable{ // call in Main.class
@@ -208,16 +208,15 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
         //obj
 //        object[0].draw(g2,this);
         checkRoomPlayerIn();
+
+        // Call Object to draw
         System.out.println("InBoxUse");
-        for (Box box : boxesUse){
+        for (Box box : boxesCopy){
             if (box.getRoom()==player.getRoomPlayerIn()){
             box.draw(g2,this);
             }
         }
-        System.out.println("Boxes");
-        for (Box box: boxes){
-            System.out.println(box.toString());
-        }
+
         //player
         player.draw(g2);
         g2.dispose();
