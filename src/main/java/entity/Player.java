@@ -54,7 +54,7 @@ public class Player extends Entity {
     public void setDefaultValue(){
         this.setX(gp.getTitleSize()*15); // set place for player
         this.setY(gp.getTitleSize()*12);
-        this.setSpeed(3);
+        this.setSpeed(4);
     }
 
 
@@ -101,15 +101,15 @@ public class Player extends Entity {
         }
         // check tile collision
         setCollisionOn(false);
-        gp.checker.checkTiles(this);
+        gp.checker.checkTiles(this,false);
 
 
         // check obj collision
         int hold = gp.checker.checkObj(this,true);
 
-        //System.out.println("dirrection = "+ getDirection() + "pressing" +pressing);
+        //System.out.println("direction = "+ getDirection() + "pressing" +pressing);
 
-        // condition -> if collinsion false, player can't move
+        // condition -> if collision false, player can't move
         if (getCollisionOn() ==false && pressing!=0 ) {
             switch (getDirection()){
                 case "up":
@@ -119,7 +119,7 @@ public class Player extends Entity {
                     this.setY(getY()+getSpeed());
                     break;
                 case "left":
-                    this.setX(getX()-getSpeed()); // bi loi cai z do nen phim A k an
+                    this.setX(getX()-getSpeed());
                     break;
                 case "right":
                     this.setX(getX()+getSpeed());
@@ -141,14 +141,14 @@ public class Player extends Entity {
 
 
         // check Coline
-        gp.checker.checkTiles(this);
+        gp.checker.checkTiles(this,false);
 
     }
 
     public void draw (Graphics2D g2){
 
         BufferedImage image = null;
-        switch (getDirection()){ // condition to build Movingd
+        switch (getDirection()){ // condition to build Moving
             case "up":
                 if (getFlagPic()==1){
                     image=up1;

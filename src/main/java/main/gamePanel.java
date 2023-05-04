@@ -210,7 +210,7 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
         checkRoomPlayerIn();
 
         // Call Object to draw
-        System.out.println("InBoxUse");
+        //System.out.println("InBoxUse");
         for (Box box : boxesCopy){
             if (box.getRoom()==player.getRoomPlayerIn()){
             box.draw(g2,this);

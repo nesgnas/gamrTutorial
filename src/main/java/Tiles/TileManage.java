@@ -133,13 +133,13 @@ public class TileManage {
 //        System.out.println("cheo la"+mapTileNum[76][76]);
 //        System.out.println("tai la "+mapTileNum[77][76]);
 //        System.out.println("UP");
-//        for (int i = 0; i<=countUpPos ; i++){
-//            System.out.println(findRoomUp[i][1]+"__"+findRoomUp[i][2]);
-//        }
-//        System.out.println("DOWN");
-//        for (int i = 0; i<=countDownPos ; i++){
-//            System.out.println(findRoomDown[i][1]+"__"+findRoomDown[i][2]);
-//        }
+        for (int i = 0; i<=countUpPos ; i++){
+            System.out.println(findRoomUp[i][1]+"__"+findRoomUp[i][2]);
+        }
+        System.out.println("DOWN");
+        for (int i = 0; i<=countDownPos ; i++){
+            System.out.println(findRoomDown[i][1]+"__"+findRoomDown[i][2]);
+        }
     }
 
     public static int [][] findRoomUp  =new int[1000][1000];
