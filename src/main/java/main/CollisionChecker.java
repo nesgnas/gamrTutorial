@@ -40,22 +40,25 @@ public class CollisionChecker { // call in gamePanel.class
 //            System.out.println("PLAYER");
 //            System.out.println("___________________________");
 //            System.out.println("find solidX ="+entity.getSolidArea().x+" find solidY = "+entity.getSolidArea().y);
-//            System.out.println("pos of BoxX before div by tileSize= "+entity.getX()+" pos of BoxY before div by tileSize = "+entity.getY());
+//            System.out.println("pos of PlayerX div by tileSize= "+entity.getX()/gp.getTitleSize()+" pos of PlayerX div by tileSize = "+entity.getY()/gp.getTitleSize());
 //            System.out.println("___________________________");
 //            System.out.println("left = "+entityLeftWorldX+" right = "+entityRightWorldX+" top = "+entityTopWorldY+" Bot = "+entityBottomWorldY);
 //            System.out.println("mLeft = "+entityLeftCol+" mRight = "+entityRightCol+" mTop = "+entityTopRow+" mBot = "+entityBottomRow);
+//            System.out.println("___________________________");
 //        }
-//        if  (T){
-//            System.out.println("___________________________");
-//            System.out.println("find solidX ="+entity.getSolidArea().x+" find solidY = "+entity.getSolidArea().y);
-//            System.out.println("pos of BoxX before div by tileSize= "+entity.getX()+" pos of BoxY before div by tileSize = "+entity.getY());
-//            System.out.println("___________________________");
-//            System.out.println("pos of BoxX = "+entity.getX()/gp.getTitleSize()+" pos of BoxY = "+entity.getY()/ gp.getTitleSize());
-//            System.out.println("___________________________");
-//            System.out.println("OBJ");
-//            System.out.println("left = "+entityLeftWorldX+" right = "+entityRightWorldX+" top = "+entityTopWorldY+" Bot = "+entityBottomWorldY);
-//            System.out.println("mLeft = "+entityLeftCol+" mRight = "+entityRightCol+" mTop = "+entityTopRow+" mBot = "+entityBottomRow);
-//        }
+        if  (T){
+
+            System.out.println("___________________________");
+            System.out.println("find solidX ="+entity.getSolidArea().x+" find solidY = "+entity.getSolidArea().y);
+            System.out.println("pos of BoxX before div by tileSize= "+entity.getX()+" pos of BoxY before div by tileSize = "+entity.getY());
+            System.out.println("___________________________");
+            System.out.println("pos of BoxX = "+entity.getX()/gp.getTitleSize()+" pos of BoxY = "+entity.getY()/ gp.getTitleSize());
+            System.out.println("___________________________");
+
+            System.out.println("left = "+entityLeftWorldX+" right = "+entityRightWorldX+" top = "+entityTopWorldY+" Bot = "+entityBottomWorldY);
+            System.out.println("mLeft = "+entityLeftCol+" mRight = "+entityRightCol+" mTop = "+entityTopRow+" mBot = "+entityBottomRow);
+            System.out.println("___________________________");
+        }
 
         int tileNum1=0 , tileNum2 = 0;
 
@@ -77,9 +80,9 @@ public class CollisionChecker { // call in gamePanel.class
                         break;
                     }
                 }
-                if (T == true) {
-                    System.out.println("case UP ;tileNum1 = "+tileNum1+"tileNum2 ="+ tileNum2);
-                }
+//                if (T == true) {
+//                    System.out.println("case UP ;tileNum1 = "+tileNum1+"tileNum2 ="+ tileNum2);
+//                }
                 //System.out.println("case UP ;tileNum1 = "+tileNum1+"tileNum2 ="+ tileNum2);
                 if (gp.tileManage.tiles[tileNum1].collision == true || gp.tileManage.tiles[tileNum2].collision == true){
                     if (T){
@@ -187,19 +190,39 @@ public class CollisionChecker { // call in gamePanel.class
                 box.solidArea.x= box.getPosX() +box.solidArea.x;
                 box.solidArea.y= box.getPosY() +box.solidArea.y;
 
+                if (!playerCondition){
+                    System.out.println("**************************");
+                    System.out.println("find solidX ="+entity.getSolidArea().x+" find solidY = "+entity.getSolidArea().y);
+                    System.out.println("pos of BoxX before div by tileSize= "+entity.getX()+" pos of BoxY before div by tileSize = "+entity.getY());
+                    System.out.println("**************************");
+                    System.out.println("pos of BoxX = "+entity.getX()/gp.getTitleSize()+" pos of BoxY = "+entity.getY()/ gp.getTitleSize());
+                    System.out.println("**************************");
+                    System.out.println("OBJ");
+
+                }
+
                 switch (entity.getDirection()){
                     case "up":
                         entity.solidArea.y -= entity.getSpeed();
                         if (entity.solidArea.intersects(box.solidArea)){
-                            if(box.isCollision() ==true){
-                                box.solidArea.x-= box.getPosX();
-                                box.solidArea.y-= box.getPosY();
-                                interactBox interBox = new interactBox(box.getPosX(),box.getPosY(),box.solidArea,"up",entity.getSpeed(),false);
-                                checkTiles(interBox,true);
-                                if (!interBox.getCollisionOn()) {
-                                    box.setPosY(box.getPosY() - entity.getSpeed());
+                            if(playerCondition) {
+                                if (box.isCollision() == true) {
+                                    box.solidArea.x -= box.getPosX();
+                                    box.solidArea.y -= box.getPosY();
+
+                                    interactBox interBox = new interactBox(box.getPosX(), box.getPosY(), box.solidArea, "up", entity.getSpeed(), false);
+                                    checkTiles(interBox, true);
+                                    interBox.setX(interBox.getX()-1);
+                                    int temp = checkObj(interBox,false);
+                                    if (!interBox.getCollisionOn()) {
+                                        box.setPosY(box.getPosY() - entity.getSpeed());
+                                    }
+                                    entity.setCollisionOn(true);
                                 }
-                                entity.setCollisionOn(true);
+                            }else {
+                                if (box.isCollision() == true && ((box.getPosX()!=entity.getX())&&(box.getPosY()!=entity.getY()))) {
+                                    entity.setCollisionOn(true);
+                                }
                             }
 
 
@@ -209,15 +232,23 @@ public class CollisionChecker { // call in gamePanel.class
                     case "down":
                         entity.solidArea.y += entity.getSpeed();
                         if (entity.solidArea.intersects(box.solidArea)){
-                            if(box.isCollision() ==true){
-                                box.solidArea.x-= box.getPosX();
-                                box.solidArea.y-= box.getPosY();
-                                interactBox interBox = new interactBox(box.getPosX(),box.getPosY(),box.solidArea,"down",entity.getSpeed(),false);
-                                checkTiles(interBox,true);
-                                if (!interBox.getCollisionOn()) {
-                                    box.setPosY(box.getPosY() + entity.getSpeed());
+                            if(playerCondition) {
+                                if (box.isCollision() == true) {
+                                    box.solidArea.x -= box.getPosX();
+                                    box.solidArea.y -= box.getPosY();
+                                    interactBox interBox = new interactBox(box.getPosX(), box.getPosY(), box.solidArea, "down", entity.getSpeed(), false);
+                                    checkTiles(interBox, true);
+                                    interBox.setX(interBox.getX()+1);
+                                    int temp = checkObj(interBox,false);
+                                    if (!interBox.getCollisionOn()) {
+                                        box.setPosY(box.getPosY() + entity.getSpeed());
+                                    }
+                                    entity.setCollisionOn(true);
                                 }
-                                entity.setCollisionOn(true);
+                            }else {
+                                if (box.isCollision() == true && ((box.getPosX()!=entity.getX())&&(box.getPosY()!=entity.getY()))) {
+                                    entity.setCollisionOn(true);
+                                }
                             }
                             //System.out.println("down collision");
                         }
@@ -225,15 +256,23 @@ public class CollisionChecker { // call in gamePanel.class
                     case "left":
                         entity.solidArea.x -= entity.getSpeed();
                         if (entity.solidArea.intersects(box.solidArea)){
-                            if(box.isCollision() ==true){
-                                box.solidArea.x-= box.getPosX();
-                                box.solidArea.y-= box.getPosY();
-                                interactBox interBox = new interactBox(box.getPosX(),box.getPosY(),box.solidArea,"left",entity.getSpeed(),false);
-                                checkTiles(interBox,true);
-                                if (!interBox.getCollisionOn()) {
-                                    box.setPosX(box.getPosX() - entity.getSpeed());
+                            if(playerCondition) {
+                                if (box.isCollision() == true) {
+                                    box.solidArea.x -= box.getPosX();
+                                    box.solidArea.y -= box.getPosY();
+                                    interactBox interBox = new interactBox(box.getPosX(), box.getPosY(), box.solidArea, "left", entity.getSpeed(), false);
+                                    checkTiles(interBox, true);
+                                    interBox.setY(interBox.getY()-1);
+                                    int temp = checkObj(interBox,false);
+                                    if (!interBox.getCollisionOn()) {
+                                        box.setPosX(box.getPosX() - entity.getSpeed());
+                                    }
+                                    entity.setCollisionOn(true);
                                 }
-                                entity.setCollisionOn(true);
+                            }else {
+                                if (box.isCollision() == true && ((box.getPosX()!=entity.getX())&&(box.getPosY()!=entity.getY()))) {
+                                    entity.setCollisionOn(true);
+                                }
                             }
                             //System.out.println("left collision");
                         }
@@ -241,16 +280,23 @@ public class CollisionChecker { // call in gamePanel.class
                     case "right":
                         entity.solidArea.x += entity.getSpeed();
                         if (entity.solidArea.intersects(box.solidArea)){
-                            if(box.isCollision() ==true){
-                                box.solidArea.x-= box.getPosX();
-                                box.solidArea.y-= box.getPosY();
-                                interactBox interBox = new interactBox(box.getPosX(),box.getPosY(),box.solidArea,"right",entity.getSpeed(),false);
-                                checkTiles(interBox,true);
-
-                                if (!interBox.getCollisionOn()) {
-                                    box.setPosX(box.getPosX() + entity.getSpeed());
+                            if(playerCondition) {
+                                if (box.isCollision() == true) {
+                                    box.solidArea.x -= box.getPosX();
+                                    box.solidArea.y -= box.getPosY();
+                                    interactBox interBox = new interactBox(box.getPosX(), box.getPosY(), box.solidArea, "right", entity.getSpeed(), false);
+                                    checkTiles(interBox, true);
+                                    interBox.setY(interBox.getY()+1);
+                                    int temp = checkObj(interBox,false);
+                                    if (!interBox.getCollisionOn()) {
+                                        box.setPosX(box.getPosX() + entity.getSpeed());
+                                    }
+                                    entity.setCollisionOn(true);
                                 }
-                                entity.setCollisionOn(true);
+                            }else {
+                                if (box.isCollision() == true && ((box.getPosX()!=entity.getX())&&(box.getPosY()!=entity.getY()))) {
+                                    entity.setCollisionOn(true);
+                                }
                             }
                             //System.out.println("right collision");
                         }
