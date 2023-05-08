@@ -1,5 +1,6 @@
 package main;
 
+import java.awt.*;
 import javax.swing.*;
 
 public class Main {
@@ -9,7 +10,7 @@ public class Main {
         frame.setResizable(false);
         frame.setTitle("something");
 
-        gamePanel gamePanel =new gamePanel(); // call gamePanel.class
+        gamePanel gamePanel = new gamePanel(); // call gamePanel.class
 
         frame.add(gamePanel);
         frame.pack();
@@ -19,4 +20,4 @@ public class Main {
         gamePanel.setUpGame();
         gamePanel.starGameThread(); // beginning the thread of game - (game loop)
     }
-}
+}///////////////////
