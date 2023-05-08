@@ -1,5 +1,6 @@
 package main;
 
+import java.awt.*;
 import javax.swing.*;
 
 public class Main {
@@ -19,4 +20,4 @@ public class Main {
         gamePanel.setUpGame();
         gamePanel.starGameThread(); // beginning the thread of game - (game loop)
     }
-}////////////////
+}///////////////////
