@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 public class keyHandle implements KeyListener { // call in gamePanel.class
 
     //create variable for control moving
-    public boolean upKey, downKey, leftKey, rightKey ;
+    public boolean upKey, downKey, leftKey, rightKey,doorKey ;
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -28,6 +28,9 @@ public class keyHandle implements KeyListener { // call in gamePanel.class
         if (code == KeyEvent.VK_S){ //down
             downKey = true;
         }
+        if (code == KeyEvent.VK_K){ //door
+            doorKey = true;
+        }
     }
 
     @Override
@@ -45,6 +48,8 @@ public class keyHandle implements KeyListener { // call in gamePanel.class
         if (code == KeyEvent.VK_S){ //down
             downKey = false;
         }
-
+        if (code == KeyEvent.VK_K){
+            doorKey = false;
+        }
     }
 }

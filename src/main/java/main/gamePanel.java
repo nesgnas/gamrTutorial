@@ -7,17 +7,19 @@ import object.superObject;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 import static Tiles.TileManage.*;
 import static object.Box.boxes;
 import static object.Box.boxesCopy;
-
+import static main.gamePanel.door_press;
 // EHEHEHEHE - check branch nesgnas
 public class gamePanel extends JPanel implements Runnable{ // call in Main.class
 
     // MAKE ARRAY FROM COLLISION CHECKER CAN BE ACCESS
     private int arr[]; // hole all value of tile
     private int countOfArr; //hold count all value of tile
+    public static boolean door_press = false;
 
     public int getCountOfArr() {
         return countOfArr;
@@ -118,8 +120,6 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
     }
 
 
-
-
     // simple player in4 -> put into pencil to draw into panel
     int playerX = 100; //pos of player
     int playerY = 100;
@@ -127,9 +127,6 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
 
     // set FPS;
     int fps = 60;
-
-
-
 
 
     gamePanel(){
@@ -167,7 +164,11 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
             lastTime =currentTime;
 
             if (delta>=1){
-                update();
+                try {
+                    update();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
                 repaint();
                 delta --;
                 //drawCount++;
@@ -176,7 +177,8 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
         }
     }
 
-    public void update(){ // must add some fps to make eye can see
+    public void update() throws IOException { // must add some fps to make eye can see
+
         player.update();
     }
 
@@ -213,7 +215,7 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
         //System.out.println("InBoxUse");
         for (Box box : boxesCopy){
             if (box.getRoom()==player.getRoomPlayerIn()){
-            box.draw(g2,this);
+                box.draw(g2,this);
             }
         }
 
