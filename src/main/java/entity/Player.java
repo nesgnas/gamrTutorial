@@ -15,7 +15,6 @@ import java.io.IOException;
 import static Tiles.TileManage.*;
 import static main.gamePanel.door_press;
 import static object.Gate.gates;
-import static object.Gate.gatesCopy;
 
 public class Player extends Entity {
     gamePanel gp;
