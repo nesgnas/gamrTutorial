@@ -12,15 +12,13 @@ import java.io.IOException;
 import static Tiles.TileManage.*;
 import static object.Box.boxes;
 import static object.Box.boxesCopy;
-import static main.gamePanel.door_press;
-// EHEHEHEHE - check branch nesgnas
+
 public class gamePanel extends JPanel implements Runnable{ // call in Main.class
 
     // MAKE ARRAY FROM COLLISION CHECKER CAN BE ACCESS
     private int arr[]; // hole all value of tile
     private int countOfArr; //hold count all value of tile
     public static boolean door_press = false;
-
     public int getCountOfArr() {
         return countOfArr;
     }
@@ -164,11 +162,7 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
             lastTime =currentTime;
 
             if (delta>=1){
-                try {
-                    update();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                update();
                 repaint();
                 delta --;
                 //drawCount++;
@@ -177,8 +171,7 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
         }
     }
 
-    public void update() throws IOException { // must add some fps to make eye can see
-
+    public void update(){ // must add some fps to make eye can see
         player.update();
     }
 
@@ -193,7 +186,6 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
 //               System.out.println("LimitUpY ="+findRoomUp[i][2]+" LimitDownY ="+findRoomDown[i][2]);
             if ((valueX>=findRoomUp[i][1] && valueX<=findRoomDown[i][1])
                     && (valueY>=findRoomUp[i][2] && valueY<=findRoomDown[i][2])){
-//                   System.out.println("In Room "+i);
                 player.setRoomPlayerIn(i);
                 break;
 
@@ -205,6 +197,7 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
     public void paintComponent(Graphics g){ // draw some object into screen (like a pen)
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
+
         //tile
         tileManage.draw(g2);
         //obj
@@ -218,7 +211,6 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
                 box.draw(g2,this);
             }
         }
-
         //player
         player.draw(g2);
         g2.dispose();

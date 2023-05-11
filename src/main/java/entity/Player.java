@@ -12,13 +12,12 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-import static Tiles.TileManage.mapTileNum;
+import static Tiles.TileManage.*;
 import static main.gamePanel.door_press;
 import static object.Gate.gates;
 import static object.Gate.gatesCopy;
 
 public class Player extends Entity {
-
     gamePanel gp;
     keyHandle keyHandle;
     TileManage tileManage;
@@ -61,7 +60,7 @@ public class Player extends Entity {
     // SET INITIAL PLACE OF PLAYER
     public void setDefaultValue() {
         this.setX(gp.getTitleSize() * 15); // set place for player
-        this.setY(gp.getTitleSize() * 12);
+        this.setY(gp.getTitleSize() * 15);
         this.setSpeed(4);
     }
 
@@ -82,48 +81,13 @@ public class Player extends Entity {
         }
     }
 
-    public void update() throws IOException { // refresh per frame by key-cap
-
+    public void update(){ // refresh per frame by key-cap
         int pressing = 0;
-        if (keyHandle.doorKey){ // Press K to control open or close door
-            int col = 0;
-            int row = 0;
-            pressing = 1;
-            if (door_press){
+        if (keyHandle.doorKey){
+            if (door_press)
                 door_press = false;
-                while (col < gp.getMaxWorldCol() && row < gp.getMaxWorldRow()) {
-                    while (col < gp.getMaxWorldCol()) {
-                        if (mapTileNum[col][row] == 128)  mapTileNum[col][row] = 129;
-                        col++;
-                    }
-                    if (col == gp.getMaxWorldCol()) {
-                        col = 0;
-                        row++;
-                    }
-                }
-//                for (Gate gate : gates){
-//                    gate.setImage(
-//                            ImageIO.read(new File("data/tiles/tile3rd/129.png")));
-//                }
-            }
-            else {
+            else
                 door_press = true;
-                while (col < gp.getMaxWorldCol() && row < gp.getMaxWorldRow()) {
-                    while (col < gp.getMaxWorldCol()) {
-                        if (mapTileNum[col][row] == 129) mapTileNum[col][row] = 128;
-                        col++;
-                    }
-                    if (col == gp.getMaxWorldCol()) {
-                        col = 0;
-                        row++;
-                    }
-                }
-//                for (Gate gate : gates)
-//                    gate.setImage(
-//                            ImageIO.read(new File("data/tiles/tile3rd/128.png")));
-
-            }
-            System.out.println("Door is opening: "+ door_press);
         }
         if (keyHandle.upKey) {
             this.setDirection("up");
@@ -145,8 +109,7 @@ public class Player extends Entity {
             pressing = 1;
             // this.setX(getX()+getSpeed());
         }
-        if (!keyHandle.leftKey && !keyHandle.upKey && !keyHandle.downKey && !keyHandle.rightKey
-                && !keyHandle.doorKey) {
+        if (!keyHandle.leftKey && !keyHandle.upKey && !keyHandle.downKey && !keyHandle.rightKey) {
             pressing = 0;
         }
         // check tile collision

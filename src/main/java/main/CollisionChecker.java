@@ -2,6 +2,7 @@ package main;
 
 import entity.Entity;
 import entity.Player;
+import main.gamePanel.*;
 import entity.interactBox;
 import object.Box;
 
@@ -89,8 +90,8 @@ public class CollisionChecker { // call in gamePanel.class
                 // System.out.println("case UP ;tileNum1 = "+tileNum1+"tileNum2 ="+ tileNum2);
                 // }
                 // System.out.println("case UP ;tileNum1 = "+tileNum1+"tileNum2 ="+ tileNum2);
-                if (gp.tileManage.tiles[tileNum1].collision == true
-                        || gp.tileManage.tiles[tileNum2].collision == true) {
+                if (gp.tileManage.tiles[tileNum1].collision
+                        || gp.tileManage.tiles[tileNum2].collision) {
                     if (T) {
                         System.out.println("WAS HERE");
                     }
@@ -113,12 +114,12 @@ public class CollisionChecker { // call in gamePanel.class
                         break;
                     }
                 }
-                if (T == true) {
+                if (T) {
                     System.out.println("case Down ;tileNum1 = " + tileNum1 + "tileNum2 =" + tileNum2);
                 }
                 // System.out.println("case Down ;tileNum1 = "+tileNum1+"tileNum2 ="+ tileNum2);
-                if (gp.tileManage.tiles[tileNum1].collision == true
-                        || gp.tileManage.tiles[tileNum2].collision == true) {
+                if (gp.tileManage.tiles[tileNum1].collision
+                        || gp.tileManage.tiles[tileNum2].collision) {
                     if (T) {
                         System.out.println("WAS HERE");
                     }
@@ -141,7 +142,7 @@ public class CollisionChecker { // call in gamePanel.class
                         break;
                     }
                 }
-                if (T == true) {
+                if (T) {
                     System.out.println("case Left ;tileNum1 = " + tileNum1 + "tileNum2 =" + tileNum2);
                 }
                 // System.out.println("case Left ;tileNum1 = "+tileNum1+"tileNum2 ="+ tileNum2);
@@ -150,8 +151,8 @@ public class CollisionChecker { // call in gamePanel.class
                 // System.out.println("value tile1 = "+gp.tileManage.tiles[tileNum1].collision+
                 // " value tile 2 = "+gp.tileManage.tiles[tileNum1].collision);
                 // }
-                if (gp.tileManage.tiles[tileNum1].collision == true
-                        || gp.tileManage.tiles[tileNum2].collision == true) {
+                if (gp.tileManage.tiles[tileNum1].collision
+                        || gp.tileManage.tiles[tileNum2].collision) {
                     if (T) {
                         System.out.println("WAS HERE");
                     }
@@ -174,13 +175,13 @@ public class CollisionChecker { // call in gamePanel.class
                         break;
                     }
                 }
-                if (T == true) {
+                if (T) {
                     System.out.println("case Right ;tileNum1 = " + tileNum1 + "tileNum2 =" + tileNum2);
                 }
                 // System.out.println("case Right ;tileNum1 = "+tileNum1+"tileNum2 ="+
                 // tileNum2);
-                if (gp.tileManage.tiles[tileNum1].collision == true
-                        || gp.tileManage.tiles[tileNum2].collision == true) {
+                if (gp.tileManage.tiles[tileNum1].collision
+                        || gp.tileManage.tiles[tileNum2].collision) {
                     if (T) {
                         System.out.println("WAS HERE");
                     }
@@ -209,7 +210,8 @@ public class CollisionChecker { // call in gamePanel.class
 
             int boxSpeed = 2;
             int playerSpeed = 4;
-            if (box.getRoom() == player.getRoomPlayerIn()) {
+            if (box.getRoom()  == player.getRoomPlayerIn()) {
+                //gp.open = player.getRoomPlayerIn();
                 entity.solidArea.x = entity.getX() + entity.getSolidArea().x;
                 entity.solidArea.y = entity.getY() + entity.getSolidArea().y;
 
@@ -237,7 +239,7 @@ public class CollisionChecker { // call in gamePanel.class
 
                             if (playerCondition) {
 
-                                if (box.isCollision() == true) {
+                                if (box.isCollision()) {
                                     box.solidArea.x -= box.getPosX();
                                     box.solidArea.y -= box.getPosY();
 
@@ -265,7 +267,7 @@ public class CollisionChecker { // call in gamePanel.class
                                     entity.setCollisionOn(true);
                                 }
                             } else {
-                                if (box.isCollision() == true
+                                if (box.isCollision()
                                         && ((box.getPosX() != entity.getX()) && (box.getPosY() != entity.getY()))) {
                                     entity.setCollisionOn(true);
                                 }
@@ -278,7 +280,7 @@ public class CollisionChecker { // call in gamePanel.class
                         entity.solidArea.y += entity.getSpeed();
                         if (entity.solidArea.intersects(box.solidArea)) {
                             if (playerCondition) {
-                                if (box.isCollision() == true) {
+                                if (box.isCollision()) {
                                     box.solidArea.x -= box.getPosX();
                                     box.solidArea.y -= box.getPosY();
                                     interactBox interBox = new interactBox(box.getPosX(), box.getPosY(), box.solidArea,
@@ -305,7 +307,7 @@ public class CollisionChecker { // call in gamePanel.class
                                     entity.setCollisionOn(true);
                                 }
                             } else {
-                                if (box.isCollision() == true
+                                if (box.isCollision()
                                         && ((box.getPosX() != entity.getX()) && (box.getPosY() != entity.getY()))) {
                                     entity.setCollisionOn(true);
                                 }
@@ -317,7 +319,7 @@ public class CollisionChecker { // call in gamePanel.class
                         entity.solidArea.x -= entity.getSpeed();
                         if (entity.solidArea.intersects(box.solidArea)) {
                             if (playerCondition) {
-                                if (box.isCollision() == true) {
+                                if (box.isCollision()) {
                                     box.solidArea.x -= box.getPosX();
                                     box.solidArea.y -= box.getPosY();
                                     interactBox interBox = new interactBox(box.getPosX(), box.getPosY(), box.solidArea,
@@ -344,7 +346,7 @@ public class CollisionChecker { // call in gamePanel.class
                                     entity.setCollisionOn(true);
                                 }
                             } else {
-                                if (box.isCollision() == true
+                                if (box.isCollision()
                                         && ((box.getPosX() != entity.getX()) && (box.getPosY() != entity.getY()))) {
                                     entity.setCollisionOn(true);
                                 }
@@ -356,7 +358,7 @@ public class CollisionChecker { // call in gamePanel.class
                         entity.solidArea.x += entity.getSpeed();
                         if (entity.solidArea.intersects(box.solidArea)) {
                             if (playerCondition) {
-                                if (box.isCollision() == true) {
+                                if (box.isCollision()) {
                                     box.solidArea.x -= box.getPosX();
                                     box.solidArea.y -= box.getPosY();
                                     interactBox interBox = new interactBox(box.getPosX(), box.getPosY(), box.solidArea,
@@ -383,7 +385,7 @@ public class CollisionChecker { // call in gamePanel.class
                                     entity.setCollisionOn(true);
                                 }
                             } else {
-                                if (box.isCollision() == true
+                                if (box.isCollision()
                                         && ((box.getPosX() != entity.getX()) && (box.getPosY() != entity.getY()))) {
                                     entity.setCollisionOn(true);
                                 }
