@@ -36,7 +36,6 @@ public class TileManage {
         checkRoom();
         manager();
         bom_pos();
-        prt();
         System.out.println("doneHERE");
         takeArrColline("data/logic/col100x100.txt");
 
@@ -337,6 +336,24 @@ public class TileManage {
         int worldRow = 0;
         int tileNum = 0;
         //System.out.println(Player.getRoomPlayerIn());
+        if (door_press){
+            System.out.println("Col - Row - flag - room");
+            for (int j = 0; j < row1; j++) {
+                bom[2][j] = 0;
+                if (door_press && bom[3][j] == Player.getRoomPlayerIn())
+                    bom[2][j] = 1;
+                System.out.println(bom[0][j] + " " + bom[1][j] + " " + bom[2][j] + " " + bom[3][j]);
+            }
+        }
+//        else{
+//            System.out.println("Col - Row - flag - room");
+//            for (int j = 0; j < row1; j++) {
+//                bom[2][j] = 0;
+//                if (door_press && bom[3][j] == Player.getRoomPlayerIn())
+//                    bom[2][j] = 0;
+//                System.out.println(bom[0][j] + " " + bom[1][j] + " " + bom[2][j] + " " + bom[3][j]);
+//            }
+//        }
         while (worldCol < gp.getMaxWorldCol() && worldRow < gp.getMaxWorldRow()) {
             for (int i = 0; i <= count; i++) {
                 if (door_press && mapTileNum[worldCol][worldRow] == 128 && gate_pos(worldCol, worldRow) == Player.getRoomPlayerIn())
@@ -424,16 +441,6 @@ public class TileManage {
                 }
             }
 
-        }
-    }
-    public void prt (){
-        System.out.println("Col - Row - flag - room");
-        for (int j = 0; j < row1; j++) {
-            if (door_press && bom[3][j] == Player.getRoomPlayerIn())
-                bom[2][j] = 1;
-            else
-                bom[2][j] = -1;
-            System.out.println(bom[0][j] + " " + bom[1][j] + " " + bom[2][j] + " " + bom[3][j]);
         }
     }
 }
