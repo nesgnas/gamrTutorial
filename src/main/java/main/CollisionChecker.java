@@ -253,11 +253,16 @@ public class CollisionChecker { // call in gamePanel.class
                                             box.setPosY(box.getPosY() - entity.getSpeed());
                                             entity.setSpeed(playerSpeed);
                                         } else {
+
                                             setCountDelay(getCountDelay() + 1);
-                                            if (getCountDelay() == 25) {
+                                            if (getCountDelay() >= 25 && getCountDelay() <= 35) {
+                                                entity.setY(entity.getY() + 1);
+                                            } else if (getCountDelay() == 40) {
                                                 box.setPosY(box.getPosY() - boxSpeed);
                                                 setCountDelay(0);
-                                            } else {
+                                            }
+
+                                            else {
                                                 box.setPosY(box.getPosY());
                                             }
                                         }
@@ -294,10 +299,14 @@ public class CollisionChecker { // call in gamePanel.class
                                             entity.setSpeed(playerSpeed);
                                         } else {
                                             setCountDelay(getCountDelay() + 1);
-                                            if (getCountDelay() == 25) {
+                                            if (getCountDelay() >= 25 && getCountDelay() <= 35) {
+                                                entity.setY(entity.getY() - 1);
+                                            } else if (getCountDelay() == 40) {
                                                 box.setPosY(box.getPosY() + boxSpeed);
                                                 setCountDelay(0);
-                                            } else {
+                                            }
+
+                                            else {
                                                 box.setPosY(box.getPosY());
                                             }
                                         }
@@ -333,10 +342,14 @@ public class CollisionChecker { // call in gamePanel.class
                                             entity.setSpeed(playerSpeed);
                                         } else {
                                             setCountDelay(getCountDelay() + 1);
-                                            if (getCountDelay() == 25) {
+                                            if (getCountDelay() >= 25 && getCountDelay() <= 35) {
+                                                entity.setX(entity.getX() + 1);
+                                            } else if (getCountDelay() == 40) {
                                                 box.setPosX(box.getPosX() - boxSpeed);
                                                 setCountDelay(0);
-                                            } else {
+                                            }
+
+                                            else {
                                                 box.setPosX(box.getPosX());
                                             }
                                         }
@@ -372,10 +385,14 @@ public class CollisionChecker { // call in gamePanel.class
                                             entity.setSpeed(playerSpeed);
                                         } else {
                                             setCountDelay(getCountDelay() + 1);
-                                            if (getCountDelay() == 25) {
+                                            if (getCountDelay() >= 25 && getCountDelay() <= 35) {
+                                                entity.setX(entity.getX() - 1);
+                                            } else if (getCountDelay() == 40) {
                                                 box.setPosX(box.getPosX() + boxSpeed);
                                                 setCountDelay(0);
-                                            } else {
+                                            }
+
+                                            else {
                                                 box.setPosX(box.getPosX());
                                             }
                                         }
