@@ -12,7 +12,7 @@ public class Main {
 
         gamePanel gamePanel = new gamePanel(); // call gamePanel.class
 
-        frame.add(gamePanel);
+        frame.add(gamePanel); 
         frame.pack();
 
         frame.setLocationRelativeTo(null);

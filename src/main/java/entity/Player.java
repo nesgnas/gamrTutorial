@@ -2,17 +2,24 @@ package entity;
 
 import main.gamePanel;
 import main.keyHandle;
+import Tiles.TileManage;
+import object.Gate;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class Player extends Entity {
+import static Tiles.TileManage.*;
+import static main.gamePanel.door_press;
+import static object.Gate.gates;
 
+public class Player extends Entity {
     gamePanel gp;
     keyHandle keyHandle;
+    TileManage tileManage;
 
     public final int screenX;
     public final int screenY;
@@ -52,51 +59,56 @@ public class Player extends Entity {
     // SET INITIAL PLACE OF PLAYER
     public void setDefaultValue() {
         this.setX(gp.getTitleSize() * 15); // set place for player
-        this.setY(gp.getTitleSize() * 12);
+        this.setY(gp.getTitleSize() * 15);
         this.setSpeed(4);
     }
 
     public void getPlayerImage() { // read Image
         try {
-            up1 = ImageIO.read(new File("data/walk/boy_up_1.png"));
-            up2 = ImageIO.read(new File("data/walk/boy_up_2.png"));
-            down1 = ImageIO.read(new File("data/walk/boy_down_1.png"));
-            down2 = ImageIO.read(new File("data/walk/boy_down_2.png"));
+            up1 = ImageIO.read(new File("data/sprite/up/2.png"));
+            up2 = ImageIO.read(new File("data/sprite/up/3.png"));
+            down1 = ImageIO.read(new File("data/sprite/down/2.png"));
+            down2 = ImageIO.read(new File("data/sprite/down/3.png"));
             // down1 = ImageIO.read(new File("data/walk/npc1.png"));
             // down2 = ImageIO.read(new File("data/walk/npc2.png"));
-            left1 = ImageIO.read(new File("data/walk/boy_left_1.png"));
-            left2 = ImageIO.read(new File("data/walk/boy_left_2.png"));
-            right1 = ImageIO.read(new File("data/walk/boy_right_1.png"));
-            right2 = ImageIO.read(new File("data/walk/boy_right_2.png"));
+            left1 = ImageIO.read(new File("data/sprite/idle/left/2.png"));
+            left2 = ImageIO.read(new File("data/sprite/idle/left/3.png"));
+            right1 = ImageIO.read(new File("data/sprite/idle/right/2.png"));
+            right2 = ImageIO.read(new File("data/sprite/idle/right/3.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void update() { // refresh per frame by key-cap
+    public void update(){ // refresh per frame by key-cap
         int pressing = 0;
-        if (keyHandle.upKey == true) {
+        if (keyHandle.doorKey){
+            if (door_press)
+                door_press = false;
+            else
+                door_press = true;
+        }
+        if (keyHandle.upKey) {
             this.setDirection("up");
             pressing = 1;
             // this.setY(getY()-getSpeed());
         }
-        if (keyHandle.downKey == true) {
+        if (keyHandle.downKey) {
             this.setDirection("down");
             pressing = 1;
             // this.setY(getY()+getSpeed());
         }
-        if (keyHandle.leftKey == true) {
+        if (keyHandle.leftKey) {
             this.setDirection("left");
             pressing = 1;
             // this.setX(getX()-getSpeed());
         }
-        if (keyHandle.rightKey == true) {
+        if (keyHandle.rightKey) {
             this.setDirection("right");
             pressing = 1;
             // this.setX(getX()+getSpeed());
         }
-        if (keyHandle.leftKey == false && keyHandle.upKey == false && keyHandle.downKey == false
-                && keyHandle.rightKey == false) {
+        if (!keyHandle.leftKey && !keyHandle.upKey && !keyHandle.downKey && !keyHandle.rightKey) {
             pressing = 0;
         }
         // check tile collision
@@ -109,7 +121,7 @@ public class Player extends Entity {
         // System.out.println("direction = "+ getDirection() + "pressing" +pressing);
 
         // condition -> if collision false, player can't move
-        if (getCollisionOn() == false && pressing != 0) {
+        if (!getCollisionOn() && pressing != 0){
             switch (getDirection()) {
                 case "up":
                     this.setY(getY() - getSpeed());
@@ -123,7 +135,6 @@ public class Player extends Entity {
                 case "right":
                     this.setX(getX() + getSpeed());
                     break;
-
             }
         }
 
@@ -147,6 +158,7 @@ public class Player extends Entity {
     public void draw(Graphics2D g2) {
 
         BufferedImage image = null;
+
         switch (getDirection()) { // condition to build Moving
             case "up":
                 if (getFlagPic() == 1) {
