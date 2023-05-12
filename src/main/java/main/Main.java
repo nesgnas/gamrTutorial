@@ -1,7 +1,6 @@
 package main;
 
 import javax.swing.*;
-import java.applet.*;
 public class Main {
     public static void main(String[] args) {
         JFrame frame = new JFrame();
