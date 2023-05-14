@@ -53,6 +53,7 @@ public class TileManage {
     public int count = 0;
     public static int numbox = -1;
     public static int row1 = 0;
+    public static int in[] = new int [1000];
     public static int pre = -1; // The number of the previous room
     public static int gatenum = 0;
     public int arr[] = new int[10000000];
@@ -229,6 +230,7 @@ public class TileManage {
                         );
                         boxes.add(box);
                         numbox++;
+                        in[numbox] = 0;
                         box.setCollision(true);
                         num = 118;
                     }
@@ -461,9 +463,6 @@ public class TileManage {
                     compl = false;
                     break;
                 }
-            else
-                if (bom[3][i] > numroom)
-                    break;
         }
         return compl;
             /*{
