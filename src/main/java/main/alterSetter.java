@@ -18,9 +18,9 @@ public class alterSetter {
     public void setObj(){
 
 
-       for (Box box :boxesCopy){
-           box.setPosX(box.getPosX()*gp.getTitleSize());
-           box.setPosY(box.getPosY()*gp.getTitleSize());
-       }
+        for (Box box :boxesCopy){
+            box.setPosX(box.getPosX()*gp.getTitleSize());
+            box.setPosY(box.getPosY()*gp.getTitleSize());
+        }
     }
 }
