@@ -51,6 +51,7 @@ public class TileManage {
 
     // ARRAY USE TO STORE ALL TILE
     public int count = 0;
+    public static int numbox = -1;
     public static int row1 = 0;
     public static int pre = -1; // The number of the previous room
     public static int gatenum = 0;
@@ -227,6 +228,7 @@ public class TileManage {
                                 ImageIO.read(new File("data/tiles/tile3rd/124.png"))
                         );
                         boxes.add(box);
+                        numbox++;
                         box.setCollision(true);
                         num = 118;
                     }
@@ -246,7 +248,8 @@ public class TileManage {
                     if (num == 125 && col != 0 && row!=0) {
                         bom[0][row1] = col;
                         bom[1][row1] = row;
-                        bom[2][row1++] = 0;
+                        bom[2][row1] = 0;
+                        bom[4][row1++] = -1;
                     }
                     mapTileNum[col][row] = num;
 
@@ -343,13 +346,23 @@ public class TileManage {
         int tileNum = 0;
         for (int i = 0; i< row1;i++) {
             if (bom[3][i] == Player.getRoomPlayerIn()){// && bom[0][i] !=0 && bom[1][i]!=0) {
+                int nub = -1;
                 for (Box box : boxesCopy) {
+                    nub++;
                     int x = box.getPosX()/ gp.getTitleSize();
                     int y = box.getPosY()/ gp.getTitleSize();
                     //if ((x == bom[0][i] || x + 1 == bom[0][i] || x - 1 == bom[0][i]) && (y == bom[1][i] || y + 1 == bom[1][i] || y - 1 == bom[1][i])) {
-                    if ((x == bom[0][i] && y == bom[1][i]) || (x + 1 == bom[0][i] && y == bom[1][i]) || (x - 1  == bom[0][i] && y == bom[1][i])) {
-                            bom[2][i] = 1;
-                        //System.out.println("True " + bom[0][i] + " " + bom[1][i] + " " + bom[2][i] + " " + bom[3][i]);
+                    //if ((x == bom[0][i] && y == bom[1][i]) || (x + 1 == bom[0][i] && y == bom[1][i]) || (x - 1  == bom[0][i] && y == bom[1][i])) {
+                    if (x == bom[0][i] && y == bom[1][i]) {
+                        bom[2][i] = 1;
+                        bom[4][i] = nub;
+                        for (int j = 0; j < row1; j++){
+                            if ((bom[4][j] == nub) && (i!=j) && (bom[2][j] == 1) && bom[3][j]==Player.getRoomPlayerIn()){
+                                bom[2][j] = 0;
+                                bom[4][j] = -1;
+                                System.out.println("True " + bom[0][j] + " " + bom[1][j] + " " + bom[2][j] + " " + bom[3][j] + " " + bom[4][j]);
+                            }
+                        }
                         break;
                     }
                     else bom[2][i] = 0;
@@ -380,8 +393,7 @@ public class TileManage {
                     else
                         if (arr[i] == mapTileNum[worldCol][worldRow]) {
                             tileNum = i;
-                            break;
-                    }
+                            break;}
             }
         //System.out.println(Player.getRoomPlayerIn());
         /*if (door_press){
