@@ -362,12 +362,12 @@ public class TileManage {
                             if ((bom[4][j] == nub) && (i!=j) && (bom[2][j] == 1) && bom[3][j]==Player.getRoomPlayerIn()){
                                 bom[2][j] = 0;
                                 bom[4][j] = -1;
-                                System.out.println("True " + bom[0][j] + " " + bom[1][j] + " " + bom[2][j] + " " + bom[3][j] + " " + bom[4][j]);
+                                //System.out.println("True " + bom[0][j] + " " + bom[1][j] + " " + bom[2][j] + " " + bom[3][j] + " " + bom[4][j]);
                             }
                         }
                         break;
                     }
-                    else bom[2][i] = 0;
+                    //else bom[2][i] = 0;
                 }
             }
         }
@@ -459,10 +459,13 @@ public class TileManage {
     public boolean complete(int numroom){
         boolean compl = true;
         for (int i = 0; i < row1; i++) {
-            if (bom[2][i] == 0 && bom[3][i] == numroom) {
+            if (bom[3][i] == numroom)
+                if (bom[2][i] == 0) {
                     compl = false;
                     break;
                 }
+            if (bom[3][i] > numroom)
+                break;
         }
         return compl;
             /*{
