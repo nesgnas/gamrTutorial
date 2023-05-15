@@ -47,23 +47,27 @@ public class CollisionChecker { // call in gamePanel.class
         // mTop = "+entityTopRow+" mBot = "+entityBottomRow);
         // System.out.println("___________________________");
         // }
-//        if (T) {
-//
-//            System.out.println("___________________________");
-//            System.out.println("find solidX =" + entity.getSolidArea().x + " find solidY = " + entity.getSolidArea().y);
-//            System.out.println("pos of BoxX before div by tileSize= " + entity.getX()
-//                    + " pos of BoxY before div by tileSize = " + entity.getY());
-//            System.out.println("___________________________");
-//            System.out.println("pos of BoxX = " + entity.getX() / gp.getTitleSize() + " pos of BoxY = "
-//                    + entity.getY() / gp.getTitleSize());
-//            System.out.println("___________________________");
-//
-//            System.out.println("left = " + entityLeftWorldX + " right = " + entityRightWorldX + " top = "
-//                    + entityTopWorldY + " Bot = " + entityBottomWorldY);
-//            System.out.println("mLeft = " + entityLeftCol + " mRight = " + entityRightCol + " mTop = " + entityTopRow
-//                    + " mBot = " + entityBottomRow);
-//            System.out.println("___________________________");
-//        }
+        // if (T) {
+        //
+        // System.out.println("___________________________");
+        // System.out.println("find solidX =" + entity.getSolidArea().x + " find solidY
+        // = " + entity.getSolidArea().y);
+        // System.out.println("pos of BoxX before div by tileSize= " + entity.getX()
+        // + " pos of BoxY before div by tileSize = " + entity.getY());
+        // System.out.println("___________________________");
+        // System.out.println("pos of BoxX = " + entity.getX() / gp.getTitleSize() + "
+        // pos of BoxY = "
+        // + entity.getY() / gp.getTitleSize());
+        // System.out.println("___________________________");
+        //
+        // System.out.println("left = " + entityLeftWorldX + " right = " +
+        // entityRightWorldX + " top = "
+        // + entityTopWorldY + " Bot = " + entityBottomWorldY);
+        // System.out.println("mLeft = " + entityLeftCol + " mRight = " + entityRightCol
+        // + " mTop = " + entityTopRow
+        // + " mBot = " + entityBottomRow);
+        // System.out.println("___________________________");
+        // }
 
         int tileNum1 = 0, tileNum2 = 0;
 
@@ -91,9 +95,9 @@ public class CollisionChecker { // call in gamePanel.class
                 // System.out.println("case UP ;tileNum1 = "+tileNum1+"tileNum2 ="+ tileNum2);
                 if (gp.tileManage.tiles[tileNum1].collision
                         || gp.tileManage.tiles[tileNum2].collision) {
-//                    if (T) {
-//                        System.out.println("WAS HERE");
-//                    }
+                    // if (T) {
+                    // System.out.println("WAS HERE");
+                    // }
                     entity.setCollisionOn(true);
                 }
                 break;
@@ -113,15 +117,16 @@ public class CollisionChecker { // call in gamePanel.class
                         break;
                     }
                 }
-//                if (T) {
-//                    System.out.println("case Down ;tileNum1 = " + tileNum1 + "tileNum2 =" + tileNum2);
-//                }
+                // if (T) {
+                // System.out.println("case Down ;tileNum1 = " + tileNum1 + "tileNum2 =" +
+                // tileNum2);
+                // }
                 // System.out.println("case Down ;tileNum1 = "+tileNum1+"tileNum2 ="+ tileNum2);
                 if (gp.tileManage.tiles[tileNum1].collision
                         || gp.tileManage.tiles[tileNum2].collision) {
-//                    if (T) {
-//                        System.out.println("WAS HERE");
-//                    }
+                    // if (T) {
+                    // System.out.println("WAS HERE");
+                    // }
                     entity.setCollisionOn(true);
                 }
                 break;
@@ -141,9 +146,10 @@ public class CollisionChecker { // call in gamePanel.class
                         break;
                     }
                 }
-//                if (T) {
-//                    System.out.println("case Left ;tileNum1 = " + tileNum1 + "tileNum2 =" + tileNum2);
-//                }
+                // if (T) {
+                // System.out.println("case Left ;tileNum1 = " + tileNum1 + "tileNum2 =" +
+                // tileNum2);
+                // }
                 // System.out.println("case Left ;tileNum1 = "+tileNum1+"tileNum2 ="+ tileNum2);
                 // if(T){
                 // System.out.println("_____________________________");
@@ -152,9 +158,9 @@ public class CollisionChecker { // call in gamePanel.class
                 // }
                 if (gp.tileManage.tiles[tileNum1].collision
                         || gp.tileManage.tiles[tileNum2].collision) {
-//                    if (T) {
-//                        System.out.println("WAS HERE");
-//                    }
+                    // if (T) {
+                    // System.out.println("WAS HERE");
+                    // }
                     entity.setCollisionOn(true);
                 }
                 break;
@@ -174,16 +180,17 @@ public class CollisionChecker { // call in gamePanel.class
                         break;
                     }
                 }
-//                if (T) {
-//                    System.out.println("case Right ;tileNum1 = " + tileNum1 + "tileNum2 =" + tileNum2);
-//                }
+                // if (T) {
+                // System.out.println("case Right ;tileNum1 = " + tileNum1 + "tileNum2 =" +
+                // tileNum2);
+                // }
                 // System.out.println("case Right ;tileNum1 = "+tileNum1+"tileNum2 ="+
                 // tileNum2);
                 if (gp.tileManage.tiles[tileNum1].collision
                         || gp.tileManage.tiles[tileNum2].collision) {
-//                    if (T) {
-//                        System.out.println("WAS HERE");
-//                    }
+                    // if (T) {
+                    // System.out.println("WAS HERE");
+                    // }
                     entity.setCollisionOn(true);
                 }
                 break;
@@ -216,19 +223,21 @@ public class CollisionChecker { // call in gamePanel.class
                 box.solidArea.x = box.getPosX() + box.solidArea.x;
                 box.solidArea.y = box.getPosY() + box.solidArea.y;
 
-//                if (!playerCondition) {
-//                    System.out.println("**************************");
-//                    System.out.println(
-//                            "find solidX =" + entity.getSolidArea().x + " find solidY = " + entity.getSolidArea().y);
-//                    System.out.println("pos of BoxX before div by tileSize= " + entity.getX()
-//                            + " pos of BoxY before div by tileSize = " + entity.getY());
-//                    System.out.println("**************************");
-//                    System.out.println("pos of BoxX = " + entity.getX() / gp.getTitleSize() + " pos of BoxY = "
-//                            + entity.getY() / gp.getTitleSize());
-//                    System.out.println("**************************");
-//                    System.out.println("OBJ");
-//
-//                }
+                // if (!playerCondition) {
+                // System.out.println("**************************");
+                // System.out.println(
+                // "find solidX =" + entity.getSolidArea().x + " find solidY = " +
+                // entity.getSolidArea().y);
+                // System.out.println("pos of BoxX before div by tileSize= " + entity.getX()
+                // + " pos of BoxY before div by tileSize = " + entity.getY());
+                // System.out.println("**************************");
+                // System.out.println("pos of BoxX = " + entity.getX() / gp.getTitleSize() + "
+                // pos of BoxY = "
+                // + entity.getY() / gp.getTitleSize());
+                // System.out.println("**************************");
+                // System.out.println("OBJ");
+                //
+                // }
 
                 switch (entity.getDirection()) {
                     case "up":
@@ -255,9 +264,9 @@ public class CollisionChecker { // call in gamePanel.class
                                         } else {
 
                                             setCountDelay(getCountDelay() + 1);
-                                            if (getCountDelay() >= 25 && getCountDelay() <= 35) {
+                                            if (getCountDelay() >= 15 && getCountDelay() <= 20) {
                                                 entity.setY(entity.getY() + 1);
-                                            } else if (getCountDelay() == 40) {
+                                            } else if (getCountDelay() > 20) {
                                                 box.setPosY(box.getPosY() - boxSpeed);
                                                 setCountDelay(0);
                                             }
