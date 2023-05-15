@@ -1,10 +1,21 @@
 package object;
 
+import entity.Player;
+import main.gamePanel;
+
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static Tiles.TileManage.bom;
+import static Tiles.TileManage.row1;
+import static main.gamePanel.*;
+
 public class Box extends superObject implements Comparable<Box>,Cloneable{
     private int room;
+    gamePanel gp;
 
     public Box(){
 

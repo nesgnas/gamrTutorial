@@ -82,12 +82,6 @@ public class Player extends Entity {
 
     public void update(){ // refresh per frame by key-cap
         int pressing = 0;
-        if (keyHandle.doorKey){
-            if (door_press)
-                door_press = false;
-            else
-                door_press = true;
-        }
         if (keyHandle.upKey) {
             this.setDirection("up");
             pressing = 1;

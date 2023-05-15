@@ -28,9 +28,6 @@ public class keyHandle implements KeyListener { // call in gamePanel.class
         if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN){ //down
             downKey = true;
         }
-        if (code == KeyEvent.VK_K){ // door
-            doorKey = true;
-        }
     }
 
     @Override
@@ -47,9 +44,6 @@ public class keyHandle implements KeyListener { // call in gamePanel.class
         }
         if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN){ //down
             downKey = false;
-        }
-        if (code == KeyEvent.VK_K){ //door
-            doorKey = false;
         }
     }
 }

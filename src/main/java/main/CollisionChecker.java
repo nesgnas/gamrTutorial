@@ -415,10 +415,6 @@ public class CollisionChecker { // call in gamePanel.class
                 entity.solidArea.y = entity.getSolidAreaDefaultY();
                 box.solidArea.x = box.getSolidAreaDefaultPosX();
                 box.solidArea.y = box.getSolidAreaDefaultPosY();
-//                System.out.println("----------------------");
-//                System.out.println(box.getPosX());
-//                System.out.println(box.solidArea.x);
-//                System.out.println(box.getSolidAreaDefaultPosY());
 
             }
 
