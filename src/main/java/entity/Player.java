@@ -65,16 +65,16 @@ public class Player extends Entity {
 
     public void getPlayerImage() { // read Image
         try {
-            up1 = ImageIO.read(new File("data/walk/boy_up_1.png"));
-            up2 = ImageIO.read(new File("data/walk/boy_up_2.png"));
-            down1 = ImageIO.read(new File("data/walk/boy_down_1.png"));
-            down2 = ImageIO.read(new File("data/walk/boy_down_2.png"));
+            up1 = ImageIO.read(new File("data/sprite/up/2.png"));
+            up2 = ImageIO.read(new File("data/sprite/up/3.png"));
+            down1 = ImageIO.read(new File("data/sprite/down/2.png"));
+            down2 = ImageIO.read(new File("data/sprite/down/3.png"));
             // down1 = ImageIO.read(new File("data/walk/npc1.png"));
             // down2 = ImageIO.read(new File("data/walk/npc2.png"));
-            left1 = ImageIO.read(new File("data/walk/boy_left_1.png"));
-            left2 = ImageIO.read(new File("data/walk/boy_left_2.png"));
-            right1 = ImageIO.read(new File("data/walk/boy_right_1.png"));
-            right2 = ImageIO.read(new File("data/walk/boy_right_2.png"));
+            left1 = ImageIO.read(new File("data/sprite/idle/left/2.png"));
+            left2 = ImageIO.read(new File("data/sprite/idle/left/3.png"));
+            right1 = ImageIO.read(new File("data/sprite/idle/right/2.png"));
+            right2 = ImageIO.read(new File("data/sprite/idle/right/3.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
