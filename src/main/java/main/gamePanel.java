@@ -186,8 +186,8 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
 //               System.out.println("posX ="+box.getPosX()+" posY ="+box.getPosY());
 //               System.out.println("LimitUpX ="+findRoomUp[i][1]+" LimitDownX ="+findRoomDown[i][1]);
 //               System.out.println("LimitUpY ="+findRoomUp[i][2]+" LimitDownY ="+findRoomDown[i][2]);
-            if ((valueX>=findRoomUp[i][1] && valueX<=findRoomDown[i][1])
-                    && (valueY>=findRoomUp[i][2] && valueY<=findRoomDown[i][2])){
+            if ((valueX>=findRoomUp[i][1]+2 && valueX<=findRoomDown[i][1]-2)
+                    && (valueY>=findRoomUp[i][2]+2 && valueY<=findRoomDown[i][2]-2)){
                 player.setRoomPlayerIn(i);
                 break;
 
@@ -199,15 +199,6 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
     public void paintComponent(Graphics g){ // draw some object into screen (like a pen)
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
-
-        //tile
-            tileManage.draw(g2);
-        //obj
-//        object[0].draw(g2,this);
-        checkRoomPlayerIn();
-
-        // Call Object to draw
-        //System.out.println("InBoxUse");
         try {
             int num = -1;
             for (Box box : boxesCopy) {
@@ -243,6 +234,15 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        //tile
+            tileManage.draw(g2);
+        //obj
+//        object[0].draw(g2,this);
+        checkRoomPlayerIn();
+
+        // Call Object to draw
+        //System.out.println("InBoxUse");
         for (Box box : boxesCopy){
             if (box.getRoom()==Player.getRoomPlayerIn()){
                 box.draw(g2,this);
