@@ -30,7 +30,7 @@ public class TileManage {
 
         mapTileNum = new int[gp.getMaxWorldCol()][gp.getMaxWorldRow()]; // use to load map
 
-        loadMap("data/map/alterMap.txt"); // load map
+        loadMap("data/map/13May.txt"); // load map
         checkRoom();
         manager();
         bom_pos();

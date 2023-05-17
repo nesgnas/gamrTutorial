@@ -108,9 +108,12 @@ public class Player extends Entity {
         // check tile collision
         setCollisionOn(false);
         gp.checker.checkTiles(this, false);
-
+//        System.out.println("smthing here");
+//        if (pressing!=0) {
+//            System.out.println("pressing ...");
+//        }
         // check obj collision
-        gp.checker.checkObj(this, true);
+        gp.checker.checkObj(this, true,pressing);
 
         // System.out.println("direction = "+ getDirection() + "pressing" +pressing);
 
