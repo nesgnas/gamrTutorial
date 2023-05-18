@@ -82,12 +82,6 @@ public class Player extends Entity {
 
     public void update(){ // refresh per frame by key-cap
         int pressing = 0;
-        if (keyHandle.doorKey){
-            if (door_press)
-                door_press = false;
-            else
-                door_press = true;
-        }
         if (keyHandle.upKey) {
             this.setDirection("up");
             pressing = 1;
@@ -114,9 +108,12 @@ public class Player extends Entity {
         // check tile collision
         setCollisionOn(false);
         gp.checker.checkTiles(this, false);
-
+//        System.out.println("smthing here");
+//        if (pressing!=0) {
+//            System.out.println("pressing ...");
+//        }
         // check obj collision
-        gp.checker.checkObj(this, true);
+        gp.checker.checkObj(this, true,pressing);
 
         // System.out.println("direction = "+ getDirection() + "pressing" +pressing);
 
