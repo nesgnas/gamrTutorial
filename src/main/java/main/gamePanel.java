@@ -117,6 +117,7 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
 
     public void setUpGame(){
         alterSetter.setObj();
+        playMusic(0);
     }
 
 
@@ -208,6 +209,7 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
                         box.setImage(
                                 ImageIO.read(new File("data/tiles/tile3rd/149.png"))
                         );
+                        //soundE(2);
                         in[num] = 1;
                     }
                 }
@@ -252,5 +254,21 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
         player.draw(g2);
         g2.dispose();
 
+    }
+
+    Sound sound = new Sound();
+
+    public void playMusic(int i){
+        sound.setFile(i);
+        sound.play();
+        sound.loop();
+    }
+    public void stopMusic(){
+        sound.stop();
+    }
+    public void soundE(int i){
+        sound.setFile(i);
+        sound.play();
+        sound.stop();
     }
 }
