@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 public class keyHandle implements KeyListener { // call in gamePanel.class
 
     //create variable for control moving
-    public boolean upKey, downKey, leftKey, rightKey ;
+    public boolean upKey, downKey, leftKey, rightKey,doorKey ;
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -16,16 +16,16 @@ public class keyHandle implements KeyListener { // call in gamePanel.class
     @Override
     public void keyPressed(KeyEvent e) { // (PRESSED THE KEY) -  place to set control input
         int code = e.getKeyCode();
-        if (code == KeyEvent.VK_A){ //left
+        if (code == KeyEvent.VK_A || code == KeyEvent.VK_LEFT){ //left
             leftKey = true;
         }
-        if (code == KeyEvent.VK_D){ //right
+        if (code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT){ //right
             rightKey = true;
         }
-        if (code == KeyEvent.VK_W){ //up
+        if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP){ //up
             upKey = true;
         }
-        if (code == KeyEvent.VK_S){ //down
+        if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN){ //down
             downKey = true;
         }
     }
@@ -33,18 +33,17 @@ public class keyHandle implements KeyListener { // call in gamePanel.class
     @Override
     public void keyReleased(KeyEvent e) { // (IN NORMAL) - place to set control input
         int code = e.getKeyCode();
-        if (code == KeyEvent.VK_A){ //left
+        if (code == KeyEvent.VK_A || code == KeyEvent.VK_LEFT){ //left
             leftKey = false;
         }
-        if (code == KeyEvent.VK_D){ //right
+        if (code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT){ //right
             rightKey = false;
         }
-        if (code == KeyEvent.VK_W){ //up
+        if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP){ //up
             upKey = false;
         }
-        if (code == KeyEvent.VK_S){ //down
+        if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN){ //down
             downKey = false;
         }
-
     }
 }

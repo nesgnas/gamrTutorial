@@ -5,20 +5,22 @@ import entity.Player;
 import object.Box;
 import object.superObject;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 import static Tiles.TileManage.*;
 import static object.Box.boxes;
 import static object.Box.boxesCopy;
 
-// EHEHEHEHE - check branch nesgnas
 public class gamePanel extends JPanel implements Runnable{ // call in Main.class
 
     // MAKE ARRAY FROM COLLISION CHECKER CAN BE ACCESS
     private int arr[]; // hole all value of tile
     private int countOfArr; //hold count all value of tile
-
+    public static boolean door_press = false;
     public int getCountOfArr() {
         return countOfArr;
     }
@@ -118,8 +120,6 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
     }
 
 
-
-
     // simple player in4 -> put into pencil to draw into panel
     int playerX = 100; //pos of player
     int playerY = 100;
@@ -127,9 +127,6 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
 
     // set FPS;
     int fps = 60;
-
-
-
 
 
     gamePanel(){
@@ -189,9 +186,8 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
 //               System.out.println("posX ="+box.getPosX()+" posY ="+box.getPosY());
 //               System.out.println("LimitUpX ="+findRoomUp[i][1]+" LimitDownX ="+findRoomDown[i][1]);
 //               System.out.println("LimitUpY ="+findRoomUp[i][2]+" LimitDownY ="+findRoomDown[i][2]);
-            if ((valueX>=findRoomUp[i][1] && valueX<=findRoomDown[i][1])
-                    && (valueY>=findRoomUp[i][2] && valueY<=findRoomDown[i][2])){
-//                   System.out.println("In Room "+i);
+            if ((valueX>=findRoomUp[i][1]+2 && valueX<=findRoomDown[i][1]-2)
+                    && (valueY>=findRoomUp[i][2]+2 && valueY<=findRoomDown[i][2]-2)){
                 player.setRoomPlayerIn(i);
                 break;
 
@@ -203,8 +199,44 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
     public void paintComponent(Graphics g){ // draw some object into screen (like a pen)
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
+        try {
+            int num = -1;
+            for (Box box : boxesCopy) {
+                num++;
+                for (int i = 0; i < row1; i++) {
+                    if (bom[0][i] == box.getPosX() / getTitleSize() && bom[1][i] == box.getPosY() / getTitleSize() && bom[2][i] == 1 && bom[3][i] == Player.getRoomPlayerIn()) {
+                        box.setImage(
+                                ImageIO.read(new File("data/tiles/tile3rd/149.png"))
+                        );
+                        in[num] = 1;
+                    }
+                }
+            }
+            num = -1;
+            for (Box box : boxesCopy){
+                num ++;
+                if (in[num]==1){
+                    boolean check = false;
+                    for (int i = 0; i < row1; i++) {
+                        if (bom[0][i] == box.getPosX() / getTitleSize() && bom[1][i] == box.getPosY() / getTitleSize()
+                                && bom[2][i] == 1 && bom[3][i] == Player.getRoomPlayerIn())
+                            check = true;
+                    }
+                    if (!check){
+                        box.setImage(
+                                ImageIO.read(new File("data/tiles/tile3rd/124.png"))
+                        );
+                        in[num] = 0;
+                    }
+
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
         //tile
-        tileManage.draw(g2);
+            tileManage.draw(g2);
         //obj
 //        object[0].draw(g2,this);
         checkRoomPlayerIn();
@@ -212,11 +244,10 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
         // Call Object to draw
         //System.out.println("InBoxUse");
         for (Box box : boxesCopy){
-            if (box.getRoom()==player.getRoomPlayerIn()){
-            box.draw(g2,this);
+            if (box.getRoom()==Player.getRoomPlayerIn()){
+                box.draw(g2,this);
             }
         }
-
         //player
         player.draw(g2);
         g2.dispose();
