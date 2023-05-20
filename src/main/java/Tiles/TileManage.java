@@ -429,6 +429,7 @@ public class TileManage {
                         if (arr[j] == 129) {
                             mapTileNum[worldCol][worldRow] = 129;
                             tileNum = j;
+                            gp.playSE(2);
                             break;
                         }
                 }
@@ -438,7 +439,9 @@ public class TileManage {
                         if (arr[j] == 129) {
                             mapTileNum[worldCol][worldRow] = 129;
                             tileNum = j;
+                            gp.playSE(2);
                             break;
+
                         }
                 }
                 else
@@ -447,6 +450,7 @@ public class TileManage {
                         if (arr[j] == 128) {
                             mapTileNum[worldCol][worldRow] = 128;
                             tileNum = j;
+                            gp.playSE(2);
                             break;
                         }
                 }
