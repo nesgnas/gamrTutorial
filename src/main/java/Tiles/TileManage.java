@@ -438,6 +438,7 @@ public class TileManage {
                         if (arr[j] == 129) {
                             mapTileNum[worldCol][worldRow] = 129;
                             tileNum = j;
+                            gp.playSE(2);
                             break;
                         }
                 } else if (mapTileNum[worldCol][worldRow] == 128
@@ -447,7 +448,9 @@ public class TileManage {
                         if (arr[j] == 129) {
                             mapTileNum[worldCol][worldRow] = 129;
                             tileNum = j;
+                            gp.playSE(2);
                             break;
+
                         }
                 } else if (mapTileNum[worldCol][worldRow] == 129 && !complete(Player.getRoomPlayerIn())
                         && gate_pos(worldCol, worldRow) == Player.getRoomPlayerIn()) {
@@ -455,6 +458,7 @@ public class TileManage {
                         if (arr[j] == 128) {
                             mapTileNum[worldCol][worldRow] = 128;
                             tileNum = j;
+                            gp.playSE(2);
                             break;
                         }
                 } else if (arr[i] == mapTileNum[worldCol][worldRow]) {
