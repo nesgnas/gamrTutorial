@@ -69,12 +69,11 @@ public class Player extends Entity {
             up2 = ImageIO.read(new File("data/sprite/up/3.png"));
             down1 = ImageIO.read(new File("data/sprite/down/2.png"));
             down2 = ImageIO.read(new File("data/sprite/down/3.png"));
-            // down1 = ImageIO.read(new File("data/walk/npc1.png"));
-            // down2 = ImageIO.read(new File("data/walk/npc2.png"));
             left1 = ImageIO.read(new File("data/sprite/idle/left/2.png"));
             left2 = ImageIO.read(new File("data/sprite/idle/left/3.png"));
             right1 = ImageIO.read(new File("data/sprite/idle/right/2.png"));
             right2 = ImageIO.read(new File("data/sprite/idle/right/3.png"));
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -85,21 +84,25 @@ public class Player extends Entity {
         if (keyHandle.upKey) {
             this.setDirection("up");
             pressing = 1;
+            gp.soundWalk(1);
             // this.setY(getY()-getSpeed());
         }
         if (keyHandle.downKey) {
             this.setDirection("down");
             pressing = 1;
+            gp.soundWalk(1);
             // this.setY(getY()+getSpeed());
         }
         if (keyHandle.leftKey) {
             this.setDirection("left");
             pressing = 1;
+            gp.soundWalk(1);
             // this.setX(getX()-getSpeed());
         }
         if (keyHandle.rightKey) {
             this.setDirection("right");
             pressing = 1;
+            gp.soundWalk(1);
             // this.setX(getX()+getSpeed());
         }
         if (!keyHandle.leftKey && !keyHandle.upKey && !keyHandle.downKey && !keyHandle.rightKey) {

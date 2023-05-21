@@ -18,6 +18,7 @@ public class Sound {
         soundURL[1] = getResourceURL("data/sound/idle.wav");
         soundURL[2] = getResourceURL("data/sound/boxed.wav");
         soundURL[3] = getResourceURL("data/sound/gate.wav");
+
     }
 
     private URL getResourceURL(String resourcePath) {
@@ -36,20 +37,57 @@ public class Sound {
             ais = AudioSystem.getAudioInputStream(soundURL[i]);
             clip = AudioSystem.getClip();
             clip.open(ais);
+
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             System.out.println("error set sound file: " + e.getMessage());
         }
     }
 
+//    public void play() {
+//        try {
+//        clip.start();
+//        isPlaying = true;
+//    } catch (Exception e) {
+//            System.out.println("sound not play " + e.getMessage());
+//            isPlaying = false;
+//        }
+//    }
+
     public void play() {
         clip.start();
     }
 
-    public void loop() {
-        clip.loop(Clip.LOOP_CONTINUOUSLY);
+    private boolean isPlaying = false;
+
+    // WHEN THE PLAYER WALK, IT MAKING SOUND
+    public void playWalk() {
+        if (isPlaying) {
+            return;
+        }
+        isPlaying = true;
+        clip.setFramePosition(0);
+        clip.start();
+
+        new Thread(() -> {
+            try {
+                Thread.sleep(300);  // Delay for 0.3 second
+                clip.stop();
+                isPlaying = false;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
 
-    public void stop() {
-        clip.stop();
+
+
+        public void loop () {
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+        }
+
+        public void stop () {
+            clip.stop();
+        }
+
     }
-}
+

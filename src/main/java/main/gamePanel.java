@@ -197,6 +197,8 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
         //System.out.println("IN ROOM "+player.getRoomPlayerIn());
     }
 
+    boolean boxed[] = new boolean[Box.boxes.size()];
+
     public void paintComponent(Graphics g){ // draw some object into screen (like a pen)
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
@@ -204,13 +206,21 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
             int num = -1;
             for (Box box : boxesCopy) {
                 num++;
+
                 for (int i = 0; i < row1; i++) {
-                    if (bom[0][i] == box.getPosX() / getTitleSize() && bom[1][i] == box.getPosY() / getTitleSize() && bom[2][i] == 1 && bom[3][i] == Player.getRoomPlayerIn()) {
-                        box.setImage(
-                                ImageIO.read(new File("data/tiles/tile3rd/149.png"))
-                        );
-                        //soundE(2);
+                    if (bom[0][i] == box.getPosX() / getTitleSize() && bom[1][i] == box.getPosY() / getTitleSize() && bom[2][i] == 1 && bom[3][i] == Player.getRoomPlayerIn())
+                    {
+                            box.setImage(
+                                    ImageIO.read(new File("data/tiles/tile3rd/149.png"))
+                            );
                         in[num] = 1;
+                    }
+                }
+                if (in[num]==1){
+                    if(boxed[num] == false){
+
+                        boxed[num] = true;
+                        soundE(2);
                     }
                 }
             }
@@ -218,6 +228,7 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
             for (Box box : boxesCopy){
                 num ++;
                 if (in[num]==1){
+
                     boolean check = false;
                     for (int i = 0; i < row1; i++) {
                         if (bom[0][i] == box.getPosX() / getTitleSize() && bom[1][i] == box.getPosY() / getTitleSize()
@@ -229,6 +240,7 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
                                 ImageIO.read(new File("data/tiles/tile3rd/124.png"))
                         );
                         in[num] = 0;
+                        boxed[num] = false;
                     }
 
                 }
@@ -267,8 +279,13 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
         sound.stop();
     }
     public void soundE(int i){
-        sound.setFile(i);
-        sound.play();
-        sound.stop();
+            sound.setFile(i);
+            sound.play();
+
     }
+    public void soundWalk(int i){
+        sound.setFile(i);
+        sound.playWalk();
+    }
+
 }
