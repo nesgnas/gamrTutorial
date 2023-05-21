@@ -198,12 +198,12 @@ public class Player extends Entity {
     }
 
     public void speak(){
-//        if (dialogues[dialogueIndex] == null){
-//            dialogueIndex = 0;
-//        }
-//        gp.ui.currentDialogue = dialogues[dialogueIndex];
-//        dialogueIndex++;
-        gp.ui.currentDialogue = dialogues[0];
+        if (dialogues[dialogueIndex] == null){
+            dialogueIndex = 0;
+        }
+        gp.ui.currentDialogue = dialogues[dialogueIndex];
+        dialogueIndex++;
+        //gp.ui.currentDialogue = dialogues[0];
 
     }
     public void setDialogue(){

@@ -10,6 +10,7 @@ public class keyHandle implements KeyListener { // call in gamePanel.class
 
     //create variable for control moving
     public boolean upKey, downKey, leftKey, rightKey, menu ;
+    public static boolean enterpressed = false;
     gamePanel gp;
     Player player;
     public keyHandle (gamePanel gp){
@@ -70,12 +71,14 @@ public class keyHandle implements KeyListener { // call in gamePanel.class
                 gp.gameState = gp.pauseState;
             }
             if (code == KeyEvent.VK_SPACE) {
+                enterpressed = true;
                 gp.gameState = gp.dialogue;
             }
         }
         //Pause State
         else if (gp.gameState == gp.pauseState) {
             if (code == KeyEvent.VK_ESCAPE) {
+                //enterpressed = true;
                 gp.gameState = gp.playState;
             }
         }
@@ -85,8 +88,7 @@ public class keyHandle implements KeyListener { // call in gamePanel.class
                     gp.gameState = gp.playState;
                 }
             }
-        if (code == KeyEvent.VK_ENTER){
-
+        else if (code == KeyEvent.VK_ENTER){
             gp.gameState = gp.optionsState;
             optionState(code);
         }

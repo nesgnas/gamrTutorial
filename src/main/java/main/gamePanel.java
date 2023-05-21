@@ -7,6 +7,7 @@ import object.superObject;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicTreeUI;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -110,7 +111,7 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
     // place to call and link all class
 
     TileManage tileManage = new TileManage(this);
-    keyHandle keyHandle = new keyHandle(this); // call keyHandle.class
+    public keyHandle keyHandle = new keyHandle(this); // call keyHandle.class
 
     public UI ui = new UI(this);
 
@@ -181,6 +182,8 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
 
             if (delta>=1){
                 update();
+                //
+
                 repaint();
                 delta --;
                 //drawCount++;
@@ -198,9 +201,12 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
             //player.update();
         }
         if (gameState == dialogue){
-            player.speak();
-            player.setDialogue();
+            if (main.keyHandle.enterpressed) {
+                player.speak();
+                player.setDialogue();
+            }
         }
+        main.keyHandle.enterpressed = false;
     }
 
     public void checkRoomPlayerIn(){
