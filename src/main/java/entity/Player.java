@@ -196,4 +196,21 @@ public class Player extends Entity {
         g2.drawImage(image, screenX, screenY, gp.getTitleSize(), gp.getTitleSize(), null); // method to draw
 
     }
+
+    public void speak(){
+//        if (dialogues[dialogueIndex] == null){
+//            dialogueIndex = 0;
+//        }
+//        gp.ui.currentDialogue = dialogues[dialogueIndex];
+//        dialogueIndex++;
+        gp.ui.currentDialogue = dialogues[0];
+
+    }
+    public void setDialogue(){
+
+        dialogues[0] = "Hello jager";
+        dialogues[1] = "Nice day";
+        dialogues[2] = "Hurry up";
+
+    }
 }

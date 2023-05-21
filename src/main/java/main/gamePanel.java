@@ -97,10 +97,22 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
         return screenWidth;
     }
 
+    public boolean fullScreenOn = false;
+
+    //Game State
+    public int optionsState = 5;
+    public int gameState;
+    public final int playState = 1;
+    public final int pauseState = 2;
+    public final int dialogue = 3;
+
+
     // place to call and link all class
 
     TileManage tileManage = new TileManage(this);
-    keyHandle keyHandle = new keyHandle(); // call keyHandle.class
+    keyHandle keyHandle = new keyHandle(this); // call keyHandle.class
+
+    public UI ui = new UI(this);
 
     Sound music = new Sound();
     Sound soundfe = new Sound();
@@ -119,6 +131,7 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
 
     public void setUpGame(){
         alterSetter.setObj();
+        gameState = playState;
         playMusic(0);
     }
 
@@ -177,7 +190,17 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
     }
 
     public void update(){ // must add some fps to make eye can see
-        player.update();
+        if (gameState == playState) {
+            player.update();
+        }
+        if (gameState == pauseState) {
+            //nothing
+            //player.update();
+        }
+        if (gameState == dialogue){
+            player.speak();
+            player.setDialogue();
+        }
     }
 
     public void checkRoomPlayerIn(){
@@ -268,6 +291,10 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
         }
         //player
         player.draw(g2);
+
+        //UI
+        ui.draw(g2);
+
         g2.dispose();
 
     }

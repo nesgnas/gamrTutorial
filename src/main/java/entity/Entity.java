@@ -18,8 +18,13 @@ public class Entity {
     private int flagPic=1;
     public Rectangle solidArea;
     private boolean collisionOn =false;
+    String dialogues[] = new String [20];
+    int dialogueIndex = 0;
+    public void speak(){
 
-    public int getSolidAreaDefaultX() {
+    }
+
+        public int getSolidAreaDefaultX() {
         return solidAreaDefaultX;
     }
 
