@@ -102,6 +102,8 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
     TileManage tileManage = new TileManage(this);
     keyHandle keyHandle = new keyHandle(); // call keyHandle.class
 
+    Sound music = new Sound();
+    Sound soundfe = new Sound();
     public Player player = new Player(this,keyHandle);// from Player.class
 
     public CollisionChecker checker = new CollisionChecker(this); // from CollisionChecker.class
@@ -197,38 +199,37 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
         //System.out.println("IN ROOM "+player.getRoomPlayerIn());
     }
 
-    boolean boxed[] = new boolean[Box.boxes.size()];
-
+    boolean boxSoundTriggered[] = new boolean[Box.boxes.size()]; //a boolean array (flags) for each box, 
+    // a box get in position will trigger the sound and its flag turns `true`, else, if the box got pushed out, its flag turns `false`
     public void paintComponent(Graphics g){ // draw some object into screen (like a pen)
         super.paintComponent(g);
-        Graphics2D g2 = (Graphics2D)g;
+        Graphics2D g2 = (Graphics2D)g;      
+        
         try {
             int num = -1;
+            
             for (Box box : boxesCopy) {
                 num++;
-
                 for (int i = 0; i < row1; i++) {
-                    if (bom[0][i] == box.getPosX() / getTitleSize() && bom[1][i] == box.getPosY() / getTitleSize() && bom[2][i] == 1 && bom[3][i] == Player.getRoomPlayerIn())
-                    {
-                            box.setImage(
-                                    ImageIO.read(new File("data/tiles/tile3rd/149.png"))
-                            );
+                    if (bom[0][i] == box.getPosX() / getTitleSize() && bom[1][i] == box.getPosY() / getTitleSize() && bom[2][i] == 1 && bom[3][i] == Player.getRoomPlayerIn()) {
+                        box.setImage(
+                            ImageIO.read(new File("data/tiles/tile3rd/149.png"))
+                        );                        
                         in[num] = 1;
-                    }
+                    }                    
                 }
-                if (in[num]==1){
-                    if(boxed[num] == false){
-
-                        boxed[num] = true;
-                        soundE(2);
-                    }
-                }
+                if(in[num] == 1 && boxSoundTriggered[num]==false) // if the state of the box turn 1, which mean it overlap a bom position, break
+                    break; // this break means we get the `num` = id of the box to trigger the SE                
             }
+            if(boxSoundTriggered[num]==false && in[num]==1){ // if a box hasn't triggered the sound
+                playSE(1); // play SE 
+                boxSoundTriggered[num]=true; // turn the flag true, the next time we check this, it will omit the box already triggered SE
+            } 
+             
             num = -1;
             for (Box box : boxesCopy){
                 num ++;
                 if (in[num]==1){
-
                     boolean check = false;
                     for (int i = 0; i < row1; i++) {
                         if (bom[0][i] == box.getPosX() / getTitleSize() && bom[1][i] == box.getPosY() / getTitleSize()
@@ -237,20 +238,23 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
                     }
                     if (!check){
                         box.setImage(
-                                ImageIO.read(new File("data/tiles/tile3rd/124.png"))
+                                ImageIO.read(new File("data/tiles/tile3rd/124.png"))        
                         );
-                        in[num] = 0;
-                        boxed[num] = false;
-                    }
-
-                }
+                        in[num] = 0;  
+                        boxSoundTriggered[num]=false;     // if a box get push off the position, set the SE flag false again, 
+                        //in order to trigger the SE next time we push it in place             
+                    }                   
+                }                
             }
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
         //tile
             tileManage.draw(g2);
+           
+          
         //obj
 //        object[0].draw(g2,this);
         checkRoomPlayerIn();
@@ -268,24 +272,23 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
 
     }
 
-    Sound sound = new Sound();
+    // 
+    public void playMusic(int i) {
 
-    public void playMusic(int i){
-        sound.setFile(i);
-        sound.play();
-        sound.loop();
+        music.setFile(i); //call setFile from sound class
+        music.play();
+        music.loop();
     }
+
     public void stopMusic(){
-        sound.stop();
-    }
-    public void soundE(int i){
-            sound.setFile(i);
-            sound.play();
 
-    }
-    public void soundWalk(int i){
-        sound.setFile(i);
-        sound.playWalk();
+        music.stop();
     }
 
+    public void playSE(int i){
+
+        soundfe.setFile(i);
+        soundfe.play();
+        
+    }
 }
