@@ -76,10 +76,6 @@ public class UI1 implements MouseListener {
     }
 
     private void drawTitleScreen() {
-        int frameX = (int) (gp.getTitleSize() * 5.5);
-        int frameY = gp.getTitleSize() * 4;
-        int textX;
-        int textY;
 
         // BACKGOURND
         g2.drawImage(bg, 0, 0, gp.worldWidth, gp.worldHeight, null);
@@ -287,6 +283,7 @@ public class UI1 implements MouseListener {
             // gamePanel.state = "game";
             System.out.println("Sound Effect");
         }
+
     }
 
     @Override

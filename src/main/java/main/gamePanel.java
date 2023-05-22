@@ -488,34 +488,44 @@ public class gamePanel extends JPanel implements Runnable, MouseListener, MouseM
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        int mx = e.getX();
-        int my = e.getY();
-        if (mx >= 80 && mx <= 80 + 50 && my >= 35 && my <= 35 + 50) {
-            if (gameState == playState)
-                gameState = optionsState;
-            // else
-        }
-        if (mx >= 342 && mx <= 342 + 50 && my >= 312 && my <= 312 + 50) { // Reset room
-            resetRoom = true;
-            System.out.println("Reset room");
-        } else if (mx >= 577 && mx <= 577 + 50 && my >= 312 && my <= 312 + 50) { // Menu
-            System.out.println("Menu");
-        } else if (mx >= 443 && mx <= 443 + 50 && my >= 408 && my <= 408 + 50) { // Continous
-            if (gameState == optionsState)
+        if (gameState == titleState) {
+            int mx = e.getX();
+            int my = e.getY();
+            if (mx >= (worldWidth / 2) - 200 && mx <= ((worldWidth / 2) - 200) + getTitleSize() * 9
+                    && my >= (worldHeight / 2) - 250 && my <= (worldHeight / 2) - 250 + (getTitleSize() * 2)) {
                 gameState = playState;
-            System.out.println("Continue");
-        } else if (mx >= 342 && mx <= 342 + 50 && my >= 504 && my <= 504 + 50) { // Music
-            if (soundMusic)
-                soundMusic = false;
-            else if (!soundMusic)
-                soundMusic = true;
-            System.out.println("Sound Music");
-        } else if (mx >= 572 && mx <= 572 + 50 && my >= 504 && my <= 504 + 50) { // Effect
-            if (soundEffect)
-                soundEffect = false;
-            else if (!soundEffect)
-                soundEffect = true;
-            System.out.println("Sound Effect");
+            }
+        } else {
+            int mx = e.getX();
+            int my = e.getY();
+            if (mx >= 80 && mx <= 80 + 50 && my >= 35 && my <= 35 + 50) {
+                if (gameState == playState)
+                    gameState = optionsState;
+                // else
+            }
+
+            if (mx >= 342 && mx <= 342 + 50 && my >= 312 && my <= 312 + 50) { // Reset room
+                resetRoom = true;
+                System.out.println("Reset room");
+            } else if (mx >= 577 && mx <= 577 + 50 && my >= 312 && my <= 312 + 50) { // Menu
+                System.out.println("Menu");
+            } else if (mx >= 443 && mx <= 443 + 50 && my >= 408 && my <= 408 + 50) { // Continous
+                if (gameState == optionsState)
+                    gameState = playState;
+                System.out.println("Continue");
+            } else if (mx >= 342 && mx <= 342 + 50 && my >= 504 && my <= 504 + 50) { // Music
+                if (soundMusic)
+                    soundMusic = false;
+                else if (!soundMusic)
+                    soundMusic = true;
+                System.out.println("Sound Music");
+            } else if (mx >= 572 && mx <= 572 + 50 && my >= 504 && my <= 504 + 50) { // Effect
+                if (soundEffect)
+                    soundEffect = false;
+                else if (!soundEffect)
+                    soundEffect = true;
+                System.out.println("Sound Effect");
+            }
         }
     }
 
