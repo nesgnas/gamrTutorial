@@ -367,13 +367,12 @@ public class TileManage {
 
         }
     }
-    public void draw(Graphics2D g2) { // draw map
+    public void draw(Graphics2D g2){ // draw map
 
         int worldCol = 0;
         int worldRow = 0;
         int tileNum = 0;
         int nub = -1;
-        //check();
         for (Box box: boxesCopy){
             nub++;
             if (box.getRoom() == Player.getRoomPlayerIn()) {
@@ -429,7 +428,7 @@ public class TileManage {
                         if (arr[j] == 129) {
                             mapTileNum[worldCol][worldRow] = 129;
                             tileNum = j;
-                            gp.playSE(2);
+                            if (gp.soundEffect) gp.playSE(2);
                             break;
                         }
                 }
@@ -439,7 +438,7 @@ public class TileManage {
                         if (arr[j] == 129) {
                             mapTileNum[worldCol][worldRow] = 129;
                             tileNum = j;
-                            gp.playSE(2);
+                            if (gp.soundEffect) gp.playSE(2);
                             break;
 
                         }
@@ -450,7 +449,7 @@ public class TileManage {
                         if (arr[j] == 128) {
                             mapTileNum[worldCol][worldRow] = 128;
                             tileNum = j;
-                            gp.playSE(2);
+                            if (gp.soundEffect) gp.playSE(2);
                             break;
                         }
                 }
@@ -506,6 +505,7 @@ public class TileManage {
                 worldRow++;
             }
         }
+
     }
     public boolean complete(int numroom){
         boolean compl = true;
@@ -522,11 +522,6 @@ public class TileManage {
         for (int j = 0; j <=countDownPos; j++) {
             if ((col >= findRoomUp[j][1] - 1 && col <= findRoomDown[j][1] + 1)
                     && (row >= findRoomUp[j][2] - 1 && row <= findRoomDown[j][2] + 1)) {
-//                if( j == 0)
-//                    for (int i = 0; i < row1; i++) {
-//                        if (bom[3][i] == 0 )
-//                            System.out.println(bom[0][i] + " " + bom[1][i] + " " + bom[2][i] + " " + bom[3][i]);
-//                    }
                 gate_check = j;
                 break;
             }

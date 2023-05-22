@@ -67,54 +67,54 @@ public class keyHandle implements KeyListener { // call in gamePanel.class
             if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN) { //down
                 downKey = true;
             }
-            if (code == KeyEvent.VK_ESCAPE) {
-                gp.gameState = gp.pauseState;
-            }
             if (code == KeyEvent.VK_SPACE) {
                 enterpressed = true;
                 gp.gameState = gp.dialogue;
             }
         }
         //Pause State
-        else if (gp.gameState == gp.pauseState) {
-            if (code == KeyEvent.VK_ESCAPE) {
-                //enterpressed = true;
-                gp.gameState = gp.playState;
-            }
-        }
+//        else if (gp.gameState == gp.optionsState) {
+//            if (code == KeyEvent.VK_ESCAPE) {
+//                //enterpressed = true;
+//                gp.gameState = gp.playState;
+//            }
+//        }
         //Dialogue State
         else if (gp.gameState == gp.dialogue) {
                 if (code == KeyEvent.VK_SPACE) {
                     gp.gameState = gp.playState;
                 }
             }
-        else if (code == KeyEvent.VK_ENTER){
-            gp.gameState = gp.optionsState;
-            optionState(code);
-        }
+//        else
+//            if (code == KeyEvent.VK_ENTER){
+//            gp.gameState = gp.optionsState;
+//            optionState(code);
+//        }
     }
     public void optionState(int code){
-        if (code == KeyEvent.VK_ENTER) {
-            //gp.gameState = gp.playState;
-
-            menu = true;
+        if (code == KeyEvent.VK_ESCAPE) {
+            gp.gameState = gp.playState;
         }
-            /*int maxCommandNum = 0;
-            switch (gp.ui.subState){
+        if (code == KeyEvent.VK_SPACE) {
+            enterpressed = true;
+            gp.gameState = gp.optionsState;
+        }
+            int maxCommandNum = 0;
+            switch (gp.ui1.subState){
                 case 0: maxCommandNum = 5;
             }
             if (code == KeyEvent.VK_UP){
-                gp.ui.commandNum--;
+                gp.ui1.commandNum--;
                 gp.playSE(9);
-                if (gp.ui.commandNum < 0){
-                    gp.ui.commandNum = maxCommandNum;
+                if (gp.ui1.commandNum < 0){
+                    gp.ui1.commandNum = maxCommandNum;
                 }
             }
             if (code == KeyEvent.VK_DOWN) {
-                gp.ui.commandNum++;
+                gp.ui1.commandNum++;
                 gp.playSE(9);
-                if (gp.ui.commandNum > maxCommandNum){
-                    gp.ui.commandNum = 0;
+                if (gp.ui1.commandNum > maxCommandNum){
+                    gp.ui1.commandNum = 0;
                 }
             }
 //            if (code == KeyEvent.VK_LEFT){
@@ -145,8 +145,6 @@ public class keyHandle implements KeyListener { // call in gamePanel.class
 //            }
         }
 
-             */
-    }
 
     @Override
     public void keyReleased(KeyEvent e) { // (IN NORMAL) - place to set control input
@@ -164,4 +162,5 @@ public class keyHandle implements KeyListener { // call in gamePanel.class
             downKey = false;
         }
     }
+
 }

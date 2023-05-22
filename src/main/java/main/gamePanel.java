@@ -9,6 +9,11 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicTreeUI;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
@@ -16,7 +21,7 @@ import static Tiles.TileManage.*;
 import static object.Box.boxes;
 import static object.Box.boxesCopy;
 
-public class gamePanel extends JPanel implements Runnable{ // call in Main.class
+public class gamePanel extends JPanel implements Runnable, MouseListener, MouseMotionListener { // call in Main.class
 
     // MAKE ARRAY FROM COLLISION CHECKER CAN BE ACCESS
     private int arr[]; // hole all value of tile
@@ -98,22 +103,30 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
         return screenWidth;
     }
 
-    public boolean fullScreenOn = false;
+    public BufferedImage bg1;
 
     //Game State
-    public int optionsState = 5;
     public int gameState;
     public final int playState = 1;
-    public final int pauseState = 2;
+    //public final int pauseState = 2;
     public final int dialogue = 3;
+    public final int optionsState = 2;
+    public static boolean resetRoom = false;
+    public static boolean soundEffect = true;
+    public static boolean soundMusic = true;
+    public static String state ="";
+    public String guide = "guide";
+    public String credit = "credit";
+    public String menu = "menu";
 
 
     // place to call and link all class
 
     TileManage tileManage = new TileManage(this);
     public keyHandle keyHandle = new keyHandle(this); // call keyHandle.class
-
-    public UI ui = new UI(this);
+    public mouseHandle mouseHandle = new mouseHandle(this);
+    MouseEvent e;
+    public UI1 ui1 = new UI1(this);
 
     Sound music = new Sound();
     Sound soundfe = new Sound();
@@ -122,18 +135,32 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
     public CollisionChecker checker = new CollisionChecker(this); // from CollisionChecker.class
     public Thread gameThread;
 
-
-
     alterSetter alterSetter = new alterSetter(this);
     superObject object[] = new superObject[1000];
+    public void getImage() { // read Image
+        try {
+            bg1 = ImageIO.read(new File("data/ui/Menu.png"));
+//            reset = ImageIO.read(new File("data/ui/Reset.png"));
+//            cont = ImageIO.read(new File("data/ui/Continous.png"));
+//            sound_music_on = ImageIO.read(new File("data/ui/Sound_Music_on.png"));
+//            sound_music_off = ImageIO.read(new File("data/ui/Sound_Music_off.png"));
+//            sound_effect_on = ImageIO.read(new File("data/ui/Sound_Effect_on.png"));
+//            sound_effect_off = ImageIO.read(new File("data/ui/Sound_Effect_off.png"));
+//            pause = ImageIO.read(new File("data/ui/pause.png"));
 
-
-
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void setUpGame(){
         alterSetter.setObj();
         gameState = playState;
-        playMusic(0);
+        if (soundMusic)
+            playMusic(0);
+        else
+        if (!soundMusic)
+            stopMusic();
     }
 
 
@@ -183,7 +210,6 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
             if (delta>=1){
                 update();
                 //
-
                 repaint();
                 delta --;
                 //drawCount++;
@@ -196,10 +222,11 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
         if (gameState == playState) {
             player.update();
         }
-        if (gameState == pauseState) {
-            //nothing
-            //player.update();
+        if (gameState == optionsState) {
+            ui1.drawOptionsScreen();
+            //Setting.mousePress(e,);
         }
+
         if (gameState == dialogue){
             if (main.keyHandle.enterpressed) {
                 player.speak();
@@ -232,8 +259,13 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
     // a box get in position will trigger the sound and its flag turns `true`, else, if the box got pushed out, its flag turns `false`
     public void paintComponent(Graphics g){ // draw some object into screen (like a pen)
         super.paintComponent(g);
-        Graphics2D g2 = (Graphics2D)g;      
-        
+        Graphics2D g2 = (Graphics2D)g;
+//                if (box.getRoom() == Player.getRoomPlayerIn()) {
+//                    box.setPosX(boxes.get(num).getPosX());
+//                    box.setPosY(boxes.get(num).getPosY());
+//                    System.out.println(box.getPosX());
+//                    System.out.println(box.getPosY());
+//                }
         try {
             int num = -1;
             
@@ -247,10 +279,10 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
                         in[num] = 1;
                     }                    
                 }
-                if(in[num] == 1 && boxSoundTriggered[num]==false) // if the state of the box turn 1, which mean it overlap a bom position, break
+                if(in[num] == 1 && !boxSoundTriggered[num]) // if the state of the box turn 1, which mean it overlap a bom position, break
                     break; // this break means we get the `num` = id of the box to trigger the SE                
             }
-            if(boxSoundTriggered[num]==false && in[num]==1){ // if a box hasn't triggered the sound
+            if(!boxSoundTriggered[num] && in[num]==1){ // if a box hasn't triggered the sound
                 playSE(1); // play SE 
                 boxSoundTriggered[num]=true; // turn the flag true, the next time we check this, it will omit the box already triggered SE
             } 
@@ -262,8 +294,10 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
                     boolean check = false;
                     for (int i = 0; i < row1; i++) {
                         if (bom[0][i] == box.getPosX() / getTitleSize() && bom[1][i] == box.getPosY() / getTitleSize()
-                                && bom[2][i] == 1 && bom[3][i] == Player.getRoomPlayerIn())
+                                && bom[2][i] == 1 && bom[3][i] == Player.getRoomPlayerIn()) {
                             check = true;
+                            break;
+                        }
                     }
                     if (!check){
                         box.setImage(
@@ -281,25 +315,46 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
         }
 
         //tile
-            tileManage.draw(g2);
+        tileManage.draw(g2);
            
           
         //obj
 //        object[0].draw(g2,this);
         checkRoomPlayerIn();
 
-        // Call Object to draw
-        //System.out.println("InBoxUse");
-        for (Box box : boxesCopy){
-            if (box.getRoom()==Player.getRoomPlayerIn()){
-                box.draw(g2,this);
+//        // Call Object to draw
+//        System.out.println("InBoxUse");
+        if (resetRoom){
+            System.out.println("ResetRoom is true");
+            int num =-1;
+            for (Box box : boxesCopy){
+                num++;
+                int num1 = -1;
+                for (Box box1 : boxes) {
+                    num1++;
+                    if (num1 == num && box.getRoom() == Player.getRoomPlayerIn()) {
+                        box.setPosX(box1.getPosX()*getTitleSize());
+                        box.setPosY(box1.getPosY()*getTitleSize());
+                        //System.out.println(box.getPosX()+ " - " +box.getPosY());
+                        box.draw(g2,this);
+                        break;
+                    }
+                }
+            }
+            resetRoom = false;
+        }
+        else {
+            for (Box box : boxesCopy) {
+                if (box.getRoom() == Player.getRoomPlayerIn()) {
+                    box.draw(g2, this);
+                }
             }
         }
         //player
         player.draw(g2);
 
         //UI
-        ui.draw(g2);
+        ui1.draw(g2);
 
         g2.dispose();
 
@@ -307,21 +362,74 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
 
     // 
     public void playMusic(int i) {
-
         music.setFile(i); //call setFile from sound class
         music.play();
         music.loop();
     }
 
     public void stopMusic(){
-
         music.stop();
     }
 
     public void playSE(int i){
-
-        soundfe.setFile(i);
-        soundfe.play();
-        
+        if (soundEffect) {
+            soundfe.setFile(i);
+            soundfe.play();
+        }
     }
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        int mx = e.getX();
+        int my = e.getY();
+        if ( mx >= 80 && mx<= 80 + 50 && my >=35 && my <= 35 + 50){
+            if (gameState == playState)
+                gameState = optionsState;
+           // else
+        }
+        if (mx>=342 && mx<=342+50 && my>= 312 && my<=312+50) { //Reset room
+            resetRoom = true;
+            System.out.println("Reset room");
+        }
+        else
+        if (mx>=577 && mx<=577+50 && my>= 312 && my<=312+50) { //Menu
+            System.out.println("Menu");
+        }
+        else
+        if (mx>=443 && mx<=443+50 && my>= 408 && my<=408+50) { //Continous
+            if (gameState == optionsState)
+                gameState = playState;
+            System.out.println("Continue");
+        }
+        else
+        if (mx>=342 && mx<=342+50 && my>= 504 && my<= 504+50) { //Music
+            if (soundMusic)
+                soundMusic = false;
+            else
+                if (!soundMusic)
+                    soundMusic = true;
+            System.out.println("Sound Music");
+        }
+        else
+        if (mx>=572 && mx<=572+50 && my>= 504 && my<=504+50) { //Effect
+            if (soundEffect)
+                soundEffect = false;
+            else
+            if (!soundEffect)
+                soundEffect = true;
+            System.out.println("Sound Effect");
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {}
+    @Override
+    public void mouseReleased(MouseEvent e) {}
+    @Override
+    public void mouseEntered(MouseEvent e) {}
+    @Override
+    public void mouseExited(MouseEvent e) {}
+    @Override
+    public void mouseDragged(MouseEvent e) {}
+    @Override
+    public void mouseMoved(MouseEvent e) {}
 }

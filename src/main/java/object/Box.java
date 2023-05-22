@@ -44,12 +44,7 @@ public class Box extends superObject implements Comparable<Box>,Cloneable{
 
     public static ArrayList<Box> boxes = new ArrayList<Box>();
     public static ArrayList<Box> boxesCopy =new ArrayList<Box>(boxes);
-
-
-
-
-
-
+    // Check! If the reset is clicked, the room will reset
 
     @Override
     public int compareTo(Box o) {

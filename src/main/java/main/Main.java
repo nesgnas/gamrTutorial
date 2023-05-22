@@ -10,10 +10,10 @@ public class Main {
         frame.setTitle("something");
 
         gamePanel gamePanel = new gamePanel(); // call gamePanel.class
-
+        frame.addMouseMotionListener(gamePanel);
+        frame.addMouseListener(gamePanel);
         frame.add(gamePanel); 
         frame.pack();
-
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         gamePanel.setUpGame();

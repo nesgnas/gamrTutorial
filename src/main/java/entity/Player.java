@@ -201,7 +201,7 @@ public class Player extends Entity {
         if (dialogues[dialogueIndex] == null){
             dialogueIndex = 0;
         }
-        gp.ui.currentDialogue = dialogues[dialogueIndex];
+        gp.ui1.currentDialogue = dialogues[dialogueIndex];
         dialogueIndex++;
         //gp.ui.currentDialogue = dialogues[0];
 
