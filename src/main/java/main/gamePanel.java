@@ -291,4 +291,8 @@ public class gamePanel extends JPanel implements Runnable{ // call in Main.class
         soundfe.play();
         
     }
+    public void soundWalk(int i){
+        soundfe.setFile(i);
+        soundfe.playWalk();
+    }
 }

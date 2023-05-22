@@ -18,6 +18,8 @@ public class Sound {
         soundURL[1] = getResourceURL("data/sound/box.wav");
         soundURL[2] = getResourceURL("data/sound/gate.wav");
         soundURL[3] = getResourceURL("data/sound/item.wav");
+        soundURL[4] = getResourceURL("data/sound/idle.wav");
+
     }
 
     private URL getResourceURL(String resourcePath) {
@@ -51,5 +53,24 @@ public class Sound {
 
     public void stop() {
         clip.stop();
+    }
+
+    boolean isPlaying = false;
+    public void playWalk(){
+        if(isPlaying){
+            return;
+        }
+        isPlaying = true;
+        clip.start();
+
+        new Thread(() -> {
+            try{
+                Thread.sleep(300); // delay for 0.3s
+                clip.stop();
+                isPlaying = false;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
 }
