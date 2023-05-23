@@ -19,7 +19,7 @@ public class UI1 implements MouseListener {
 
     gamePanel gp;
     public BufferedImage menu, cont, reset, sound_music_on, sound_music_off,
-            sound_effect_on, sound_effect_off, pause, bg, playgame, guide, sound, credit;
+            sound_effect_on, sound_effect_off, pause, bg, playgame, guide, sound, credit,right,left,down,up;
     UtilityTool utilityTool;
     public static int commandNum_music = 1;
     public static int commandNum_effect = 3;
@@ -78,6 +78,54 @@ public class UI1 implements MouseListener {
     private void draw_guide() {
         // BACKGOURND
         g2.drawImage(bg, 0, 0, gp.worldWidth, gp.worldHeight, null);
+                int frameX = (int) (gp.getTitleSize() * 5.5);
+        int frameY = gp.getTitleSize() * 4;
+        int frameWidth = (int) (gp.getTitleSize() * 9.5);
+        int frameHeight = (int) (gp.getTitleSize() * 7.5);
+        drawSubWindow(frameX, frameY, frameWidth, frameHeight);
+        int textX;
+        int textY;
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 40F));
+        int titlesize = gp.getTitleSize() + 10;
+        
+        // Title
+        String text = "How To Play";
+        textX = getXForCenteredText(text) - 10;
+        textY = frameY;
+        g2.drawString("How To Play", textX + 30, textY + gp.getTitleSize()+10);
+        g2.setFont(g2.getFont().deriveFont(20F));
+        
+        // RIGHT
+        textX = frameX + gp.getTitleSize();
+        textY += 30;
+        textY += gp.getTitleSize() * 2;
+         g2.drawString("Right", textX + 220, textY + 60);
+        g2.drawImage(right, textX + 210, textY + gp.getTitleSize() + 25 , titlesize - 10, titlesize - 10, null);
+        
+        //down
+        text = "Down";
+        textY += 20;
+        textX = getXForCenteredText(text) ;
+        g2.drawString("Down", textX + 10, textY + gp.getTitleSize() + 85);
+        g2.drawImage(down, textX + 15, textY + gp.getTitleSize() + 5, titlesize - 10, titlesize - 10, null); // method to draw
+       
+        textY -= 50;
+  
+        //up
+        text = "Up";
+        textY += 30;
+        textX = getXForCenteredText(text) ;
+        g2.drawString("Up", textX + 10, textY  );
+        g2.drawImage(up, textX , textY + gp.getTitleSize() - 30 , titlesize - 10, titlesize - 10, null); // method to draw
+        textY -= 50;
+       
+        //left
+        textX = frameX + gp.getTitleSize();
+        textY += gp.getTitleSize() * 2;
+        g2.drawString("Left", textX + 100, textY  + 15);
+        g2.drawImage(left, textX + 100, textY + gp.getTitleSize() -20, titlesize - 10, titlesize - 10, null);
+        
+        
         
     }
 
@@ -298,6 +346,11 @@ public class UI1 implements MouseListener {
             guide = ImageIO.read(new File("data/ui/guide.png"));
             sound = ImageIO.read(new File("data/ui/sound.png"));
             credit = ImageIO.read(new File("data/ui/credit.png"));
+            right = ImageIO.read(new File("data/ui/pkl_lite_keys_0_one_arrow_right.png"));
+            down = ImageIO.read(new File("data/ui/pkl_lite_keys_0_one_arrow_down.png"));
+            up = ImageIO.read(new File("data/ui/pkl_lite_keys_0_one_arrow_up.png"));
+            left = ImageIO.read(new File("data/ui/pkl_lite_keys_0_one_arrow_left.png"));
+
 
         } catch (IOException e) {
             e.printStackTrace();
