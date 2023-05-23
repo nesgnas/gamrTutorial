@@ -509,6 +509,7 @@ public class gamePanel extends JPanel implements Runnable, MouseListener, MouseM
                 System.out.println("Reset room");
             } else if (mx >= 577 && mx <= 577 + 50 && my >= 312 && my <= 312 + 50) { // Menu
                 System.out.println("Menu");
+                gameState = titleState;
             } else if (mx >= 443 && mx <= 443 + 50 && my >= 408 && my <= 408 + 50) { // Continous
                 if (gameState == optionsState)
                     gameState = playState;
