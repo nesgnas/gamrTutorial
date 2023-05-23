@@ -81,25 +81,25 @@ public class UI1 implements MouseListener {
         int x = getXForCenteredText(text);
         int y = gp.getTitleSize() * 3;
         g2.setColor(Color.BLACK);
-        g2.drawString(text, x - 100, y);
+        g2.drawString(text, x - 40, y + 80);
         // NTNT
         String text1 = "NGUYEN TRAN NGUYEN ANH ITITWE20021";
 
         g2.setColor(Color.BLACK);
-        g2.drawString(text1, x - 100, y + 100);
+        g2.drawString(text1, x - 40, y + 150);
         // My
         String text2 = "NGUYEN HUYNH THAO MY ITCSIU21204";
 
         g2.setColor(Color.BLACK);
-        g2.drawString(text2, x - 100, y + 200);
+        g2.drawString(text2, x - 40, y + 220);
         // THU HOANG itcsiu21063
         String text3 = "LE THU HOANG ITCSIU21063  ";
         g2.setColor(Color.BLACK);
-        g2.drawString(text3, x - 100, y + 300);
+        g2.drawString(text3, x - 40, y + 290);
         // Sang
         String text4 = "BUI DOAN THE SANG ITCSIU21104 ";
         g2.setColor(Color.BLACK);
-        g2.drawString(text4, x - 100, y + 400);
+        g2.drawString(text4, x - 40, y + 360);
 
     }
 
