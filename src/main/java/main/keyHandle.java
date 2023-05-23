@@ -91,60 +91,6 @@ public class keyHandle implements KeyListener { // call in gamePanel.class
 //            optionState(code);
 //        }
     }
-    public void optionState(int code){
-        if (code == KeyEvent.VK_ESCAPE) {
-            gp.gameState = gp.playState;
-        }
-        if (code == KeyEvent.VK_SPACE) {
-            enterpressed = true;
-            gp.gameState = gp.optionsState;
-        }
-            int maxCommandNum = 0;
-            switch (gp.ui1.subState){
-                case 0: maxCommandNum = 5;
-            }
-            if (code == KeyEvent.VK_UP){
-                gp.ui1.commandNum--;
-                gp.playSE(9);
-                if (gp.ui1.commandNum < 0){
-                    gp.ui1.commandNum = maxCommandNum;
-                }
-            }
-            if (code == KeyEvent.VK_DOWN) {
-                gp.ui1.commandNum++;
-                gp.playSE(9);
-                if (gp.ui1.commandNum > maxCommandNum){
-                    gp.ui1.commandNum = 0;
-                }
-            }
-//            if (code == KeyEvent.VK_LEFT){
-//                if (gp.ui.subState == 0){
-//                    if (gp.ui.commandNum == 1 && gp.music.volumeScale > 0){
-//                        gp.music.volumeScale--;
-//                        gp.music.checkVolume();
-//                        gp.playSE(9);
-//                    }
-//                    if (gp.ui.commandNum == 2 && gp.se.volumeScale > 0){
-//                        gp.se.volumeScale--;
-//                        gp.playSE(9);
-//                    }
-//                }
-//            }
-//            if (code == KeyEvent.VK_RIGHT){
-//                if (gp.ui.subState == 0){
-//                    if (gp.ui.commandNum == 1 && gp.music.volumeScale < 5){
-//                        gp.music.volumeScale++;
-//                        gp.music.checkVolume();
-//                        gp.playSE(9);
-//                    }
-//                    if (gp.ui.commandNum == 2 && gp.se.volumeScale < 5){
-//                        gp.se.volumeScale++;
-//                        gp.playSE(9);
-//                    }
-//                }
-//            }
-        }
-
 
     @Override
     public void keyReleased(KeyEvent e) { // (IN NORMAL) - place to set control input
