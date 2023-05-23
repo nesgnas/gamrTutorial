@@ -110,6 +110,7 @@ public class gamePanel extends JPanel implements Runnable, MouseListener, MouseM
 
     // Game State
     public int gameState;
+    public final int guideState = 5;
     public final int creditState = 4;
     public final int titleState = 0;
     public final int playState = 1;
@@ -387,16 +388,27 @@ public class gamePanel extends JPanel implements Runnable, MouseListener, MouseM
             if (mx >= (worldWidth / 2) - 200 && mx <= ((worldWidth / 2) - 200) + getTitleSize() * 9
                     && my >= (worldHeight / 2) - 250 && my <= (worldHeight / 2) - 250 + (getTitleSize() * 2)) {
                 gameState = playState;
-            } // g2.drawImage(credit, (gp.worldWidth / 2) - 100, (gp.worldHeight / 2) + 50,
-              // gp.getTitleSize() * 5,
-              // gp.getTitleSize() * 2,
-              // null);
-            else if (mx >= (worldWidth / 2) - 100 && mx <= ((worldWidth / 2) - 100) + (getTitleSize() * 5)
-                    && my >= (worldHeight / 2) + 50 && my <= ((worldHeight / 2) + 50) + getTitleSize() * 2) {
+            } else if (mx >= (worldWidth / 2) - 100 && mx <= ((worldWidth / 2) - 100) + (getTitleSize() * 5)
+                    && my >= (worldHeight / 2) + 50 && my <= ((worldHeight / 2) + 50) + (getTitleSize() * 2)) {
                 gameState = creditState;
+            }
+            // guide, (gp.worldWidth / 2) - 100, (gp.worldHeight / 2) - 150,
+            // gp.getTitleSize() * 5,
+            // gp.getTitleSize() * 2,
+
+            else if (mx >= (worldWidth / 2) - 100 && mx <= ((worldWidth / 2) - 100) + (getTitleSize() * 5)
+                    && my >= ((worldHeight / 2) - 150)
+                    && my <= ((worldHeight / 2) - 150) + (getTitleSize() * 2)) {
+                gameState = guideState;
 
             }
-        } else if (gameState == creditState) {// 0, 0, gp.worldWidth, gp.worldHeight
+        } else if (gameState == guideState) {
+            if (mx >= 0 && mx <= worldWidth && my >= 0 && my <= worldHeight) {
+                gameState = titleState;
+            }
+        } else if (gameState == creditState)
+
+        {// 0, 0, gp.worldWidth, gp.worldHeight
             if (mx >= 0 && mx <= worldWidth && my >= 0 && my <= worldHeight) {
                 gameState = titleState;
             }

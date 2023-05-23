@@ -55,6 +55,9 @@ public class UI1 implements MouseListener {
         if (gp.gameState == gp.titleState) {
             drawTitleScreen();
         }
+        if (gp.gameState == gp.guideState) {
+            draw_guide();
+        }
         if (gp.gameState == gp.creditState) {
             drawCreditState();
         }
@@ -70,6 +73,12 @@ public class UI1 implements MouseListener {
         if (gp.gameState == gp.dialogue) {
             drawDialogueScreen();
         }
+    }
+
+    private void draw_guide() {
+        // BACKGOURND
+        g2.drawImage(bg, 0, 0, gp.worldWidth, gp.worldHeight, null);
+        
     }
 
     private void drawCreditState() {
