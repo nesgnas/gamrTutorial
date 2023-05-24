@@ -99,15 +99,15 @@ public class UI1 implements MouseListener {
         textX = frameX + gp.getTitleSize();
         textY += 30;
         textY += gp.getTitleSize() * 2;
-         g2.drawString("Right", textX + 220, textY + 60);
+         g2.drawString("Right", textX + 215, textY + 60);
         g2.drawImage(right, textX + 210, textY + gp.getTitleSize() + 25 , titlesize - 10, titlesize - 10, null);
         
         //down
         text = "Down";
         textY += 20;
         textX = getXForCenteredText(text) ;
-        g2.drawString("Down", textX + 10, textY + gp.getTitleSize() + 85);
-        g2.drawImage(down, textX + 15, textY + gp.getTitleSize() + 5, titlesize - 10, titlesize - 10, null); // method to draw
+        g2.drawString("Down", textX + 15, textY + gp.getTitleSize() + 80);
+        g2.drawImage(down, textX + 10, textY + gp.getTitleSize() + 5, titlesize - 10, titlesize - 10, null); // method to draw
        
         textY -= 50;
   
@@ -115,15 +115,15 @@ public class UI1 implements MouseListener {
         text = "Up";
         textY += 30;
         textX = getXForCenteredText(text) ;
-        g2.drawString("Up", textX + 10, textY  );
+        g2.drawString("Up", textX + 15, textY + 5 );
         g2.drawImage(up, textX , textY + gp.getTitleSize() - 30 , titlesize - 10, titlesize - 10, null); // method to draw
         textY -= 50;
        
         //left
         textX = frameX + gp.getTitleSize();
         textY += gp.getTitleSize() * 2;
-        g2.drawString("Left", textX + 100, textY  + 15);
-        g2.drawImage(left, textX + 100, textY + gp.getTitleSize() -20, titlesize - 10, titlesize - 10, null);
+        g2.drawString("Left", textX + 110, textY  + 15);
+        g2.drawImage(left, textX + 105, textY + gp.getTitleSize() -20, titlesize - 10, titlesize - 10, null);
         
         
         
