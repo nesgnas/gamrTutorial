@@ -14,12 +14,12 @@ import java.io.IOException;
 import static main.gamePanel.soundEffect;
 import static main.gamePanel.soundMusic;
 
-public class UI1 implements MouseListener {
+public class UI1 {
     // main.keyHandle keyHandle = new keyHandle(this); // call keyHandle.class
 
     gamePanel gp;
     public BufferedImage menu, cont, reset, sound_music_on, sound_music_off,
-            sound_effect_on, sound_effect_off, pause, bg, playgame, guide, sound, credit,right,left,down,up;
+            sound_effect_on, sound_effect_off, pause, bg, playgame, guide, sound, credit,right,left,down,up,exit;
     UtilityTool utilityTool;
     public static int commandNum_music = 1;
     public static int commandNum_effect = 3;
@@ -130,6 +130,7 @@ public class UI1 implements MouseListener {
     }
 
     private void drawCreditState() {
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 40F));
         // BACKGOURND
         g2.drawImage(bg, 0, 0, gp.worldWidth, gp.worldHeight, null);
         // Name
@@ -165,27 +166,28 @@ public class UI1 implements MouseListener {
         // BACKGOURND
         g2.drawImage(bg, 0, 0, gp.worldWidth, gp.worldHeight, null);
         // TITLE NAME
-        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 96F));
-        String text = "KEKEKE";
+        g2.setFont(g2.getFont().deriveFont(Font.ITALIC, 180F));
+        String text = "DAYLAGAME";
         int x = getXForCenteredText(text);
-        int y = gp.getTitleSize() * 3;
-        g2.setColor(Color.WHITE);
+        int y = gp.getTitleSize() * 6;
+        Color color = new Color(201, 92, 151, 255);
+        g2.setColor(color);
         g2.drawString(text, x, y);
 
         // playgame
-        g2.drawImage(playgame, (gp.worldWidth / 2) - 200, (gp.worldHeight / 2) - 250, gp.getTitleSize() * 9,
+        g2.drawImage(playgame, (gp.worldWidth / 2) - 200, (gp.worldHeight / 2) - 50, gp.getTitleSize() * 9,
                 gp.getTitleSize() * 2,
                 null);
         // guide
-        g2.drawImage(guide, (gp.worldWidth / 2) - 100, (gp.worldHeight / 2) - 150, gp.getTitleSize() * 5,
+        g2.drawImage(guide, (gp.worldWidth / 2) - 100, (gp.worldHeight / 2) + 50, gp.getTitleSize() * 5,
                 gp.getTitleSize() * 2,
                 null);
         // sound
-        g2.drawImage(sound, (gp.worldWidth / 2) - 100, (gp.worldHeight / 2) - 50, gp.getTitleSize() * 5,
+        g2.drawImage(credit, (gp.worldWidth / 2) - 100, (gp.worldHeight / 2) + 150, gp.getTitleSize() * 5,
                 gp.getTitleSize() * 2,
                 null);
         // credit
-        g2.drawImage(credit, (gp.worldWidth / 2) - 100, (gp.worldHeight / 2) + 50, gp.getTitleSize() * 5,
+        g2.drawImage(exit, (gp.worldWidth / 2) - 100, (gp.worldHeight / 2) + 250, gp.getTitleSize() * 5,
                 gp.getTitleSize() * 2,
                 null);
 
@@ -350,13 +352,15 @@ public class UI1 implements MouseListener {
             down = ImageIO.read(new File("data/ui/pkl_lite_keys_0_one_arrow_down.png"));
             up = ImageIO.read(new File("data/ui/pkl_lite_keys_0_one_arrow_up.png"));
             left = ImageIO.read(new File("data/ui/pkl_lite_keys_0_one_arrow_left.png"));
+            exit = ImageIO.read(new File("data/ui/exit.png"));
+
 
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
+/*
     @Override
     public void mouseClicked(MouseEvent e) {
         int mx = e.getX();
@@ -395,4 +399,5 @@ public class UI1 implements MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {
     }
+    */
 }
