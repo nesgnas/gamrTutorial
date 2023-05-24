@@ -468,4 +468,8 @@ public class gamePanel extends JPanel implements Runnable, MouseListener, MouseM
     @Override
     public void mouseMoved(MouseEvent e) {
     }
+    public void soundWalk(int i){
+        soundfe.setFile(i);
+        soundfe.playWalk();
+    }
 }
