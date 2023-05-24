@@ -6,7 +6,6 @@ public class Guide extends Background {
 
     public double orbitX = -20; /* x-coordinate in orbit's center */
     public double orbitY = -20; /* y-coordinate in orbit's center */
-
     @Override
     public void update() {
         radian = orbitSpeed * t;
@@ -19,12 +18,11 @@ public class Guide extends Background {
         int mx = e.getX();
         int my = e.getY();
 
-        if (mx > 60 && mx < 210 && my > 350 && my < 390) {
-
-            gamePanel.state = "guide";
-        } else if (mx > 20 && mx < 170 && my > 700 && my < 740) {
-
-            gamePanel.state = "menu";
-        }
+//        if (mx > 60 && mx < 210 && my > 350 && my < 390) {
+//
+//            gamePanel.state = "guide";
+//        } else if (mx > 20 && mx < 170 && my > 700 && my < 740) {
+//            gamePanel.state = "menu";
+//        }
     }
 }
