@@ -376,6 +376,7 @@ public class gamePanel extends JPanel implements Runnable, MouseListener, MouseM
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        playSE(5);
         int mx = e.getX();
         int my = e.getY();
         if (gameState == titleState) {

@@ -19,6 +19,8 @@ public class Sound {
         soundURL[2] = getResourceURL("data/sound/gate.wav");
         soundURL[3] = getResourceURL("data/sound/item.wav");
         soundURL[4] = getResourceURL("data/sound/idle.wav");
+        soundURL[5] = getResourceURL("data/sound/select.wav");
+
 
     }
 
