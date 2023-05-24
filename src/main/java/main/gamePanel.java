@@ -358,9 +358,9 @@ public class gamePanel extends JPanel implements Runnable, MouseListener, MouseM
 
     //
     public void playMusic(int i) {
-            music.setFile(i); // call setFile from sound class
-            music.play();
-            music.loop();
+        music.setFile(i); // call setFile from sound class
+        music.play();
+        music.loop();
     }
 
     public void stopMusic() {
@@ -382,19 +382,16 @@ public class gamePanel extends JPanel implements Runnable, MouseListener, MouseM
             if (mx >= (worldWidth / 2) - 200 && mx <= ((worldWidth / 2) - 200) + getTitleSize() * 9
                     && my >= (worldHeight / 2) - 50 && my <= (worldHeight / 2) - 50 + (getTitleSize() * 2)) {
                 gameState = playState;
-            }
-            else if (mx >= (worldWidth / 2) - 100 && mx <= ((worldWidth / 2) - 100) + (getTitleSize() * 5)
+            } else if (mx >= (worldWidth / 2) - 100 && mx <= ((worldWidth / 2) - 100) + (getTitleSize() * 5)
                     && my >= ((worldHeight / 2) + 50) && my <= ((worldHeight / 2) + 50) + (getTitleSize() * 2)) {
                 gameState = guideState;
-                }
-                else if (mx >= (worldWidth / 2) - 100 && mx <= ((worldWidth / 2) - 100) + (getTitleSize() * 5)
-                        && my >= (worldHeight / 2) + 150 && my <= ((worldHeight / 2) + 150) + (getTitleSize() * 2)) {
-                    gameState = creditState;
-                    }
-                    else if (mx >= (worldWidth / 2) - 100 && mx <= ((worldWidth / 2) - 100) + (getTitleSize() * 5)
-                            && my >= (worldHeight / 2) + 250 && my <= ((worldHeight / 2) + 250) + (getTitleSize() * 2)){
-                            System.exit(1);
-                        }
+            } else if (mx >= (worldWidth / 2) - 100 && mx <= ((worldWidth / 2) - 100) + (getTitleSize() * 5)
+                    && my >= (worldHeight / 2) + 150 && my <= ((worldHeight / 2) + 150) + (getTitleSize() * 2)) {
+                gameState = creditState;
+            } else if (mx >= (worldWidth / 2) - 100 && mx <= ((worldWidth / 2) - 100) + (getTitleSize() * 5)
+                    && my >= (worldHeight / 2) + 250 && my <= ((worldHeight / 2) + 250) + (getTitleSize() * 2)) {
+                System.exit(1);
+            }
 
         } else if (gameState == guideState) {
             if (mx >= 0 && mx <= worldWidth && my >= 0 && my <= worldHeight) {
@@ -424,15 +421,14 @@ public class gamePanel extends JPanel implements Runnable, MouseListener, MouseM
                 gameState = playState;
                 System.out.println("Continue");
             } else if (mx >= 382 && mx <= 382 + 50 && my >= 488 && my <= 538) { // Music
-                if (commandNum_music == 1){
+                if (commandNum_music == 1) {
                     commandNum_music = 2;
                     stopMusic();
-                }
-                else if (commandNum_music == 2) {
+                } else if (commandNum_music == 2) {
                     commandNum_music = 1;
                     playMusic(0);
                 }
-                //setUpGame();
+                // setUpGame();
                 System.out.println("Sound Music");
             } else if (mx >= 532 && mx <= 532 + 50 && my >= 488 && my <= 538) { // Effect
                 if (commandNum_effect == 3)
