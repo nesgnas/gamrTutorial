@@ -11,9 +11,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-import static main.gamePanel.soundEffect;
-import static main.gamePanel.soundMusic;
-
 public class UI1 {
     // main.keyHandle keyHandle = new keyHandle(this); // call keyHandle.class
 
@@ -233,18 +230,6 @@ public class UI1 {
         int frameHeight = (int) (gp.getTitleSize() * 7.5);
         drawSubWindow(frameX, frameY, frameWidth, frameHeight);
         option_top(frameX, frameY);
-        // if (soundMusic) {
-        // commandNum_music = 1;
-        // }
-        // else {
-        // commandNum_music = 2;
-        // }
-        // if (soundEffect) {
-        // commandNum_effect = 3;
-        // }
-        // else{
-        // commandNum_effect = 4;
-        // }
     }
 
     public int getXForCenteredText(String text) {
@@ -360,44 +345,4 @@ public class UI1 {
             e.printStackTrace();
         }
     }
-/*
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        int mx = e.getX();
-        int my = e.getY();
-        if (mx >= 342 && mx <= 342 + 50 && my >= 312 && my <= 312 + 50) { // Reset room
-            // resetRoom = true;
-            // gamePanel.state = "game";
-            System.out.println("Reset room");
-        } else if (mx >= 577 && mx <= 577 + 50 && my >= 312 && my <= 312 + 50) { // Menu
-            // gamePanel.state = "game";
-            System.out.println("Menu");
-        } else if (mx >= 443 && mx <= 443 + 50 && my >= 408 && my <= 408 + 50) { // Continous
-            // gamePanel.state = "game";
-            System.out.println("Continous");
-        } else if (mx >= 342 && mx <= 342 + 50 && my >= 504 && my <= 504 + 50) { // Music
-            // gamePanel.state = "game";
-            System.out.println("Sound Music");
-        } else if (mx >= 572 && mx <= 572 + 50 && my >= 504 && my <= 504 + 50) { // Effect
-            // gamePanel.state = "game";
-            System.out.println("Sound Effect");
-        }
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-    }
-    */
 }

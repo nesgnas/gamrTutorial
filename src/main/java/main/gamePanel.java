@@ -118,8 +118,6 @@ public class gamePanel extends JPanel implements Runnable, MouseListener, MouseM
     // public final int pauseState = 2;
     public final int dialogue = 3;
     public static boolean resetRoom = false;
-    public static boolean soundEffect = true;
-    public static boolean soundMusic = true;
     public static String state = "";
     public String guide = "guide";
     public String credit = "credit";
@@ -397,9 +395,6 @@ public class gamePanel extends JPanel implements Runnable, MouseListener, MouseM
                             && my >= (worldHeight / 2) + 250 && my <= ((worldHeight / 2) + 250) + (getTitleSize() * 2)){
                             System.exit(1);
                         }
-            // guide, (gp.worldWidth / 2) - 100, (gp.worldHeight / 2) - 150,
-            // gp.getTitleSize() * 5,
-            // gp.getTitleSize() * 2,
 
         } else if (gameState == guideState) {
             if (mx >= 0 && mx <= worldWidth && my >= 0 && my <= worldHeight) {
@@ -407,7 +402,7 @@ public class gamePanel extends JPanel implements Runnable, MouseListener, MouseM
             }
         } else if (gameState == creditState)
 
-        {// 0, 0, gp.worldWidth, gp.worldHeight
+        {
             if (mx >= 0 && mx <= worldWidth && my >= 0 && my <= worldHeight) {
                 gameState = titleState;
             }
