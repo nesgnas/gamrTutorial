@@ -3,18 +3,14 @@ package Tiles;
 import entity.Player;
 import main.gamePanel;
 import object.Box;
-import object.Gate;
 
 import javax.imageio.ImageIO;
-import javax.management.loading.PrivateMLet;
 import java.awt.*;
 import java.io.*;
 import java.util.Collections;
 
 import static object.Box.boxes;
 import static object.Box.boxesCopy;
-import static object.Gate.gates;
-//import static object.Gate.gatesCopy;
 
 public class TileManage {
 
@@ -230,16 +226,7 @@ public class TileManage {
                         box.setCollision(true);
                         num = 118;
                     }
-                    if (num == 128) {
-                        Gate gate = new Gate();
-                        // System.out.println("ADD");
-                        gate.setPosX(col);
-                        gate.setPosY(row);
-                        gate.setName("Gate");
-                        gate.setImage(
-                                ImageIO.read(new File("data/tiles/tile3rd/128.png")));
-                        gates.add(gate);
-                    }
+
                     if (num == 125 && col != 0 && row != 0) {
                         bom[0][row1] = col;
                         bom[1][row1] = row;
