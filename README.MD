@@ -5,10 +5,9 @@
 
 **Technologies:**
 
-- java 17
-- java AWT
-- javax Swing
-- java IO
+> Java 17  
+> Java AWT (Abstract Window Toolkit)  
+> JLayer
 
 **OOP Concepts Implemented:**
 
@@ -53,7 +52,6 @@ _We use this pattern to encapsulate all the key signal input from the keyboard t
 <p align = center>(Note as the Command Pattern standar diagram)</p> 
 
 **Abstract class:**
-
 _A superObject abstract class was created that is open for extension by many new objects. In this case, we just need one object (Box)._
 
 <img src = "Readme\abstractclass1.png" alt="abstract class">
@@ -62,7 +60,6 @@ _A superObject abstract class was created that is open for extension by many new
 
 
 **Polymorphism**
-
 _Applying a polymorphism attribute so that we_ _have many classes that are related to each other by inheritance._
 
 **Example :**
