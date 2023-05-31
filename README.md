@@ -1,9 +1,8 @@
-
 # SANASHIBAMY - OOP - Project
 ### International University - Semester 2 - 2022-2023
 
 
-## Contributors
+## 👨‍👩‍👧‍👦 Contributors
 
 - [**Bui Doan The Sang**](https://github.com/nesgnas)
 - [**Nguyen Huynh Thao My**](https://github.com/my003)
@@ -12,14 +11,7 @@
 - [**Nguyen Tran Nguyen Anh**](https://github.com/Ntna1302)
 
 
-## Table of contents
-
-* [Introduction](#Introduction)
-* [Game SANASHIBAMY](#The Project SANASHIBAMY)
-* [OOP Concepts Implemented](#OOP Concepts Implemented)
-
-
-## Introduction
+## 📋 Introduction
 
 ### Motivation:
 _During my investigation into how to create 2D games with Java. We remembered the Sokoban game, which was popular on ancient phones, and developed the Sanashiba game based on the classic gameplay from the Sokoban game genre._
@@ -39,7 +31,7 @@ _During my investigation into how to create 2D games with Java. We remembered th
 - ![](https://img.shields.io/badge/java-IO-green)
 
 
-## The Project SANASHIBAMY
+## 🎮 The Project SANASHIBAMY
 
 ### Rule
 * About the rules to play the game:
@@ -57,11 +49,11 @@ _During my investigation into how to create 2D games with Java. We remembered th
     * Button:
         * Up arrow: press the key ‘W’ or ‘^’ to move the character up .
         * Left arrow: press the key ‘D’ or ‘>’  to move the character to the left.
-        * Right arrow: press the key ‘A’ or ‘<’  to move the character to the right
-        * Down arrow: press the key ‘S’ or ‘v’  to move the character down
+        * Right arrow: press the key ‘A’ or ‘<’  to move the character to the right.
+        * Down arrow: press the key ‘S’ or ‘v’  to move the character down.
 
 ### Design
-* Background: We got ideas from the game's theme and colors and refered to online sources to create a background with a bright, natural background .
+* Background: We got ideas from the game's theme and colors and refered to online sources to create a background with a bright, natural background.
 * Map: Using the GIMP and Tiled software to create tileset and draw map.
 * Sound: Sound is added to create an enjoyable atmosphere, making the player more interesting.
 * Welcome: The tittle is “SANASHIBAMY” which was added at the beginning. Moreover, we made it more colorful and eye-catching.
@@ -76,7 +68,7 @@ _During my investigation into how to create 2D games with Java. We remembered th
     * https://www.behance.net
 
 
-## OOP Concepts Implemented
+## 📌 OOP Concepts Implemented
 
 ### Command Pattern:
 - We use this pattern to encapsulate all the key signal input from the keyboard to control the action of the player.
