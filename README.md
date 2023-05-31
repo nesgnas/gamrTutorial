@@ -4,11 +4,11 @@
 
 ## 👨‍👩‍👧‍👦 Contributors
 
-- [**Bui Doan The Sang**](https://github.com/nesgnas)
-- [**Nguyen Huynh Thao My**](https://github.com/my003)
-- [**Le Thu Hoang**](https://github.com/thuhoangle)
-- [**Nguyen Huy Bao**](https://github.com/nguyenhuybao1108)
-- [**Nguyen Tran Nguyen Anh**](https://github.com/Ntna1302)
+- <a href="https://github.com/nesgnas" target="_blank">Bui Doan The Sang</a>
+- <a href="https://github.com/my003" target="_blank">Nguyen Huynh Thao My</a>
+- <a href="https://github.com/thuhoangle" target="_blank">Le Thu Hoang</a>
+- <a href="https://github.com/nguyenhuybao1108" target="_blank">Nguyen Huy Bao</a>
+- <a href="https://github.com/Ntna1302" target="_blank">Nguyen Tran Nguyen Anh</a>
 
 
 ## 📋 Introduction
