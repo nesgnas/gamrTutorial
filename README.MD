@@ -1,5 +1,3 @@
-"\_\_\_" - sokoban game
-
 **Introduction:**
 
 - motivation:
@@ -47,7 +45,7 @@ _(To ensure correct image and file loading)._
 
 _We use this pattern to encapsulate all the key signal input from the keyboard to control the action of the player._
 
-**Diagram of pattern**** :**![](RackMultipart20230531-1-obguq1_html_8094899c6d0bb6e3.png)
+**Diagram of pattern**** :**![](Readme\command pattern.png)
 
 ![](RackMultipart20230531-1-obguq1_html_a1b18042bb9f5b35.png)
 
