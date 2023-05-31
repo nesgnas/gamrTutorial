@@ -1,13 +1,26 @@
-**Introduction:**
+**Members:**  
+**Bui Doan The Sang - ITCSIU21104**  
+**Le Thu Hoang - ITCSIU21063**  
+**Nguyen Huynh Thao My - ITCSIU21204**  
+**Nguyen Tran Nguyen Anh - ITITWE20021**  
+**Nguyen Huy Bao - ITDSIU21076**  
 
-- motivation:
-- Task Allocation
+
+**Introduction:**
+* *Motivation: We love to make a loop game which means we can minimize the number of different levels as the errors in each level like Boom Game, PacMan.
+  As we know, Flappy Bird is a popular game title so we can find many references and assets. We want to build the new one that is interesting with the same rules game.* 
+
+* *Task allocation:*
+
 
 **Technologies:**
 
-> Java 17  
-> Java AWT (Abstract Window Toolkit)  
-> JLayer
+
+> java 17
+> java AWT
+> javax Swing
+> java IO
+
 
 **OOP Concepts Implemented:**
 
@@ -66,29 +79,32 @@ _Applying a polymorphism attribute so that we_ _have many classes that are relat
 
 **InteractBox, Player [extend] Entity**
 
-![](RackMultipart20230531-1-obguq1_html_6edc1401af58dc9a.png)
+<img src = "Readme\poly1.png" alt="poli1">
 
-_( Player and interactBox was inheritance all attribute of Entity class)_
+<p align = center>_( Player and interactBox was inheritance all attribute of Entity class)_
 
-![](RackMultipart20230531-1-obguq1_html_3364819ac65a85a0.png)
+<img src = "Readme\poly1.png" alt="poli2">
 
-_(the idea is transform box[superObject] to be new entity which inheritance all the attribute from Entity)_
+<p align = center>_(the idea is transform box[superObject] to be new entity which inheritance all the attribute from Entity)_
 
-**Inheritance:**
+<p align = center>**Inheritance:**
 
-_This is used for creating many subclasses from one superclass, this subclass has all attributes and methods from superclass._
+<p align = center>_This is used for creating many subclasses from one superclass, this subclass has all attributes and methods from superclass._
 
 **Example:**
 
 **Credits, Guide, Menu [extend] Background**
 
-![](RackMultipart20230531-1-obguq1_html_21093ce4df17371c.png)_(Credits, Guide, Menu was inheritance all method of Background class, and using @Overwrite to setting their own work )_
+<img src = "Readme\inhi1.png" alt="inhi1">
+<p align = center>_(Credits, Guide, Menu was inheritance all method of Background class, and using @Overwrite to setting their own work )_
 
-![](RackMultipart20230531-1-obguq1_html_df1b99f95908e4dd.png) ![](RackMultipart20230531-1-obguq1_html_17943f7d1721f62e.png)
+<img src = "Readme\inhi2.png" alt="inhi2> 
 
-![](RackMultipart20230531-1-obguq1_html_9ddc48f6360c39f2.png)
+<img src = "Readme\inhi3.png" alt="inhi3">
 
-![](RackMultipart20230531-1-obguq1_html_c5d377d0526b90bb.png)
+<img src = "Readme\inhi4.png" alt="inhi4">
+
+<img src = "Readme\inhi5.png" alt="inhi5">
 
 **Overriding**
 
@@ -100,7 +116,9 @@ _Overriding occurs when a subclass contains the same method as the parent class.
 
 In this case, the Players class extends the Entity class, so it overrides the speak method of its parent class ( Entity class).
 
-![](RackMultipart20230531-1-obguq1_html_67b7f16b156cde4.png) ![](RackMultipart20230531-1-obguq1_html_dfe6e951db5cddf4.png)
+<img src = "Readme\overide.png" alt="overide">
+
+<img src = "Readme\overide2.png" alt="overide2">
 
 **Implementing a runnable interface**
 
@@ -110,15 +128,15 @@ _This is used for executing code on a thread when instancing the class_
 
 **gamePanel [implements] Runnable**
 
-![](RackMultipart20230531-1-obguq1_html_3db22b19900be5fc.png)
+<img src = "Readme\runna1.png" alt="runna1">
 
-_(Overriding method in the separately executing thread when a thread is started by the object of any class which is implementing Runnable)_
+<p align = center>_(Overriding method in the separately executing thread when a thread is started by the object of any class which is implementing Runnable)_
 
-![](RackMultipart20230531-1-obguq1_html_380717c20ab34bb3.png)
+<img src = "Readme\runna2.png" alt="runna2">
 
 **Implementing a comparable interface**
 
-_This is used to sort objects's positions in the box class by implementing a Comparable interface._
+<p align = center>_This is used to sort objects's positions in the box class by implementing a Comparable interface._
 
 **Example:**
 
