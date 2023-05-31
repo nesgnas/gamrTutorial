@@ -74,6 +74,8 @@ _During my investigation into how to create 2D games with Java. We remembered th
     * http://surl.li/hhwmy
     * https://www.epidemicsound.com/
     * https://www.behance.net
+
+
 ## OOP Concepts Implemented
 
 ### Command Pattern:
@@ -82,16 +84,14 @@ _During my investigation into how to create 2D games with Java. We remembered th
 - **Diagram of Pattern:**
 
 <img src="data/Readme/commandpattern.png">
-
 <img src="data/Readme/commandpattern2.png">
+
 
 ### Abstract Class:
 - A superObject abstract class was created that is open for extension by many new objects. In this case, we just need one object (Box).
 
 <img src="data/Readme/abstractclass1.png">
-
 <img src="data/Readme/abstractclass2.png">
-
 <img src="data/Readme/abstractclass3.png">
 
 
@@ -112,16 +112,11 @@ _During my investigation into how to create 2D games with Java. We remembered th
 - This is used for creating many subclasses from one superclass, this subclass has all attributes and methods from superclass.
   
 **Example: Credits, Guide, Menu [extend] Background**
-
 <img src = "data/Readme/inhi1.png">
 <p align = center>Credits, Guide, Menu was inheritance all method of Background class, and using @Overwrite to setting their own work</p>
-
 <img src = "data/Readme/inhi2.png">
-
 <img src = "data/Readme/inhi3.png">
-
 <img src = "data/Readme/inhi4.png">
-
 <img src = "data/Readme/inhi5.png">
 
 
@@ -131,9 +126,7 @@ _During my investigation into how to create 2D games with Java. We remembered th
  
 **Example: Player [extend] Entity**
 - In this case, the Players class extends the Entity class, so it overrides the speak method of its parent class ( Entity class).
-
 <img src="data/Readme/overide.png">
-
 <img src="data/Readme/overide2.png">
 
 
@@ -142,7 +135,6 @@ _During my investigation into how to create 2D games with Java. We remembered th
 - This is used for executing code on a thread when instancing the class.
 
 **Example: gamePanel [implements] Runnable**
-
 <img src="data/Readme/runna1.png">
 <p align = center>Overriding method in the separately executing thread when a thread is started by the object of any class which is implementing Runnable</p>
 <img src="data/Readme/runna2.png">
@@ -153,9 +145,7 @@ _During my investigation into how to create 2D games with Java. We remembered th
 - This is used to sort objects's positions in the box class by implementing a Comparable interface.
 
 **Example: Box [implements] Comparable**
-
 <img src="data/Readme/compa1.png">
-
 <img src="data/Readme/compa2.png">
 <p align = center>Writing the compareTo() method in such a way that, in the same room, if this is less than the passed box's position, then it should return negative, if greater than positive, and zero if equal</p>
 
@@ -165,7 +155,6 @@ _During my investigation into how to create 2D games with Java. We remembered th
 - The method to call a Thread - often use this to make multitask in sametime.
 
 <img src = "data/Readme/thread1.png">
-
 <img src = "data/Readme/thread2.png">
 <p align = center>Creating the game loop in run method, mean that, when the gameThread exists, it repeats the process that is written inside of these brackets</p>
 
@@ -174,10 +163,8 @@ _During my investigation into how to create 2D games with Java. We remembered th
 ### File Handling
 - The loadMap() method loads a map from a file. The method takes a file path as input. The method returns a map. The method works by first opening the file. Then, it reads the contents of the file line by line. For each line, the method splits the line into an array of strings. The method then uses the array of strings to create a tile. The method adds the tile to an array of tiles. Once the method has read all of the lines in the file, it closes the file. Finally, the method returns the array of tiles.
 
-<img src = "data/Readme/handle1.png"> 
-
-<img src = "data/Readme/handle2.png"> 
-
+<img src = "data/Readme/handle1.png">
+<img src = "data/Readme/handle2.png">
 <p align = center>Creating maps based on text file and storing all value in a array</p>
 
 
