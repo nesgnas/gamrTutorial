@@ -48,7 +48,7 @@ _We use this pattern to encapsulate all the key signal input from the keyboard t
 **Diagram of pattern**
 
 <!-- ![commande](C:\Users\ASUS\Desktop\gamrTutorial\Readme\commandpattern.png) -->
-<img src = "C:\Users\ASUS\Desktop\gamrTutorial\Readme\commandpattern.png" alt="tét">
+<img src = "Readme\commandpattern.png" alt="tét">
 ![](RackMultipart20230531-1-obguq1_html_a1b18042bb9f5b35.png)
 
 (Note as the Command Pattern standar diagram)
