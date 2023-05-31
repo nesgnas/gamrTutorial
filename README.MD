@@ -50,11 +50,12 @@ _We use this pattern to encapsulate all the key signal input from the keyboard t
 <!-- ![commande](C:\Users\ASUS\Desktop\gamrTutorial\Readme\commandpattern.png) -->
 <img src = "Readme\commandpattern.png" alt="command pattern">
 <img src = "Readme\commandpattern2.png" alt="command pattern2">
-<p style="text-align: center">(Note as the Command Pattern standar diagram)</p> 
+<center>(Note as the Command Pattern standar diagram)</center> 
 
 **Abstract class:**
 
 _A superObject abstract class was created that is open for extension by many new objects. In this case, we just need one object (Box)._
+
 <img src = "Readme\abstractclass1.png" alt="abstract class">
 <img src = "Readme\abstractclass2.png" alt="abstract class2">
 <img src = "Readme\abstractclass3.png" alt="abstract class3">
