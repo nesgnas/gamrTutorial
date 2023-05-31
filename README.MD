@@ -1,4 +1,10 @@
+# SANASHIBAMY-OOP-Project
+## HCMIU - Semester 2 2022-2023
+### Team: SANASHIBAMY!
+
+
 **Members:**  
+
 **Bui Doan The Sang - ITCSIU21104**  
 **Le Thu Hoang - ITCSIU21063**  
 **Nguyen Huynh Thao My - ITCSIU21204**  
@@ -76,6 +82,7 @@ _A superObject abstract class was created that is open for extension by many new
 
 
 **Polymorphism**
+
 _Applying a polymorphism attribute so that we_ _have many classes that are related to each other by inheritance._
 
 **Example :**
@@ -85,7 +92,6 @@ _Applying a polymorphism attribute so that we_ _have many classes that are relat
 <img src = "Readme\poly1.png" alt="poli1">
 
 <p align = center>_( Player and interactBox was inheritance all attribute of Entity class)_
-
 
 <img src = "Readme\poly1.png" alt="poli2">
 
@@ -112,13 +118,13 @@ _Applying a polymorphism attribute so that we_ _have many classes that are relat
 
 **Overriding**
 
-_Overriding occurs when a subclass contains the same method as the parent class. The overriding method's name, number and type of parameters, and return type are similar to those of the method it overrides._
+- _Overriding occurs when a subclass contains the same method as the parent class. The overriding method's name, number and type of parameters, and return type are similar to those of the method it overrides._
 
 **Example:**
 
 **Player [extend] Entity**
 
-In this case, the Players class extends the Entity class, so it overrides the speak method of its parent class ( Entity class).
+- In this case, the Players class extends the Entity class, so it overrides the speak method of its parent class ( Entity class).
 
 <img src = "Readme\overide.png" alt="overide">
 
@@ -126,7 +132,7 @@ In this case, the Players class extends the Entity class, so it overrides the sp
 
 **Implementing a runnable interface**
 
-_This is used for executing code on a thread when instancing the class_
+- _This is used for executing code on a thread when instancing the class_
 
 **Example:**
 
@@ -154,7 +160,7 @@ _This is used for executing code on a thread when instancing the class_
 
 **Running Threads:**
 
-**the method to call a Thread - often use this to make multitask in sametime**
+- **The method to call a Thread - often use this to make multitask in sametime**
 
 <img src = "Readme\thread1.png" alt="thread1">
 
@@ -165,7 +171,7 @@ _This is used for executing code on a thread when instancing the class_
 
 **File Handling:**
 
-**The loadMap() method loads a map from a file. The method takes a file path as input. The method returns a map. The method works by first opening the file. Then, it reads the contents of the file line by line. For each line, the method splits the line into an array of strings. The method then uses the array of strings to create a tile. The method adds the tile to an array of tiles. Once the method has read all of the lines in the file, it closes the file. Finally, the method returns the array of tiles.**
+- **The loadMap() method loads a map from a file. The method takes a file path as input. The method returns a map. The method works by first opening the file. Then, it reads the contents of the file line by line. For each line, the method splits the line into an array of strings. The method then uses the array of strings to create a tile. The method adds the tile to an array of tiles. Once the method has read all of the lines in the file, it closes the file. Finally, the method returns the array of tiles.**
 
 <img src = "Readme\handle1.png" alt="handle1"> 
 
@@ -180,11 +186,11 @@ _This is used for executing code on a thread when instancing the class_
 
 **the process of responding to unwanted or unexpected events when a computer program runs. Exception handling deals with these events to avoid the program or system crashing, and without this process, exceptions would disrupt the normal operation of a program.**
 
-(explain)
+
 
 **Launch:**
 
-(explain)
+
 
 **The project "SANASHIBAMY":**
 
@@ -235,7 +241,7 @@ _This is used for executing code on a thread when instancing the class_
 2. Time management
 3. Problem running the code
   (Framework, Multi-threading)
-  
+
 * Presentation: https://hl.tc/yAduv
 
 * **Reference:** 
