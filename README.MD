@@ -50,7 +50,7 @@ _We use this pattern to encapsulate all the key signal input from the keyboard t
 <!-- ![commande](C:\Users\ASUS\Desktop\gamrTutorial\Readme\commandpattern.png) -->
 <img src = "Readme\commandpattern.png" alt="command pattern">
 <img src = "Readme\commandpattern2.png" alt="command pattern2">
-<p style="text-align: center; color: red">(Note as the Command Pattern standar diagram)</p> 
+<p align = center>(Note as the Command Pattern standar diagram)</p> 
 
 **Abstract class:**
 
