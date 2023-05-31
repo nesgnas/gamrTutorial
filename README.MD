@@ -48,20 +48,17 @@ _We use this pattern to encapsulate all the key signal input from the keyboard t
 **Diagram of pattern**
 
 <!-- ![commande](C:\Users\ASUS\Desktop\gamrTutorial\Readme\commandpattern.png) -->
-<img src = "Readme\commandpattern.png" alt="tét">
-![](RackMultipart20230531-1-obguq1_html_a1b18042bb9f5b35.png)
-
+<img src = "Readme\commandpattern.png" alt="command pattern">
+<img src = "Readme\commandpattern2.png" alt="command pattern2">
 (Note as the Command Pattern standar diagram)
 
 **Abstract class:**
 
 _A superObject abstract class was created that is open for extension by many new objects. In this case, we just need one object (Box)._
-
-![](RackMultipart20230531-1-obguq1_html_fc1a3246b2b578ec.png)
-
-![](RackMultipart20230531-1-obguq1_html_c9d224e5fafd8a03.png)
-
-![](RackMultipart20230531-1-obguq1_html_e286cc7866b0ae8a.png)
+<img src = "Readme\abstractclass1.png" alt="abstract class">
+<img src = "Readme\abstractclass2.png" alt="abstract class2">
+<img src = "Readme\abstractclass3.png" alt="abstract class3">
+>
 
 **Polymorphism**
 
@@ -69,7 +66,8 @@ _Applying a polymorphism attribute so that we_ _have many classes that are relat
 
 **Example :**
 
-**InteractBox, Player [extend] Entity**![](RackMultipart20230531-1-obguq1_html_6edc1401af58dc9a.png)
+**InteractBox, Player [extend] Entity**
+![](RackMultipart20230531-1-obguq1_html_6edc1401af58dc9a.png)
 
 _( Player and interactBox was inheritance all attribute of Entity class)_
 
