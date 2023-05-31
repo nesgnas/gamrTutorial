@@ -17,8 +17,11 @@
 
 
 > java 17
+
 > java AWT
+
 > javax Swing
+
 > java IO
 
 
@@ -83,11 +86,12 @@ _Applying a polymorphism attribute so that we_ _have many classes that are relat
 
 <p align = center>_( Player and interactBox was inheritance all attribute of Entity class)_
 
+
 <img src = "Readme\poly1.png" alt="poli2">
 
 <p align = center>_(the idea is transform box[superObject] to be new entity which inheritance all the attribute from Entity)_
 
-<p align = center>**Inheritance:**
+**Inheritance:**
 
 <p align = center>_This is used for creating many subclasses from one superclass, this subclass has all attributes and methods from superclass._
 
@@ -142,29 +146,37 @@ _This is used for executing code on a thread when instancing the class_
 
 **Box [implements] Comparable**
 
-![](RackMultipart20230531-1-obguq1_html_b9be76418b7b09c.png)
+<img src = "Readme\compa1.png" alt="compa1">
 
-![](RackMultipart20230531-1-obguq1_html_218a9e4a72738ed2.png)
+<img src = "Readme\compa2.png" alt="compa2">
 
-_(Writing the compareTo() method in such a way that, in the same room, if this is less than the passed box's position, then it should return negative, if greater than positive, and zero if equal)_
+<p align = center>_(Writing the compareTo() method in such a way that, in the same room, if this is less than the passed box's position, then it should return negative, if greater than positive, and zero if equal)_
 
 **Running Threads:**
 
-![](RackMultipart20230531-1-obguq1_html_c03aa29f4540bda1.png) ![](RackMultipart20230531-1-obguq1_html_4fbbae89362349ef.png)
-
 **the method to call a Thread - often use this to make multitask in sametime**
 
-(explain)
+<img src = "Readme\thread1.png" alt="thread1">
+
+<img src = "Readme\thread2.png" alt="thread2">
+
+<p align = center>_(Creating the game loop in run method, mean that, when the gameThread exists, it repeats the process that is written inside of these brackets)_
+
 
 **File Handling:**
 
-![](RackMultipart20230531-1-obguq1_html_45bf8cc1440f3d5d.png) ![](RackMultipart20230531-1-obguq1_html_1f7bc1c002f2923c.png)**The loadMap() method loads a map from a file. The method takes a file path as input. The method returns a map. The method works by first opening the file. Then, it reads the contents of the file line by line. For each line, the method splits the line into an array of strings. The method then uses the array of strings to create a tile. The method adds the tile to an array of tiles. Once the method has read all of the lines in the file, it closes the file. Finally, the method returns the array of tiles.**
+**The loadMap() method loads a map from a file. The method takes a file path as input. The method returns a map. The method works by first opening the file. Then, it reads the contents of the file line by line. For each line, the method splits the line into an array of strings. The method then uses the array of strings to create a tile. The method adds the tile to an array of tiles. Once the method has read all of the lines in the file, it closes the file. Finally, the method returns the array of tiles.**
 
-(explain)
+<img src = "Readme\handle1.png" alt="handle1"> 
+
+<img src = "Readme\handle2.png" alt="handle2"> 
+
+<p align = center>_(Creating maps based on text file and storing all value in a array)_
+
 
 **Exception Handling:**
 
-![](RackMultipart20230531-1-obguq1_html_6e9e9ee881261c4.png)
+<img src = "Readme\excep1.png" alt="excep1">
 
 **the process of responding to unwanted or unexpected events when a computer program runs. Exception handling deals with these events to avoid the program or system crashing, and without this process, exceptions would disrupt the normal operation of a program.**
 
@@ -176,33 +188,33 @@ _(Writing the compareTo() method in such a way that, in the same room, if this i
 
 **The project "SANASHIBAMY":**
 
-1) Rule:
+> 1. The rules:
 
 1. **Button, Mouse and Moving**
 
-- **Mouse Click:**
+  > a) The mouse:
 
-- Play Game : This is the bar to start the game when you click this bar.
-- Guide: This bar contains instructions on how to play the game when you click this bar.
-- Credits: This bar contains the author and developer who made this game when you click this bar.
-- Exit: This bar is used to close the game when you click it.
-- Subwindow: This sub window contains multiple effects of the game, you can click it to change the effects or reset the room.
+ + Play Game : This is the bar to start the game when you click this bar.
+ + Guide: This bar contains instructions on how to play the game when you click this bar.
+ + Credits: This bar contains the author and developer who made this game when you click this bar.
+ + Exit: This bar is used to close the game when you click it.
+ + Subwindow: This sub window contains multiple effects of the game, you can click it to change the effects or reset the room.
 
-- **Button:**
+  > b) The button:
 
-- Up arrow: press the button to move the character up .
-- Left arrow: press the key to move the character to the left.
-- Right arrow: press the key to move the character to the right
-- Down arrow: press the key to move the character down
+ + Up arrow: press the button to move the character up .
+ + Left arrow: press the key to move the character to the left.
+ + Right arrow: press the key to move the character to the right
+ + Down arrow: press the key to move the character down
 
-1. **About the rules to play the game:**
+- About the rules to play the game
 
-- Player control: You control the player character, typically represented by a small character icon. The character can move horizontally or vertically one square at a time, but cannot move diagonally or pass through walls or boxes.
-- Moving Boxes: Boxes are typically represented by large squares. The goal is to push each box onto a target location. You can only push the boxes, never pull them. The boxes can only be pushed one at a time and can't be pushed into walls or other boxes.
+  + Player control: You control the player character, typically represented by a small character icon. The character can move horizontally or vertically one square at a time, but cannot move diagonally or pass through walls or boxes.
+  + Moving Boxes: Boxes are typically represented by large squares. The goal is to push each box onto a target location. You can only push the boxes, never pull them. The boxes can only be pushed one at a time and can't be pushed into walls or other boxes.
 
-- Target Locations: The target locations are usually marked with a different pink color to indicate that a box should be placed there. Once all boxes are correctly placed on the target locations, you have completed the level.
+  + Target Locations: The target locations are usually marked with a different pink color to indicate that a box should be placed there. Once all boxes are correctly placed on the target locations, you have completed the level.
 
-2) Design:
+> 2. Design:
 
 - Background: We get ideas from the game's theme and colors and refer to online sources to create a background with a bright, natural background .
 - Map: Using the GIMP and TILED software to create tileset and draw map.
@@ -210,11 +222,21 @@ _(Writing the compareTo() method in such a way that, in the same room, if this i
 - Welcome: The game name "SANASHIBAMY" was added at the beginning. Moreover, we made it more colorful and eye-catching.
 - Game attribute:
 
-3) Other:
+3. Other
 
-- Link report
-- Presentation: https://www.canva.com/design/DAFj53jtDyQ/9DuNI22YatparYSimiVgqA/edit?utm\_content=DAFj53jtDyQ&utm\_campaign=designshare&utm\_medium=link2&utm\_source=sharebutton.
-- Feature
+* Link report:
+* Future features if you want to developer further after the course:
+1. Added some new features such as adding other characters, other obstacles,...
+2. Maybe play with AI
+3. Make the graphic more eye-catching
 
-- References:
+* Discuss challenges in the project:  
+1. Difficult to understand each member
+2. Time management
+3. Problem running the code
+  (Framework, Multi-threading)
+  
+* Presentation: https://hl.tc/yAduv
+
+* **Reference:** 
   - http://surl.li/hhwmy
