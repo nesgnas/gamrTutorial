@@ -69,10 +69,11 @@ _During my investigation into how to create 2D games with Java. We remembered th
 * [Presentation](https://www.canva.com/design/DAFj53jtDyQ/9DuNI22YatparYSimiVgqA/edit?utm_content=DAFj53jtDyQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 * **UML Diagram:**
 <img src="data/Readme/UML.png">
+
 * References:
-    * http://surl.li/hhwmy
-    * https://www.epidemicsound.com/
-    * https://www.behance.net
+   * http://surl.li/hhwmy
+   * https://www.epidemicsound.com/
+   * https://www.behance.net
 
 
 ## 📌 OOP Concepts Implemented
