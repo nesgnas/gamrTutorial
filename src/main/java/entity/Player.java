@@ -3,23 +3,18 @@ package entity;
 import main.gamePanel;
 import main.keyHandle;
 import Tiles.TileManage;
-import object.Gate;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-import static Tiles.TileManage.*;
-import static main.gamePanel.door_press;
-import static object.Gate.gates;
-
 public class Player extends Entity {
     gamePanel gp;
-    keyHandle keyHandle;
+
     TileManage tileManage;
+    keyHandle keyHandle;
 
     public final int screenX;
     public final int screenY;
@@ -34,9 +29,9 @@ public class Player extends Entity {
         Player.roomPlayerIn = roomPlayerIn;
     }
 
-    public Player(gamePanel gp, keyHandle keyH) { // call in gamePanel.class
+    public Player(gamePanel gp, keyHandle keyHandle) { // call in gamePanel.class
         this.gp = gp;
-        this.keyHandle = keyH;
+        this.keyHandle= keyHandle;
 
         screenX = gp.getScreenWidth() / 2 - (gp.getTitleSize() / 2);
         screenY = gp.getScreenHeight() / 2 - (gp.getTitleSize() / 2);
@@ -79,9 +74,10 @@ public class Player extends Entity {
         }
     }
 
+
     public void update(){ // refresh per frame by key-cap
         int pressing = 0;
-        if (keyHandle.upKey) {
+        if (keyHandle.upKey ) {
             this.setDirection("up");
             pressing = 1;
             gp.soundWalk(4);
@@ -105,7 +101,7 @@ public class Player extends Entity {
             gp.soundWalk(4);
             // this.setX(getX()+getSpeed());
         }
-        if (!keyHandle.leftKey && !keyHandle.upKey && !keyHandle.downKey && !keyHandle.rightKey) {
+        if (!keyHandle.upKey&&!keyHandle.downKey&&!keyHandle.leftKey&&!keyHandle.rightKey) {
             pressing = 0;
         }
         // check tile collision

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>main.alterSetter</OriginalElement>
+  <nodes>
+    <node x="-79.0" y="84.5">main.keyHandle</node>
+    <node x="138.99999999999994" y="106.0">main.CollisionChecker</node>
+    <node x="499.96153846153834" y="432.0">main.gamePanel</node>
+    <node x="381.99999999999994" y="-15.0">object.superObject</node>
+    <node x="639.0" y="84.5">main.Sound</node>
+    <node x="864.0" y="52.0">main.mouseHandle</node>
+    <node x="1117.0" y="30.0">Tiles.TileManage</node>
+    <node x="529.9615384615383" y="1507.0">main.alterSetter</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="main.gamePanel" target="main.Sound" relationship="CREATE">
+      <point x="58.25" y="-512.5" />
+      <point x="674.7115384615383" y="412.0" />
+      <point x="1142.2451923076922" y="412.0" />
+      <point x="1142.2451923076922" y="392.0" />
+      <point x="792.75" y="392.0" />
+      <point x="51.25" y="94.0" />
+    </edge>
+    <edge source="main.gamePanel" target="object.superObject" relationship="TO_ONE">
+      <point x="-58.25" y="-512.5" />
+      <point x="558.2115384615383" y="412.0" />
+      <point x="91.21634615384619" y="412.0" />
+      <point x="91.21634615384619" y="402.0" />
+      <point x="441.25" y="402.0" />
+      <point x="-59.25" y="193.5" />
+    </edge>
+    <edge source="main.gamePanel" target="main.keyHandle" relationship="CREATE">
+      <point x="58.25" y="-512.5" />
+      <point x="674.7115384615383" y="412.0" />
+      <point x="1142.2451923076922" y="412.0" />
+      <point x="1142.2451923076922" y="392.0" />
+      <point x="69.5" y="392.0" />
+      <point x="49.5" y="94.0" />
+    </edge>
+    <edge source="main.gamePanel" target="main.Sound" relationship="TO_ONE">
+      <point x="-58.25" y="-512.5" />
+      <point x="558.2115384615383" y="412.0" />
+      <point x="91.21634615384619" y="412.0" />
+      <point x="91.21634615384619" y="402.0" />
+      <point x="690.25" y="402.0" />
+      <point x="-51.25" y="94.0" />
+    </edge>
+    <edge source="main.mouseHandle" target="main.gamePanel" relationship="TO_ONE">
+      <point x="-58.25" y="126.5" />
+      <point x="922.25" y="402.0" />
+      <point x="91.21634615384619" y="402.0" />
+      <point x="91.21634615384619" y="412.0" />
+      <point x="558.2115384615383" y="412.0" />
+      <point x="-58.25" y="-512.5" />
+    </edge>
+    <edge source="main.gamePanel" target="main.mouseHandle" relationship="TO_ONE">
+      <point x="-58.25" y="-512.5" />
+      <point x="558.2115384615383" y="412.0" />
+      <point x="91.21634615384619" y="412.0" />
+      <point x="91.21634615384619" y="402.0" />
+      <point x="922.25" y="402.0" />
+      <point x="-58.25" y="126.5" />
+    </edge>
+    <edge source="main.alterSetter" target="main.gamePanel" relationship="TO_ONE">
+      <point x="43.25" y="-38.5" />
+      <point x="659.7115384615383" y="1482.0" />
+      <point x="674.7115384615383" y="1482.0" />
+      <point x="58.25" y="512.5" />
+    </edge>
+    <edge source="main.gamePanel" target="main.alterSetter" relationship="TO_ONE">
+      <point x="58.25" y="512.5" />
+      <point x="674.7115384615383" y="1482.0" />
+      <point x="659.7115384615383" y="1482.0" />
+      <point x="43.25" y="-38.5" />
+    </edge>
+    <edge source="main.gamePanel" target="main.CollisionChecker" relationship="CREATE">
+      <point x="58.25" y="-512.5" />
+      <point x="674.7115384615383" y="412.0" />
+      <point x="1142.2451923076922" y="412.0" />
+      <point x="1142.2451923076922" y="392.0" />
+      <point x="306.25" y="392.0" />
+      <point x="55.75" y="72.5" />
+    </edge>
+    <edge source="main.gamePanel" target="main.mouseHandle" relationship="CREATE">
+      <point x="58.25" y="-512.5" />
+      <point x="674.7115384615383" y="412.0" />
+      <point x="1142.2451923076922" y="412.0" />
+      <point x="1142.2451923076922" y="392.0" />
+      <point x="1038.75" y="392.0" />
+      <point x="58.25" y="126.5" />
+    </edge>
+    <edge source="main.gamePanel" target="main.alterSetter" relationship="CREATE">
+      <point x="-58.25" y="512.5" />
+      <point x="558.2115384615383" y="1482.0" />
+      <point x="573.2115384615383" y="1482.0" />
+      <point x="-43.25" y="-38.5" />
+    </edge>
+    <edge source="main.CollisionChecker" target="main.gamePanel" relationship="TO_ONE">
+      <point x="-55.75" y="72.5" />
+      <point x="194.74999999999994" y="402.0" />
+      <point x="91.21634615384619" y="402.0" />
+      <point x="91.21634615384619" y="412.0" />
+      <point x="558.2115384615383" y="412.0" />
+      <point x="-58.25" y="-512.5" />
+    </edge>
+    <edge source="main.gamePanel" target="main.CollisionChecker" relationship="TO_ONE">
+      <point x="-58.25" y="-512.5" />
+      <point x="558.2115384615383" y="412.0" />
+      <point x="91.21634615384619" y="412.0" />
+      <point x="91.21634615384619" y="402.0" />
+      <point x="194.74999999999994" y="402.0" />
+      <point x="-55.75" y="72.5" />
+    </edge>
+    <edge source="main.gamePanel" target="Tiles.TileManage" relationship="CREATE">
+      <point x="58.25" y="-512.5" />
+      <point x="674.7115384615383" y="412.0" />
+      <point x="1142.2451923076922" y="412.0" />
+      <point x="1142.2451923076922" y="392.0" />
+      <point x="1259.5" y="392.0" />
+      <point x="47.5" y="148.5" />
+    </edge>
+    <edge source="main.keyHandle" target="main.gamePanel" relationship="TO_ONE">
+      <point x="-49.5" y="94.0" />
+      <point x="-29.5" y="402.0" />
+      <point x="91.21634615384619" y="402.0" />
+      <point x="91.21634615384619" y="412.0" />
+      <point x="558.2115384615383" y="412.0" />
+      <point x="-58.25" y="-512.5" />
+    </edge>
+    <edge source="main.gamePanel" target="main.keyHandle" relationship="TO_ONE">
+      <point x="-58.25" y="-512.5" />
+      <point x="558.2115384615383" y="412.0" />
+      <point x="91.21634615384619" y="412.0" />
+      <point x="91.21634615384619" y="402.0" />
+      <point x="-29.5" y="402.0" />
+      <point x="-49.5" y="94.0" />
+    </edge>
+    <edge source="main.gamePanel" target="object.superObject" relationship="CREATE">
+      <point x="58.25" y="-512.5" />
+      <point x="674.7115384615383" y="412.0" />
+      <point x="1142.2451923076922" y="412.0" />
+      <point x="1142.2451923076922" y="392.0" />
+      <point x="559.75" y="392.0" />
+      <point x="59.25" y="193.5" />
+    </edge>
+    <edge source="Tiles.TileManage" target="main.gamePanel" relationship="TO_ONE">
+      <point x="-47.5" y="148.5" />
+      <point x="1164.5" y="402.0" />
+      <point x="91.21634615384619" y="402.0" />
+      <point x="91.21634615384619" y="412.0" />
+      <point x="558.2115384615383" y="412.0" />
+      <point x="-58.25" y="-512.5" />
+    </edge>
+    <edge source="main.gamePanel" target="Tiles.TileManage" relationship="TO_ONE">
+      <point x="-58.25" y="-512.5" />
+      <point x="558.2115384615383" y="412.0" />
+      <point x="91.21634615384619" y="412.0" />
+      <point x="91.21634615384619" y="402.0" />
+      <point x="1164.5" y="402.0" />
+      <point x="-47.5" y="148.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.6249034898085238" showDependencies="true" x="430.6997065637065" y="345.46399999999994" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
