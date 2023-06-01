@@ -62,6 +62,8 @@ _During my investigation into how to create 2D games with Java. We remembered th
 
 ### Other
 * [Presentation](https://www.canva.com/design/DAFj53jtDyQ/9DuNI22YatparYSimiVgqA/edit?utm_content=DAFj53jtDyQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+* **UML Diagram:**
+<img src="data/Readme/UML.png">
 * References:
     * http://surl.li/hhwmy
     * https://www.epidemicsound.com/
@@ -69,6 +71,11 @@ _During my investigation into how to create 2D games with Java. We remembered th
 
 
 ## 📌 OOP Concepts Implemented
+
+
+### Launch:
+- Game entrance is `src/main/java/main/Main.java`, run `main` method directly.
+
 
 ### Command Pattern:
 - We use this pattern to encapsulate all the key signal input from the keyboard to control the action of the player.
@@ -166,9 +173,6 @@ _During my investigation into how to create 2D games with Java. We remembered th
 
 <img src="data/Readme/excep1.png">
 <p align = center>To ensure correct image and file loading</p>
-
-### Launch:
-- Game entrance is `src/main/java/main/Main.java`, run `main` method directly.
 
 
 
