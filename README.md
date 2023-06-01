@@ -17,9 +17,9 @@
 _During my investigation into how to create 2D games with Java. We remembered the Sokoban game, which was popular on ancient phones, and developed the Sanashiba game based on the classic gameplay from the Sokoban game genre._
 ### Task Allocation:
 | No  | Name                           | ID          | Main Contributes                                                                                     |
-| --- | ------------------------------ | ----------- | ---------------------------------------------------------------------------------------------------- |
-| 1   | **Bui Doan The Sang**  | ITDSIU21104  | Make a report, create initial core structure of project, build flexing method load Map, develop idea checking collision for Object (Box). crawl position top and bottom for each room, deep copy ArrayList Boxes to BoxesCopy, apply Command Pattern in setting keyInput, using Comparable Interface to sort ArrayList Boxes. |
-| 2   | **Nguyen Huynh Thao My** | ITDSIU21204  | Change the color of the box when pushed to the pink position and push out, check the complete mission (all boxes are overlap the pink position) to control open/close gate image, create menu option (including reset the position of all boxes in room back to the original feature).           | 
+| --- | ------------------------------ |-------------| ---------------------------------------------------------------------------------------------------- |
+| 1   | **Bui Doan The Sang**  | ITCSIU21104 | Make a report, create initial core structure of project, build flexing method load Map, develop idea checking collision for Object (Box). crawl position top and bottom for each room, deep copy ArrayList Boxes to BoxesCopy, apply Command Pattern in setting keyInput, using Comparable Interface to sort ArrayList Boxes. |
+| 2   | **Nguyen Huynh Thao My** | ITCSIU21204 | Change the color of the box when pushed to the pink position and push out, check the complete mission (all boxes are overlap the pink position) to control open/close gate image, create menu option (including reset the position of all boxes in room back to the original feature).           | 
 | 3   | **Nguyen Huy Bao**    | ITDSIU21076 | In charge of making box move and mouseclick.                 |
 | 4   | **Le Thu Hoang**   | ITCSIU21063 | UI Designer, Game Player, Sound & Music, Quality Checker, Slides.                      |
 | 5   | **Nguyen Tran Nguyen Anh**   | ITITWE20021 | Import and export map, coding sound for box when hit the target and game, handling user-interface code, contributing to the project,do the report, making PowerPoint slides.            |
@@ -30,6 +30,9 @@ _During my investigation into how to create 2D games with Java. We remembered th
 - ![](https://img.shields.io/badge/java-Swing-orange)
 - ![](https://img.shields.io/badge/java-IO-green)
 
+### Launch:
+- Game entrance is `src/main/java/main/Main.java`, run `main` method directly.
+
 
 ## 🎮 The Project SANASHIBAMY
 
@@ -38,6 +41,7 @@ _During my investigation into how to create 2D games with Java. We remembered th
     * Player control: You control the player character, typically represented by a small character icon. The character can move horizontally or vertically one square at a time, but cannot move diagonally or pass through walls or boxes.
     * Moving Boxes: Boxes are typically represented by large squares. The goal is to push each box onto a target location. You can only push the boxes, never pull them. The boxes can only be pushed one at a time and can't be pushed into walls or other boxes.
     * Target Locations: The target locations are usually marked with a different pink color to indicate that a box should be placed there. Once all boxes are correctly placed on the target locations, you have completed the level.
+
 
 * General:
     * Mouse Click:
@@ -53,11 +57,12 @@ _During my investigation into how to create 2D games with Java. We remembered th
         * Down arrow: press the key ‘S’ or ‘v’  to move the character down.
 
 ### Design
+* Welcome: The title is “**SANASHIBAMY**” which was added at the beginning. Moreover, we tried to make it more eye-catching by using the font Thaleahfat and applying bright colors.
 * Background: We got ideas from the game's theme and colors and refered to online sources to create a background with a bright, natural background.
-* Map: Using the GIMP and Tiled software to create tileset and draw map.
-* Sound: Sound is added to create an enjoyable atmosphere, making the player more interesting.
-* Welcome: The tittle is “SANASHIBAMY” which was added at the beginning. Moreover, we made it more colorful and eye-catching.
-* Game attribute: Makes user friendly experience.
+* Map: Using the GIMP and Tiled software to create tilesets and draw map.
+<img src="data/map/Map_16_5.png">
+* Sound: Sounds are added to create an enjoyable atmosphere, making the player more interesting.
+* Game attribute: Makes user-friendly experience.
 
 
 ### Other
@@ -71,11 +76,6 @@ _During my investigation into how to create 2D games with Java. We remembered th
 
 
 ## 📌 OOP Concepts Implemented
-
-
-### Launch:
-- Game entrance is `src/main/java/main/Main.java`, run `main` method directly.
-
 
 ### Command Pattern:
 - We use this pattern to encapsulate all the key signal input from the keyboard to control the action of the player.
@@ -141,7 +141,7 @@ _During my investigation into how to create 2D games with Java. We remembered th
 
 
 ### Implementing a comparable interface
-- This is used to sort objects's positions in the box class by implementing a Comparable interface.
+- This is used to sort object's positions in the box class by implementing a Comparable interface.
 
 **Example: Box [implements] Comparable**
 <img src="data/Readme/compa1.png">
